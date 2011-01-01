@@ -5,6 +5,8 @@ import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
 
 /**
  *
@@ -38,11 +40,20 @@ public class ServerFunctionality
         if (clientInput.startsWith("POST"))
         {
           // Recognize github's payload
-          if(clientInput.contains("payload="))
+          if (clientInput.contains("payload="))
           {
-            int payloadStart = clientInput.indexOf("payload=");
-            String githubPayload = clientInput.substring(payloadStart+8, clientInput.length());
-            JiraServiceHook hook = new JiraServiceHook(githubPayload);
+            try
+            {
+              JiraServiceHook hook = new JiraServiceHook(clientInput);
+            }
+            catch (UnsupportedEncodingException ex)
+            {
+              //
+            }
+            catch(ParseException ex)
+            {
+              //
+            }
           }
         }
       }
@@ -133,7 +144,6 @@ public class ServerFunctionality
     else
     {
       File html404 = new File(SystemVariables.getJarExecutionDirectory()
-              + System.getProperty("file.separator")
               + "404.html");
       serverResponse = "HTTP/1.1 404 Not Found" + "\r\n"
               + "Server: MyServer/0.0.1 (Windows)" + "\r\n"

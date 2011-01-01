@@ -9,19 +9,24 @@ public class SystemVariables
 
   /**
    * Returns the path where the currently running JAR-file is located.
-   * Example value: C:\MyProject\build\jar
+   * Example value: C:\MyProject\build\jar\
    * @return Path of the JAR-file
    */
   public static String getJarExecutionDirectory()
   {
     String jarFile = null;
     String jarDirectory = null;
-    int cut = 0;
+    int cutFileSeperator = 0;
+    int cutSemicolon = -1;
 
     jarFile = System.getProperty("java.class.path");
-    cut = jarFile.lastIndexOf(System.getProperty("file.separator"));
-    jarDirectory = jarFile.substring(0, cut);
+    // Cut seperators
+    cutFileSeperator = jarFile.lastIndexOf(System.getProperty("file.separator"));
+    jarDirectory = jarFile.substring(0, cutFileSeperator);
+    // Cut semicolons
+    cutSemicolon = jarDirectory.lastIndexOf(';');
+    jarDirectory = jarDirectory.substring(cutSemicolon+1, jarDirectory.length());
 
-    return jarDirectory;
+    return jarDirectory+System.getProperty("file.separator");
   }
 }
