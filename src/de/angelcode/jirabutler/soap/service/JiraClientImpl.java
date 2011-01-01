@@ -70,9 +70,9 @@ public class JiraClientImpl
     return api.logout(token);
   }
 
-  public RemoteVersion addVersion() throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
+  public RemoteVersion addVersion(RemoteVersion version) throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
   {
-    return api.addVersion(token, "SWQ", new RemoteVersion());
+    return api.addVersion(token, "SWQ", version);
   }
 //	try {
 //		String token = api.login("robertb", "test");

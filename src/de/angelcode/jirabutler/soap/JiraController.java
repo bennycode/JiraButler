@@ -1,10 +1,19 @@
 package de.angelcode.jirabutler.soap;
 
+import com.atlassian.jira.rpc.soap.JiraSoapService;
+import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
+import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.soap.service.JiraClientImpl;
+import de.angelcode.jirabutler.soap.service.JiraSoapServiceService;
+import de.angelcode.jirabutler.soap.service.JiraSoapServiceServiceLocator;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
+import java.rmi.RemoteException;
 import java.util.Properties;
+import javax.xml.rpc.ServiceException;
 
 /**
  *
@@ -49,7 +58,7 @@ public class JiraController
   public void loadConfigFile() throws IOException
   {
     Properties properties = new Properties();
-    BufferedInputStream stream = new BufferedInputStream(new FileInputStream(SystemVariables.getJarExecutionDirectory()+"jira.properties"));
+    BufferedInputStream stream = new BufferedInputStream(new FileInputStream(SystemVariables.getJarExecutionDirectory() + "jira.properties"));
     properties.load(stream);
     stream.close();
     this.connectionUrl = properties.getProperty("url");
@@ -57,5 +66,21 @@ public class JiraController
     this.connectionPassword = properties.getProperty("password");
   }
 
-  
+  public boolean connect() throws Exception
+  {
+    boolean isLoggedIn = false;
+    if (this.connectionUsername != null && this.connectionPassword != null && this.connectionUrl != null)
+    {
+      JiraClientImpl client = new JiraClientImpl();
+      isLoggedIn = client.login(this.connectionUsername, this.connectionPassword);
+      RemoteVersion newVersion = new RemoteVersion();
+      newVersion.setName(this.version);
+      client.addVersion(newVersion);
+    }
+    return isLoggedIn;
+  }
+
+  public void addVersion() throws Exception
+  {
+  }
 }

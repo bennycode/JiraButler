@@ -28,10 +28,10 @@ public class JiraClient
     }
 
 //		JiraSoapServiceService service = new JiraSoapServiceServiceLocator();
-//		
+//
 //		try {
 //			JiraSoapService api = service.getJirasoapserviceV2();
-//			
+//
 //			String token = api.login("robertb", "test");
 //			System.out.println("Eingeloggt als: " + api.getUser(token, "robertb").getEmail());
 //			RemoteProject project = api.getProjectById(token, 10000);
