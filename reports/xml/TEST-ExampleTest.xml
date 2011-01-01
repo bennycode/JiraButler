@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="Bombay" name="ExampleTest" tests="1" time="0.082" timestamp="2010-12-31T12:31:59">
+  <properties>
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="lib.dir" value="lib" />
+    <property name="netbeans.user" value="C:\Users\bennyn\.netbeans\6.9" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler" />
+    <property name="netbeans.autoupdate.version" value="1.23" />
+    <property name="os.name" value="Windows 7" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\resources.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\rt.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\jce.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.6.0_20\jre\classes" />
+    <property name="reports.html.dir" value="reports/html" />
+    <property name="netbeans.importclass" value="org.netbeans.upgrade.AutoUpgrade" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="net.sourceforge.cobertura.datafile" value="C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\cobertura\cobertura.ser" />
+    <property name="ant.home" value="C:\Program Files\NetBeans 6.9.1\java\ant" />
+    <property name="jar.dir" value="build/jar" />
+    <property name="java.runtime.version" value="1.6.0_20-b02" />
+    <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
+    <property name="user.name" value="bennyn" />
+    <property name="build.dir" value="build" />
+    <property name="nb.show.statistics.ui" value="usageStatisticsEnabled" />
+    <property name="user.language" value="de" />
+    <property name="manifest.class.path" value="lib/java-getopt-1.0.13.jar lib/junit-4.8.2.jar lib/log4j-1.2.16.jar" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\bin" />
+    <property name="cob.data" value="cobertura/cobertura.ser" />
+    <property name="ant.project.default-target" value="run" />
+    <property name="ant.project.name" value="JiraButler" />
+    <property name="java.version" value="1.6.0_20" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="http.nonProxyHosts" value="localhost|127.0.0.1|Bombay" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\endorsed" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="classes.dir" value="build/classes" />
+    <property name="java.class.version" value="50.0" />
+    <property name="user.country" value="DE" />
+    <property name="jna.boot.library.path" value="C:\Users\bennyn\.netbeans\6.9\var\cache\jna" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_20\jre" />
+    <property name="netbeans.buildnumber" value="201011082200" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="org.openide.version" value="deprecated" />
+    <property name="ant.file" value="C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\build.xml" />
+    <property name="os.version" value="6.1" />
+    <property name="netbeans.system_http_proxy" value="DIRECT" />
+    <property name="netbeans.hash.code" value="unique=NB_CND_FX_GROOVY_JAVA_JC_MOB_PHP_RUBY_WEBEE0c6b9b7bb-b68a-4279-8ca0-2a198a7c1a54_cb33476f-7b5b-4af9-828f-53b2f16ca4dc" />
+    <property name="netbeans.autoupdate.country" value="DE" />
+    <property name="https.nonProxyHosts" value="localhost|127.0.0.1|Bombay" />
+    <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="16.3-b01" />
+    <property name="user.variant" value="" />
+    <property name="netbeans.dynamic.classpath" value="C:\Program Files\NetBeans 6.9.1\platform\core\core.jar;C:\Program Files\NetBeans 6.9.1\platform\core\org-openide-filesystems.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_ja.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\core_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_ja.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\platform\core\locale\org-openide-filesystems_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\org-netbeans-upgrader.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\core_nb_zh_CN.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_ja.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_pt_BR.jar;C:\Program Files\NetBeans 6.9.1\nb\core\locale\org-netbeans-upgrader_zh_CN.jar" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="netbeans.autoupdate.variant" value="" />
+    <property name="org.openide.major.version" value="IDE/1" />
+    <property name="useJavaUtilZip" value="true" />
+    <property name="main.class" value="de.angelcode.jirabutler.webserver.ServerStart" />
+    <property name="reports.xml.dir" value="reports/xml" />
+    <property name="sun.awt.exception.handler" value="org.netbeans.core.startup.TopLogging$AWTHandler" />
+    <property name="user.home" value="C:\Users\bennyn" />
+    <property name="netbeans.home" value="C:\Program Files\NetBeans 6.9.1\platform" />
+    <property name="ant.file.JiraButler" value="C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\build.xml" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="cob.dir" value="cobertura" />
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="org.xml.sax.driver" value="com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser" />
+    <property name="test.dir" value="test" />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\CollabNet\Subversion Client;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Python25\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\bennyn\Desktop\Arbeitsbereiche\PHP\Frameworks\zend\bin;C:\xampp\php;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Common Files\Teleca Shared;C:\Program Files\Java\jdk1.6.0_20\bin;C:\Program Files (x86)\PuTTY;C:\Program Files (x86)\doxygen\bin;C:\Windows\system32\wbem;C:\Program Files (x86)\IVT Corporation\BlueSoleil\Mobile;C:\Users\bennyn\Desktop\Arbeitsbereiche\Java\Libraries\apache-ant-1.8.1\bin;%ANT_HOME\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live" />
+    <property name="ant.file.type.JiraButler" value="file" />
+    <property name="cob.instr.dir" value="cobertura/cob-instr" />
+    <property name="jar.class.path.dir" value="build/jar/lib" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="ant.version" value="Apache Ant version 1.8.1 compiled on April 30 2010" />
+    <property name="cob.rep.html" value="cobertura/cob-rep/html" />
+    <property name="java.class.path" value="C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\cobertura\cob-instr;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\build\classes;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\lib\java-getopt-1.0.13.jar;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\lib\junit-4.8.2.jar;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\lib\log4j-1.2.16.jar;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git\build\jar\JiraButler-0.1.jar;C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\java\ant\patches\72080.jar" />
+    <property name="sun.java2d.noddraw" value="true" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="jdk.home" value="C:\Program Files\Java\jdk1.6.0_20" />
+    <property name="org.openide.specification.version" value="6.2" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="java.io.tmpdir" value="C:\Users\bennyn\AppData\Local\Temp\" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="netbeans.dirs" value="C:\Program Files\NetBeans 6.9.1\nb;C:\Program Files\NetBeans 6.9.1\ergonomics;C:\Program Files\NetBeans 6.9.1\ide;C:\Program Files\NetBeans 6.9.1\java;C:\Program Files\NetBeans 6.9.1\xml;C:\Program Files\NetBeans 6.9.1\apisupport;C:\Program Files\NetBeans 6.9.1\webcommon;C:\Program Files\NetBeans 6.9.1\websvccommon;C:\Program Files\NetBeans 6.9.1\enterprise;C:\Program Files\NetBeans 6.9.1\mobility;C:\Program Files\NetBeans 6.9.1\profiler;C:\Program Files\NetBeans 6.9.1\ruby;C:\Program Files\NetBeans 6.9.1\python;C:\Program Files\NetBeans 6.9.1\php;C:\Program Files\NetBeans 6.9.1\visualweb;C:\Program Files\NetBeans 6.9.1\soa;C:\Program Files\NetBeans 6.9.1\identity;C:\Program Files\NetBeans 6.9.1\uml;C:\Program Files\NetBeans 6.9.1\harness;C:\Program Files\NetBeans 6.9.1\cnd;C:\Program Files\NetBeans 6.9.1\dlight;C:\Program Files\NetBeans 6.9.1\groovy;C:\Program Files\NetBeans 6.9.1\extra;C:\Program Files\NetBeans 6.9.1\javafx;C:\Program Files\NetBeans 6.9.1\javacard" />
+    <property name="netbeans.autoupdate.language" value="de" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+    <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
+    <property name="build.compiler.emacs" value="true" />
+    <property name="user.dir" value="C:\Program Files\NetBeans 6.9.1" />
+    <property name="apple.awt.graphics.UseQuartz" value="true" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="app.version" value="0.1" />
+    <property name="basedir" value="C:\Users\bennyn\Desktop\Projekte\Git\JIR-Git" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="cob.rep.dir" value="cobertura/cob-rep" />
+    <property name="ant.core.lib" value="C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="test" />
+  </properties>
+  <testcase classname="ExampleTest" name="testWillAlwaysFail" time="0.0080">
+    <failure message="An error message" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: An error message
+	at ExampleTest.testWillAlwaysFail(ExampleTest.java:26)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
