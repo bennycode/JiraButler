@@ -1,12 +1,10 @@
 package de.angelcode.jirabutler.webserver;
 
+import de.angelcode.jirabutler.hook.JiraServiceHook;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  *
@@ -25,130 +23,43 @@ public class ServerFunctionality
   {
     if (clientInput != null)
     {
-      if (clientInput.startsWith("PUT"))
+      // Handle HTTP-GET
+      if (clientInput.startsWith("GET"))
       {
-        doPut(clientInput);
+        // HTTP/1.1 GET-request
+        if (clientInput.contains("HTTP/1.1"))
+        {
+          doHttpRequest(clientInput);
+        }
       }
       else
       {
-        if (clientInput.startsWith("GET"))
+        // Handle HTTP-POST
+        if (clientInput.startsWith("POST"))
         {
-          if (clientInput.contains("HTTP/1.1"))
+          // Recognize github's payload
+          if(clientInput.contains("payload="))
           {
-            doHttpRequest(clientInput);
-          }
-          else
-          {
-            doGet(clientInput);
-          }
-        }
-        /* TODO: GITHUB */
-        else
-        {
-          if (clientInput.startsWith("POST"))
-          {
-            System.out.println("GITHUB!");
-          }
-          else
-          {
-            System.out.println("Ungültige Client-Anfrage.");
+            int payloadStart = clientInput.indexOf("payload=");
+            String githubPayload = clientInput.substring(payloadStart+8, clientInput.length());
+            JiraServiceHook hook = new JiraServiceHook(githubPayload);
           }
         }
       }
     }
-    else
-    {
-      System.out.println("Ungültige Client-Anfrage.");
-    }
   }
 
   /**
-   * Baut die PUT-Response zusammen.
-   * @param clientInput Eingabe vom Client
-   */
-  private static void doPut(String clientInput)
-  {
-    String fileName = null;
-    String fileContent = null;
-    int temp = 0;
-    // PUT von der Benutzereingabe entfernen:
-    String lineCache = clientInput.substring(4, clientInput.length());
-    // PUT-Kommando vom PUT-Inhalt trennen:
-    // 1. Zeile = Kommando
-    // Alle weiteren Zeilen = Inhalt
-    System.out.println(lineCache);
-    if (lineCache.contains("\n"))
-    {
-      temp = lineCache.indexOf("\n");
-      // Dateinamen und Inhalt in Variablen ablegen:
-      fileName = lineCache.substring(0, temp);
-      fileContent = lineCache.substring(temp + 1, lineCache.length());
-
-      // Datei auf Server speichern:
-      try
-      {
-        BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-        writer.write(fileContent);
-        writer.close();
-        serverResponse = "Die Datei wurde erfolgreich auf dem Server gespeichert.";
-      }
-      catch (IOException ex1)
-      {
-        serverResponse = "Datei konnte nicht geschrieben werden.";
-        serverResponse += ex1.getLocalizedMessage();
-      }
-      catch (Exception ex2)
-      {
-        serverResponse = "Unbekannter Fehler.";
-        serverResponse += ex2.getLocalizedMessage();
-      }
-    }
-    else
-    {
-      System.out.println("HIER KRACHT ES!!!!!!");
-      serverResponse = "Ungültige Client-Anfrage.";
-    }
-  }
-
-  /**
-   * Baut die GET-Response zusammen.
-   * @param clientInput Eingabe vom Client
-   */
-  private static void doGet(String clientInput)
-  {
-    int temp;
-    String fileName;
-    String fileContent = null;
-    // GET von der Benutzereingabe entfernen:
-    String lineCache = clientInput.substring(4, clientInput.length());
-    // GET-Kommando vom PUT-Inhalt trennen:
-    if (lineCache.contains("\n"))
-    {
-      temp = lineCache.indexOf("\n");
-      fileName = lineCache.substring(0, temp);
-      fileContent = getFileContent(fileName);
-      if (fileContent != null)
-      {
-        serverResponse = fileContent;
-      }
-      else
-      {
-        serverResponse = "Die angeforderte Datei kann nicht übertragen werden.";
-      }
-    }
-  }
-
-  /**
-   * Leitet die HTTP-GET/1.1-Response ein.
-   * @param clientInput Eingabe vom Client
+   * Initiates HTTP-GET/1.1-Response.
+   * @param clientInput Input from the client
    */
   private static void doHttpRequest(String clientInput)
   {
     int temp;
     String fileName;
-    // GET und führenden "/" von der Benutzereingabe entfernen:
+    // Removing GET and trailing "/" from the request
     String lineCache = clientInput.substring(5, clientInput.length());
-    // Schauen, ob korrekter HTTP/1.1-Request:
+    // Look if it is a valid HTTP/1.1 request
     if (lineCache.contains("HTTP/1.1"))
     {
       temp = lineCache.indexOf("HTTP/1.1");
@@ -157,12 +68,12 @@ public class ServerFunctionality
     }
     else
     {
-      serverResponse = "Ungültige Client-Anfrage.";
+      serverResponse = "Invalid request from client.";
     }
   }
 
   /**
-   * Gibt die Server-Response aus.
+   * Returns the server-repsonse.
    * @return Server-Response
    */
   public static String getServerResponse()
@@ -171,9 +82,9 @@ public class ServerFunctionality
   }
 
   /**
-   * Liest den Inhalt aus einer Datei.
-   * @param fileName Pfad zur Datei
-   * @return Dateiinhalt
+   * Reads the content of a file.
+   * @param fileName Path to the file
+   * @return file-content
    */
   private static String getFileContent(String fileName)
   {
@@ -191,7 +102,7 @@ public class ServerFunctionality
     }
     catch (Exception ex1)
     {
-      serverResponse = "Fehler beim Lesen der angeforderten Datei.";
+      serverResponse = "Error while reading the file.";
       serverResponse += ex1.getLocalizedMessage();
       return serverResponse;
     }
@@ -200,8 +111,8 @@ public class ServerFunctionality
   }
 
   /**
-   * Baut die HTTP-GET/1.1-Response zusammen.
-   * @param fileName Datei, die über HTTP-GET abgerufen werden soll
+   * Generates the HTTP-GET/1.1-Response.
+   * @param fileName File that is requested by the client
    */
   private static void doHttpResponse(String fileName)
   {
