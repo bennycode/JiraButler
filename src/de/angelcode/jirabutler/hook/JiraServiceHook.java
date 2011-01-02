@@ -1,16 +1,7 @@
 package de.angelcode.jirabutler.hook;
 
-<<<<<<< HEAD
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import de.angelcode.jirabutler.exceptions.JIRAException;
-import de.angelcode.jirabutler.exceptions.JiraButlerException;
-=======
->>>>>>> origin/master
 import de.angelcode.jirabutler.soap.JiraController;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.text.ParseException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -37,9 +28,9 @@ public final class JiraServiceHook
     this.payloadJson = null;
   }
 
-<<<<<<< HEAD
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
-=======
+
+  public JiraServiceHook(String githubRequest) throws Exception
+
   /**
    * Init-constructor which awaits the complete HTTP request from github.
    * @param githubRequest
@@ -48,8 +39,6 @@ public final class JiraServiceHook
    * @throws IOException
    * @throws Exception
    */
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, Exception
->>>>>>> origin/master
   {
     this();
     // Convert the payload from the github request into a JSON object

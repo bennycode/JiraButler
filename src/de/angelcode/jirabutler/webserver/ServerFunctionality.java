@@ -27,11 +27,7 @@ public class ServerFunctionality
    * Handles the request (HTTP-GET, HTTP-POST) of a client.
    * @param clientInput Complete request of a client
    */
-<<<<<<< HEAD
-  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
-=======
-  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, Exception
->>>>>>> origin/master
+  public static void handleRequest(String clientInput) throws Exception
   {
     if (clientInput != null)
     {
@@ -117,12 +113,8 @@ public class ServerFunctionality
       serverResponse = "Error while reading the file.";
       serverResponse += ex1.getLocalizedMessage();
       return serverResponse;
-<<<<<<< HEAD
-
-=======
-       * 
+       *
        */
->>>>>>> origin/master
     }
 
 
