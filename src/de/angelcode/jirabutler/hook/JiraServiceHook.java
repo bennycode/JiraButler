@@ -1,6 +1,7 @@
 package de.angelcode.jirabutler.hook;
 
 import de.angelcode.jirabutler.soap.JiraController;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.text.ParseException;
@@ -27,7 +28,7 @@ public final class JiraServiceHook
     this.jiraKey = null;
   }
 
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException
+  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, Exception
   {
     this();
     // Convert github request into a valid payload json object
@@ -48,6 +49,10 @@ public final class JiraServiceHook
     processMessage(this.message);
     // Pass everything to the JIRA communicator
     JiraController controller = new JiraController(version, jiraKey, username, message);
+    // Insert things in JIRA
+    controller.loadConfigFile();
+    controller.connect();
+    controller.addComment();
   }
 
   @Override

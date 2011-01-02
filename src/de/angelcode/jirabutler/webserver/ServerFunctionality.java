@@ -5,8 +5,6 @@ import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.UnsupportedEncodingException;
-import java.text.ParseException;
 
 /**
  *
@@ -21,7 +19,7 @@ public class ServerFunctionality
    * Verwaltet die Client-Anfragen (PUT, GET, HTTP-GET).
    * @param clientInput Eingabe vom Client
    */
-  public static void handleRequest(String clientInput)
+  public static void handleRequest(String clientInput) throws Exception
   {
     if (clientInput != null)
     {
@@ -42,18 +40,7 @@ public class ServerFunctionality
           // Recognize github's payload
           if (clientInput.contains("payload="))
           {
-            try
-            {
-              JiraServiceHook hook = new JiraServiceHook(clientInput);
-            }
-            catch (UnsupportedEncodingException ex)
-            {
-              //
-            }
-            catch(ParseException ex)
-            {
-              //
-            }
+            JiraServiceHook hook = new JiraServiceHook(clientInput);
           }
         }
       }
