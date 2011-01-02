@@ -2,6 +2,7 @@ package de.angelcode.jirabutler.webserver;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -59,7 +60,14 @@ class ConnectionHandler implements Runnable
 
       System.out.println("Request from client:");
       System.out.println(message);
-      ServerFunctionality.handleRequest(message);
+      try
+      {
+        ServerFunctionality.handleRequest(message);
+      }
+      catch (JiraButlerException ex)
+      {
+        Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+      }
       String serverResponse = ServerFunctionality.getServerResponse();
       System.out.println("Response to client:");
       System.out.println(serverResponse);
