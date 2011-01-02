@@ -71,25 +71,9 @@ class ConnectionHandler implements Runnable
       socket.close();
       System.out.println("Waiting for connection...");
     }
-        catch (UnsupportedEncodingException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ServiceException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (JIRAException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (RemoteException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (RemoteAuthenticationException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (com.atlassian.jira.rpc.exception.RemoteException ex) {
-            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-        }    catch (IOException ex)
+    catch (Exception ex)
     {
-      System.out.println("Error while setting-up the stream.");
-      System.out.println(ex.getLocalizedMessage());
+      //
     }
-  
   }
 }
