@@ -9,7 +9,7 @@ import java.net.Socket;
 
 /**
  * Processes server requests and responses.
- * @author bennyn
+ * @author Benny Neugebauer (www.bennyn.de)
  */
 class ConnectionHandler implements Runnable
 {

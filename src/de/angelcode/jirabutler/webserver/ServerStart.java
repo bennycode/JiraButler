@@ -6,7 +6,7 @@ import gnu.getopt.LongOpt;
 
 /**
  * Provides the main-mathod to start the server.
- * @author bennyn
+ * @author Benny Neugebauer (www.bennyn.de)
  */
 public class ServerStart
 {
@@ -29,7 +29,6 @@ public class ServerStart
     // Presets
     String serverPort = "7070";
     StringBuffer logFilePath = new StringBuffer(SystemVariables.getJarExecutionDirectory()
-            + System.getProperty("file.separator")
             + "jira-butler.log");
 
     // Long option names

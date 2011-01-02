@@ -6,8 +6,8 @@ import java.net.Socket;
 import org.apache.log4j.Logger;
 
 /**
- * Socket-based web server application.
- * @author bennyn (Benny Neugebauer)
+ * A Socket-based web server.
+ * @author Benny Neugebauer (www.bennyn.de)
  */
 public class Server
 {

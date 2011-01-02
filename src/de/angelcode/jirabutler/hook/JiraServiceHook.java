@@ -9,15 +9,17 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- *
+ * This class parses the github HTTP-POST request for relevant payload information like the username of the pusher, the commit message and so on...
  * @author bennyn
  */
 public final class JiraServiceHook
 {
+
   private String username;
   private String version;
   private String message;
   private String jiraKey;
+  private JSONObject payloadJson;
 
   public JiraServiceHook()
   {
@@ -26,36 +28,49 @@ public final class JiraServiceHook
     this.version = null;
     this.message = null;
     this.jiraKey = null;
+    this.payloadJson = null;
   }
 
+  /**
+   * Init-constructor which awaits the complete HTTP request from github.
+   * @param githubRequest
+   * @throws UnsupportedEncodingException
+   * @throws ParseException
+   * @throws IOException
+   * @throws Exception
+   */
   public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, Exception
   {
     this();
-    // Convert github request into a valid payload json object
+    // Convert the payload from the github request into a JSON object
     int payloadStart = githubRequest.indexOf("payload=");
     String payloadAscii = githubRequest.substring(payloadStart + 8, githubRequest.length());
     String payloadUnicode = URLDecoder.decode(payloadAscii, "UTF-8");
-    JSONObject payloadJson = new JSONObject(payloadUnicode);
-    // Get pusher information
-    JSONObject pusher = payloadJson.getJSONObject("pusher");
-    this.username = pusher.getString("name");
-    // Get commit information
-    this.version = payloadJson.getString("ref");
-    processVersion(this.version);
-    // Get commit information
-    JSONArray commitsArray = payloadJson.getJSONArray("commits");
-    JSONObject commitsObject = (JSONObject) commitsArray.get(0);
-    this.message = commitsObject.getString("message");
-    processMessage(this.message);
-    // Pass everything to the JIRA communicator
+    payloadJson = new JSONObject(payloadUnicode);
+
+    // Parse all relevant information from the JSON object
+    parseUsername();
+    parseVersion();
+    parseMessage();
+
+    // Pass everything to the JIRA controller, so that it can be inserted into JIRA
     JiraController controller = new JiraController(version, jiraKey, username, message);
-    // Insert things in JIRA
     controller.loadConfigFile();
     controller.connect();
     controller.addVersion();
     controller.addComment();
   }
 
+  private void parseUsername()
+  {
+    JSONObject pusher = this.payloadJson.getJSONObject("pusher");
+    this.username = pusher.getString("name");
+  }
+
+  /**
+   * Prints out every information which could be found in github's payload sequence.
+   * @return
+   */
   @Override
   public String toString()
   {
@@ -68,19 +83,41 @@ public final class JiraServiceHook
     return sb.toString();
   }
 
-  private void processVersion(String version)
+  /**
+   * Parses the name of the current Git branch (in which the changes are pushed) and uses it as JIRA project version.
+   * @param version
+   */
+  private void parseVersion()
   {
-    while (version.contains("/"))
+    this.version = payloadJson.getString("ref");
+
+    while (this.version.contains("/"))
     {
-      int positionSlash = version.indexOf("/");
-      version = version.substring(positionSlash + 1, version.length());
+      int positionSlash = this.version.indexOf("/");
+      this.version = this.version.substring(positionSlash + 1, this.version.length());
     }
-    this.version = version;
   }
 
-  private void processMessage(String message)
+  /**
+   * Parses the Git commit message for the JIRA issue key. It expects an '@' as delimtter.
+   * For example: If the commit message is: 'SWQ-11@My commit message', then this method
+   * extracts the character sequence in front of the '@' and takes it for the JIRA issue key.
+   * The character sequence which follows the '@' is the commit message. In our example this
+   * would be 'My commit message' and the key will be 'SWQ-11'.
+   *
+   * = Short example =
+   * Git-Commit message: SWQ-11@My commit message
+   * JIRA issue key: SWQ-11
+   * Message for the JIRA comment: My commit message
+   * @param message
+   */
+  private void parseMessage()
   {
-    if (message.contains("@"))
+    JSONArray commitsArray = this.payloadJson.getJSONArray("commits");
+    JSONObject commitsObject = (JSONObject) commitsArray.get(0);
+    this.message = commitsObject.getString("message");
+
+    if (this.message.contains("@"))
     {
       int positionAt = message.indexOf('@');
       this.jiraKey = message.substring(0, positionAt);
