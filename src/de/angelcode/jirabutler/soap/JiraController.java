@@ -1,5 +1,8 @@
 package de.angelcode.jirabutler.soap;
 
+import com.atlassian.jira.rpc.soap.JiraSoapService;
+import com.atlassian.jira.rpc.soap.beans.RemoteComment;
+import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.soap.service.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
@@ -96,5 +99,19 @@ public class JiraController
         System.out.println("Version cannot be set.");
       }
     }
+  }
+
+  public boolean addComment()
+  {
+    if (this.issueKey != null && this.message != null && this.username != null)
+    {
+      RemoteComment comment = new RemoteComment();
+      comment.setBody(this.username + ": " + this.message);
+      System.out.println(this.username + ": " + this.message);
+
+      client.addComment(this.issueKey, comment);
+    }
+
+    return true;
   }
 }

@@ -2,6 +2,7 @@ package de.angelcode.jirabutler.soap.service;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.exception.RemotePermissionException;
+import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,6 +83,32 @@ public class JiraClient
     success = true;
 
     return success;
+  }
+
+  public boolean addComment(String jiraProjectKey, RemoteComment comment)
+  {
+        try
+        {
+            this.api.addComment(token, jiraProjectKey, comment);
+        } 
+        catch (RemoteException ex)
+        {
+            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (RemotePermissionException ex)
+        {
+            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (RemoteAuthenticationException ex)
+        {
+            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+        {
+            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    return true;
   }
 
   /**
