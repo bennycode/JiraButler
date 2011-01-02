@@ -1,5 +1,6 @@
 package de.angelcode.jirgit.webserver.test;
 
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.webserver.Server;
 import org.junit.After;
 import org.junit.Before;
@@ -32,7 +33,7 @@ public class ServerTest
   }
 
   @Test
-  public void testPortCastException1()
+  public void testPortCastException1() throws JiraButlerException
   {
     server = new Server("abc", "/var/log/messages");
     /*
@@ -43,19 +44,19 @@ public class ServerTest
   }
 
   @Test
-  public void testPortCastException2()
+  public void testPortCastException2() throws JiraButlerException
   {
     server = new Server(null, "/var/log/messages");
   }
 
   @Test
-  public void testMinPortRangeException()
+  public void testMinPortRangeException() throws JiraButlerException
   {
     server = new Server("-1", "/var/log/messages");
   }
 
   @Test
-  public void testMaxPortRangeException()
+  public void testMaxPortRangeException() throws JiraButlerException
   {
     server = new Server("65536", "/var/log/messages");
   }

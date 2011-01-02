@@ -2,6 +2,7 @@ package de.angelcode.jirabutler.webserver;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.hook.JiraServiceHook;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
@@ -26,7 +27,7 @@ public class ServerFunctionality
    * Verwaltet die Client-Anfragen (PUT, GET, HTTP-GET).
    * @param clientInput Eingabe vom Client
    */
-  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
   {
     if (clientInput != null)
     {
@@ -110,7 +111,9 @@ public class ServerFunctionality
       serverResponse = "Error while reading the file.";
       serverResponse += ex1.getLocalizedMessage();
       return serverResponse;
+
     }
+
 
     return sb.toString();
   }

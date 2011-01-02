@@ -86,7 +86,7 @@ public class JiraController
     return isLoggedIn;
   }
 
-  public void addVersion() throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
+  public void addVersion() throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
   {
     if (this.projectKey != null && this.version != null)
     {

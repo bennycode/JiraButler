@@ -2,6 +2,7 @@ package de.angelcode.jirabutler.hook;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.soap.JiraController;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -32,7 +33,7 @@ public final class JiraServiceHook
     this.jiraKey = null;
   }
 
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
   {
     this();
     // Convert github request into a valid payload json object

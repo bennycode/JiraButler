@@ -4,11 +4,14 @@ import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.exception.RemotePermissionException;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.rpc.ServiceException;
 
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.exceptions.VoidParameterException;
 import java.util.ArrayList;
 
@@ -82,9 +85,16 @@ public class JiraClient
    * @return
    * @throws RemoteException
    */
-  public boolean logout() throws RemoteException
+  public boolean logout() throws JiraButlerException
   {
-    return api.logout(token);
+    try
+    {
+      return api.logout(token);
+    }
+    catch (RemoteException ex)
+    {
+      throw new JiraButlerException("You can't logout with your current user.");
+    }
   }
 
   /**
@@ -95,11 +105,26 @@ public class JiraClient
    * @throws RemoteException
    * @throws com.atlassian.jira.rpc.exception.RemoteException
    */
-  public boolean addVersion(String jiraProjectKey, RemoteVersion version) throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean addVersion(String jiraProjectKey, RemoteVersion version) throws JiraButlerException
   {
     boolean success = false;
-
-    System.out.println(api.addVersion(token, jiraProjectKey, version));
+    try
+    {
+      api.addVersion(token, jiraProjectKey, version);
+    }
+    catch (RemoteException ex)
+    {
+      throw new JiraButlerException("You don't have permission to set the version.");
+    }
+    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+    {
+      throw new JiraButlerException("You don't have permission to set the version.");
+    }
+    catch (Exception ex)
+    {
+      throw new JiraButlerException("Unknown exception." + "\n" + ex.getLocalizedMessage());
+    }
+    
     success = true;
 
     return success;
@@ -136,7 +161,7 @@ public class JiraClient
     ArrayList<String> versionList = new ArrayList<String>();
     RemoteVersion[] versions = api.getVersions(token, jiraProjectKey);
 
-    for (RemoteVersion version:versions)
+    for (RemoteVersion version : versions)
     {
       versionList.add(version.getName());
     }

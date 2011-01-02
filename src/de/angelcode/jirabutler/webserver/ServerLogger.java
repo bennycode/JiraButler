@@ -1,5 +1,6 @@
 package de.angelcode.jirabutler.webserver;
 
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import java.io.IOException;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Logger;
@@ -23,15 +24,15 @@ public class ServerLogger
    * Initializes the logger.
    * @param logFilePath Path to the log file
    */  
-  static public Logger getServerLogger(String logFilePath) throws IOException
+  static public Logger getServerLogger(String logFilePath) throws JiraButlerException
   {
     if (null == logger)
     {
       FileAppender appender = null;
       PatternLayout appenderLayout = null;
 
-//      try
-//      {
+      try
+      {
         logger = Logger.getLogger(Server.class);
         logger.setLevel(org.apache.log4j.Level.ALL);
 
@@ -41,17 +42,17 @@ public class ServerLogger
         appender = new FileAppender(appenderLayout, logFilePath);
         logger.addAppender(appender);
 
-//      }
-//      catch (IOException ex)
-//      {
-//        System.out.println("Cannot access log file:"
-//                + "\n" + ex.getLocalizedMessage());
-//      }
-//      catch (Exception ex)
-//      {
-//        System.out.println("Unknown exception in server logger:"
-//                + "\n" + ex.getLocalizedMessage());
-//      }
+      }
+      catch (IOException ex)
+      {
+        throw new JiraButlerException("Cannot access log file:" + "\n" + ex.getLocalizedMessage());
+      }
+      catch (Exception ex)
+      {
+        System.out.println("Unknown exception in server logger:"
+                + "\n" + ex.getLocalizedMessage());
+        throw new JiraButlerException("Unknown exception in server logger:" + "\n" + ex.getLocalizedMessage());
+      }
     }
     return logger;
   }
