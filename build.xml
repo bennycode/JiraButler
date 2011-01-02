@@ -58,6 +58,7 @@
         <attribute name="Class-Path" value="${manifest.class.path}"/>
       </manifest>
     </jar>
+    <echo message="========== Done Building (JAR) =========="/>
   </target>
 	
 	<!-- Run application -->
