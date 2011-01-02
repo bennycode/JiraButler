@@ -31,7 +31,7 @@ class ConnectionHandler implements Runnable
   {
     try
     {
-      // Process the message of the client
+      // Process the request of the client
       InputStream input = socket.getInputStream();
       InputStreamReader isr = new InputStreamReader(input);
       BufferedReader br = new BufferedReader(isr);

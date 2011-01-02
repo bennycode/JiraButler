@@ -52,6 +52,7 @@ public final class JiraServiceHook
     // Insert things in JIRA
     controller.loadConfigFile();
     controller.connect();
+    controller.addVersion();
     controller.addComment();
   }
 

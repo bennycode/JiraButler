@@ -67,7 +67,7 @@ public class Server
       logger.fatal("Unknown exception."
               + "\n" + ex.getLocalizedMessage());
     }
-    // TODO: Exception fangen, wenn Port besetzt
+    // TODO: Catch exception when port is in use
   }
 
   /**
