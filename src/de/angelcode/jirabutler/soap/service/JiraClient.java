@@ -4,11 +4,7 @@ import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.exception.RemotePermissionException;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.xml.rpc.ServiceException;
-
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
@@ -26,10 +22,17 @@ public class JiraClient
   private JiraSoapService api;
   private String token = null;
 
-  public JiraClient() throws ServiceException
+  public JiraClient() throws JiraButlerException
   {
     service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator();
-    api = service.getJirasoapserviceV2();
+    try
+    {
+      api = service.getJirasoapserviceV2();
+    }
+    catch (ServiceException ex)
+    {
+      throw new JiraButlerException("You can't get the Jira SOAP service.");
+    }
   }
 
   public void setService(JiraSoapServiceService service)
@@ -73,9 +76,24 @@ public class JiraClient
    * @throws RemoteAuthenticationException
    * @throws com.atlassian.jira.rpc.exception.RemoteException
    */
-  public boolean login(String user, String password) throws JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean login(String user, String password) throws JiraButlerException
   {
-    token = api.login(user, password);
+    try
+    {
+      token = api.login(user, password);
+    }
+    catch (RemoteException ex)
+    {
+      throw new JiraButlerException("You can't connect to Jira.");
+    }
+    catch (RemoteAuthenticationException ex)
+    {
+      throw new JiraButlerException("The login informations from the user are wrong.");
+    }
+    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+    {
+      throw new JiraButlerException("You can't connect to Jira.");
+    }
 
     return token == null ? false : true;
   }
@@ -140,9 +158,28 @@ public class JiraClient
    * @throws RemoteAuthenticationException
    * @throws com.atlassian.jira.rpc.exception.RemoteException
    */
-  public boolean addComment(String jiraProjectKey, RemoteComment comment) throws RemoteException, RemotePermissionException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean addComment(String jiraProjectKey, RemoteComment comment) throws JiraButlerException
   {
-    this.api.addComment(token, jiraProjectKey, comment);
+    try
+    {
+      this.api.addComment(token, jiraProjectKey, comment);
+    }
+    catch (RemoteException ex)
+    {
+      throw new JiraButlerException("Can't connect to Jira.");
+    }
+    catch (RemotePermissionException ex)
+    {
+      throw new JiraButlerException("You don't have permission to write a comment.");
+    }
+    catch (RemoteAuthenticationException ex)
+    {
+      throw new JiraButlerException("You don't have authentification to write a comment.");
+    }
+    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+    {
+      throw new JiraButlerException("Can't connect to Jira.");
+    }
 
     return true;
   }

@@ -4,8 +4,6 @@ import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.util.SystemVariables;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Provides the main-mathod to start the server.
@@ -54,11 +52,14 @@ public class ServerStart
           if (command.equals("start"))
           {
             System.out.println("Starting server...");
-                try {
-                    server = new Server(serverPort, logFilePath.toString());
-                } catch (JiraButlerException ex) {
-                    System.out.println(ex.getMessage());
-                }
+            try
+            {
+              server = new Server(serverPort, logFilePath.toString());
+            }
+            catch (JiraButlerException ex)
+            {
+              System.out.println(ex.getMessage());
+            }
           }
           else
           {

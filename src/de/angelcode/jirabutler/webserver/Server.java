@@ -62,7 +62,7 @@ public class Server
     }
     catch (PortRangeException ex)
     {
-      throw new JiraButlerException(ex.getLocalizedMessage());
+      throw new JiraButlerException("ERROR: The port is not within the range.");
     }
     catch (Exception ex)
     {

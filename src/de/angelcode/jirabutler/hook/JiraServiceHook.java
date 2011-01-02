@@ -1,11 +1,6 @@
 package de.angelcode.jirabutler.hook;
 
-<<<<<<< HEAD
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
-=======
->>>>>>> origin/master
 import de.angelcode.jirabutler.soap.JiraController;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -37,9 +32,6 @@ public final class JiraServiceHook
     this.payloadJson = null;
   }
 
-<<<<<<< HEAD
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
-=======
   /**
    * Init-constructor which awaits the complete HTTP request from github.
    * @param githubRequest
@@ -48,15 +40,26 @@ public final class JiraServiceHook
    * @throws IOException
    * @throws Exception
    */
-  public JiraServiceHook(String githubRequest) throws UnsupportedEncodingException, ParseException, IOException, Exception
->>>>>>> origin/master
-  {
+public JiraServiceHook(String githubRequest) throws JiraButlerException
+{
     this();
     // Convert the payload from the github request into a JSON object
     int payloadStart = githubRequest.indexOf("payload=");
     String payloadAscii = githubRequest.substring(payloadStart + 8, githubRequest.length());
-    String payloadUnicode = URLDecoder.decode(payloadAscii, "UTF-8");
-    payloadJson = new JSONObject(payloadUnicode);
+    String payloadUnicode;
+    try
+    {
+      payloadUnicode = URLDecoder.decode(payloadAscii, "UTF-8");
+      payloadJson = new JSONObject(payloadUnicode);
+    }
+    catch (ParseException ex)
+    {
+      throw new JiraButlerException("The JSON String could not be convert to a JSON Object ");
+    } 
+    catch (UnsupportedEncodingException ex)
+    {
+      System.out.println("The JSON Object can't convert from ASCII to Unicode.");
+    }
 
     // Parse all relevant information from the JSON object
     parseUsername();
