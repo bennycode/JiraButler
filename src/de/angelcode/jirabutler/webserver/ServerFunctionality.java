@@ -15,8 +15,8 @@ import java.text.ParseException;
 import javax.xml.rpc.ServiceException;
 
 /**
- *
- * @author Benny Neugebauer (Matr.-Nr. 20072076)
+ * Implements the web servers special functionality. Specifies on which actions (HTTP-GET, HTTP-POST) the server should react.
+ * @author Benny Neugebauer (www.bennyn.de)
  */
 public class ServerFunctionality
 {
@@ -24,10 +24,14 @@ public class ServerFunctionality
   private static String serverResponse = null;
 
   /**
-   * Verwaltet die Client-Anfragen (PUT, GET, HTTP-GET).
-   * @param clientInput Eingabe vom Client
+   * Handles the request (HTTP-GET, HTTP-POST) of a client.
+   * @param clientInput Complete request of a client
    */
+<<<<<<< HEAD
   public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
+=======
+  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, Exception
+>>>>>>> origin/master
   {
     if (clientInput != null)
     {
@@ -56,13 +60,13 @@ public class ServerFunctionality
   }
 
   /**
-   * Initiates HTTP-GET/1.1-Response.
+   * Initiates the server's response in case of a valid HTTP/1.1 request.
    * @param clientInput Input from the client
    */
   private static void doHttpRequest(String clientInput)
   {
     int temp;
-    String fileName;
+    String fileName = null;
     // Removing GET and trailing "/" from the request
     String lineCache = clientInput.substring(5, clientInput.length());
     // Look if it is a valid HTTP/1.1 request
@@ -70,6 +74,7 @@ public class ServerFunctionality
     {
       temp = lineCache.indexOf("HTTP/1.1");
       fileName = lineCache.substring(0, temp);
+      fileName = fileName.trim();
       doHttpResponse(fileName);
     }
     else
@@ -88,8 +93,8 @@ public class ServerFunctionality
   }
 
   /**
-   * Reads the content of a file.
-   * @param fileName Path to the file
+   * Returns the content of a file.
+   * @param fileName Absolute path to the file
    * @return file-content
    */
   private static String getFileContent(String fileName)
@@ -108,10 +113,16 @@ public class ServerFunctionality
     }
     catch (Exception ex1)
     {
+      /*
       serverResponse = "Error while reading the file.";
       serverResponse += ex1.getLocalizedMessage();
       return serverResponse;
+<<<<<<< HEAD
 
+=======
+       * 
+       */
+>>>>>>> origin/master
     }
 
 
@@ -124,33 +135,36 @@ public class ServerFunctionality
    */
   private static void doHttpResponse(String fileName)
   {
-    File requestedFile = new File(fileName);
+    String lineSeperator = System.getProperty("line.separator");
+    String fileSeperator = System.getProperty("file.separator");
+    String htmlPagesDirectory = SystemVariables.getJarExecutionDirectory() + "html" + fileSeperator;
+
+    String http200 = "HTTP/1.1 200 OK" + lineSeperator;
+    String http404 = "HTTP/1.1 404 Not Found" + lineSeperator;
+
+    File requestedFile = new File(htmlPagesDirectory + fileName);
     boolean isFile = requestedFile.exists();
+
+    // Set the response header
     if (isFile)
     {
-      serverResponse = "HTTP/1.1 200 OK" + "\r\n"
-              + "Server: MyServer/0.0.1 (Windows)" + "\r\n"
-              + "Content-Length: "
-              + requestedFile.length() + "\r\n"
-              + "Content-Language: de" + "\r\n"
-              + "Content-Type: text/html" + "\r\n"
-              + "Connection: close" + "\r\n"
-              + "\r\n"
-              + getFileContent(fileName);
+      serverResponse = http200;
     }
     else
     {
-      File html404 = new File(SystemVariables.getJarExecutionDirectory()
-              + "404.html");
-      serverResponse = "HTTP/1.1 404 Not Found" + "\r\n"
-              + "Server: MyServer/0.0.1 (Windows)" + "\r\n"
-              + "Content-Type: text/html" + "\r\n"
-              + "Content-Length: "
-              + html404.length() + "\r\n"
-              + "Content-Language: de" + "\r\n"
-              + "Connection: close" + "\r\n"
-              + "\r\n"
-              + getFileContent(html404.getAbsolutePath());
+      serverResponse = http404;
+      requestedFile = new File(htmlPagesDirectory + "404.html");
     }
+
+    // Complete the response
+    String responseData = "Server: JiraButler" + lineSeperator
+            + "Content-Length: " + requestedFile.length() + lineSeperator
+            + "Content-Language: de" + lineSeperator
+            + "Content-Type: text/html" + lineSeperator
+            + "Connection: close" + lineSeperator
+            + lineSeperator
+            + getFileContent(requestedFile.getAbsolutePath());
+
+    serverResponse += responseData;
   }
 }
