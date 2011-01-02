@@ -1,15 +1,21 @@
 package de.angelcode.jirabutler.soap;
 
+import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
+import com.atlassian.jira.rpc.exception.RemotePermissionException;
 import com.atlassian.jira.rpc.soap.JiraSoapService;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
+import de.angelcode.jirabutler.exceptions.JIRAException;
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.soap.service.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.Properties;
+import javax.xml.rpc.ServiceException;
 
 /**
  *
@@ -60,10 +66,14 @@ public class JiraController
     this.connectionUrl = properties.getProperty("url");
     this.connectionUsername = properties.getProperty("username");
     this.connectionPassword = properties.getProperty("password");
-    this.projectKey = properties.getProperty("project-key");
+
+    if (this.issueKey != null)
+      this.projectKey = this.issueKey.substring(0, this.issueKey.indexOf("-"));
+
+      System.out.println(this.projectKey);
   }
 
-  public boolean connect() throws Exception
+  public boolean connect() throws ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
   {
     boolean isLoggedIn = false;
     if (this.connectionUsername != null
@@ -76,32 +86,32 @@ public class JiraController
     return isLoggedIn;
   }
 
-  public void addVersion()
+  public void addVersion() throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
   {
     if (this.projectKey != null && this.version != null)
     {
       RemoteVersion newVersion = new RemoteVersion();
       newVersion.setName(this.version);
-      try
-      {
+//      try
+//      {
         client.addVersion(this.projectKey, newVersion);
-      }
-      catch (NoClassDefFoundError ex)
-      {
-        System.out.println("Version successfully set.");
-      }
-      catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-      {
-        System.out.println("Version already set.");
-      }
-      catch (Exception ex)
-      {
-        System.out.println("Version cannot be set.");
-      }
+//      }
+//      catch (NoClassDefFoundError ex)
+//      {
+//        throw new JiraButlerException("Version successfully set.");
+//      }
+//      catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+//      {
+//        throw new JiraButlerException("Version already set.");
+//      }
+//      catch (Exception ex)
+//      {
+//        throw new JiraButlerException("Version cannot be set.");
+//      }
     }
   }
 
-  public boolean addComment()
+  public boolean addComment() throws RemoteException, RemotePermissionException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
   {
     if (this.issueKey != null && this.message != null && this.username != null)
     {

@@ -1,11 +1,19 @@
 package de.angelcode.jirabutler.webserver;
 
+import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
+import de.angelcode.jirabutler.exceptions.JIRAException;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
+import java.rmi.RemoteException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.xml.rpc.ServiceException;
 
 /**
  * Processes server requests and responses.
@@ -29,6 +37,7 @@ class ConnectionHandler implements Runnable
 
   public void run()
   {
+    // TODO add to every thrown exception an userfriendly message
     try
     {
       // Process the request of the client
@@ -62,15 +71,25 @@ class ConnectionHandler implements Runnable
       socket.close();
       System.out.println("Waiting for connection...");
     }
-    catch (IOException ex)
+        catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ServiceException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JIRAException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteAuthenticationException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (com.atlassian.jira.rpc.exception.RemoteException ex) {
+            Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
+        }    catch (IOException ex)
     {
       System.out.println("Error while setting-up the stream.");
       System.out.println(ex.getLocalizedMessage());
     }
-    catch (Exception ex)
-    {
-      System.out.println("Error in program.");
-      System.out.println(ex.getLocalizedMessage());
-    }
+  
   }
 }

@@ -1,10 +1,17 @@
 package de.angelcode.jirabutler.webserver;
 
+import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
+import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.hook.JiraServiceHook;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.rmi.RemoteException;
+import java.text.ParseException;
+import javax.xml.rpc.ServiceException;
 
 /**
  *
@@ -19,7 +26,7 @@ public class ServerFunctionality
    * Verwaltet die Client-Anfragen (PUT, GET, HTTP-GET).
    * @param clientInput Eingabe vom Client
    */
-  public static void handleRequest(String clientInput) throws Exception
+  public static void handleRequest(String clientInput) throws UnsupportedEncodingException, ParseException, IOException, ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
   {
     if (clientInput != null)
     {

@@ -4,8 +4,6 @@ import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.exception.RemotePermissionException;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import java.rmi.RemoteException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.xml.rpc.ServiceException;
 
@@ -14,6 +12,10 @@ import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.VoidParameterException;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author jens, robert, danielp
+ */
 public class JiraClient
 {
 
@@ -57,56 +59,65 @@ public class JiraClient
     this.token = token;
   }
 
-  public boolean login(String user, String password) throws JIRAException, RemoteException, VoidParameterException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  /**
+   *
+   * @param user
+   * @param password
+   * @return
+   * @throws JIRAException
+   * @throws RemoteException
+   * @throws VoidParameterException
+   * @throws RemoteAuthenticationException
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   */
+  public boolean login(String user, String password) throws JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
   {
-    if (user == null || user.equals(""))
-    {
-      throw new VoidParameterException("Void value for paramter user");
-    }
-    else
-    {
-      token = api.login(user, password);
-    }
+    token = api.login(user, password);
+
     return token == null ? false : true;
   }
 
+  /**
+   * This method logout your current user
+   * @return
+   * @throws RemoteException
+   */
   public boolean logout() throws RemoteException
   {
     return api.logout(token);
   }
 
+  /**
+   * This method add a new Version
+   * @param jiraProjectKey
+   * @param version
+   * @return  
+   * @throws RemoteException
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   */
   public boolean addVersion(String jiraProjectKey, RemoteVersion version) throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
   {
     boolean success = false;
 
-    api.addVersion(token, jiraProjectKey, version);
+    System.out.println(api.addVersion(token, jiraProjectKey, version));
     success = true;
 
     return success;
   }
 
-  public boolean addComment(String jiraProjectKey, RemoteComment comment)
+  /**
+   * This method add a comment to an existing task
+   * @param jiraProjectKey
+   * @param comment
+   * @return
+   * @throws RemoteException
+   * @throws RemotePermissionException
+   * @throws RemoteAuthenticationException
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   */
+  public boolean addComment(String jiraProjectKey, RemoteComment comment) throws RemoteException, RemotePermissionException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
   {
-        try
-        {
-            this.api.addComment(token, jiraProjectKey, comment);
-        } 
-        catch (RemoteException ex)
-        {
-            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (RemotePermissionException ex)
-        {
-            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (RemoteAuthenticationException ex)
-        {
-            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-        {
-            Logger.getLogger(JiraClient.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    this.api.addComment(token, jiraProjectKey, comment);
 
     return true;
   }
