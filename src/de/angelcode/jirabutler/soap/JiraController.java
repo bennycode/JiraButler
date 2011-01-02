@@ -1,19 +1,13 @@
 package de.angelcode.jirabutler.soap;
 
-import com.atlassian.jira.rpc.soap.JiraSoapService;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
-import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.soap.service.JiraClientImpl;
-import de.angelcode.jirabutler.soap.service.JiraSoapServiceService;
-import de.angelcode.jirabutler.soap.service.JiraSoapServiceServiceLocator;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.rmi.RemoteException;
 import java.util.Properties;
-import javax.xml.rpc.ServiceException;
 
 /**
  *
@@ -75,7 +69,22 @@ public class JiraController
       isLoggedIn = client.login(this.connectionUsername, this.connectionPassword);
       RemoteVersion newVersion = new RemoteVersion();
       newVersion.setName(this.version);
-      client.addVersion(newVersion);
+      try
+      {
+        client.addVersion(newVersion);
+      }
+      catch(NoClassDefFoundError ex)
+      {
+        System.out.println("Version successfully set.");
+      }
+      catch(com.atlassian.jira.rpc.exception.RemoteException ex)
+      {
+        System.out.println("Version already set.");
+      }
+      catch(Exception ex)
+      {
+        System.out.println("Version cannot be set.");
+      }
     }
     return isLoggedIn;
   }

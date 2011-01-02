@@ -2,6 +2,8 @@ package de.angelcode.jirabutler.soap.service;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import java.rmi.RemoteException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.rpc.ServiceException;
 
@@ -70,9 +72,14 @@ public class JiraClientImpl
     return api.logout(token);
   }
 
-  public RemoteVersion addVersion(RemoteVersion version) throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean addVersion(RemoteVersion version) throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException
   {
-    return api.addVersion(token, "SWQ", version);
+    boolean success = false;
+
+    api.addVersion(token, "SWQ", version);
+    success = true;
+
+    return success;
   }
 //	try {
 //		String token = api.login("robertb", "test");
