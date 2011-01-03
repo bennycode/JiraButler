@@ -32,11 +32,11 @@
     <delete dir="${classes.dir}" />
     <mkdir dir="${classes.dir}"/>
     <!-- Sourcecode -->
-    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="yes" includeantruntime="false">
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" includeantruntime="false">
       <classpath refid="class.path" />
     </javac>
     <!-- Test-classes -->
-    <javac srcdir="${test.dir}" destdir="${classes.dir}" debug="yes" includeantruntime="false">
+    <javac srcdir="${test.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" includeantruntime="false">
       <classpath refid="class.path" />
     </javac>
   </target>
