@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="JiraButler" default="run" basedir=".">
+  <description>WebService for the communication between Atlassian JIRA and Git.</description>
+
+  <!-- Project properties -->
+  <property file="build.properties" />
+  <path id="class.path">
+    <fileset dir="${lib.dir}" includes="*.jar"/>
+  </path>
+  <path id="jar.class.path">
+    <fileset dir="${lib.dir}" includes="*.jar"/>
+  </path>
+  <path id="jar.file">
+    <fileset file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>
+  </path>
+	
+	<!-- Initialization 
+  <target name="init" description="Prepare needed directories.">
+    <mkdir dir="${build.dir}" />
+    <mkdir dir="${classes.dir}" />
+    <mkdir dir="${jar.dir}" />
+    <mkdir dir="${jar.class.path.dir}" />
+  </target>-->
+	
+	<!-- Cleanup 
+  <target name="clean" description="Remove all files created by the build/test process.">
+    <delete dir="${classes.dir}" />
+  </target>-->
+	
+	<!-- Compile application -->
+  <target name="compile">
+    <mkdir dir="${build.dir}"/>
+    <delete dir="${classes.dir}"/>
+    <mkdir dir="${classes.dir}"/>
+    <!-- Sourcecode -->
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" includeantruntime="false">
+      <classpath refid="class.path" />
+    </javac>
+    <!-- Test-classes -->
+    <javac srcdir="${test.dir}" destdir="${classes.dir}" debug="true" debuglevel="lines,source" includeantruntime="false">
+      <classpath refid="class.path" />
+    </javac>
+  </target>
+	
+	<!-- Java Archive -->
+  <target name="jar" depends="compile">
+    <delete file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>
+    <!-- Copy libraries to application's class-path -->
+    <copy todir="${jar.class.path.dir}">
+      <fileset dir="${lib.dir}" />
+    </copy>
+    <!-- ManifestClassPath Ant Task -->
+    <manifestclasspath property="manifest.class.path" jarfile="{$jar.file}">
+      <classpath refid="jar.class.path" />
+    </manifestclasspath>
+    <jar destfile="${jar.dir}/${ant.project.name}-${app.version}.jar" basedir="${classes.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="${main.class}"/>
+        <attribute name="Class-Path" value="${manifest.class.path}"/>
+      </manifest>
+    </jar>
+    <echo message="========== Done Building (JAR) =========="/>
+  </target>
+	
+	<!-- Run application -->
+  <target name="run" depends="jar">
+    <java fork="true" classname="${main.class}">
+      <classpath>
+        <path refid="class.path"/>
+        <path refid="jar.file" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- Generating Javadoc -->
+  <target name="javadoc" description="Generate Javadoc.">
+    <mkdir dir="${docs.dir}"/>
+    <mkdir dir="${javadoc.dir}"/>
+    <javadoc sourcepath="${src.dir}"
+             classpathref="class.path"
+             destdir="${javadoc.dir}"
+             access="public"
+             version="true"
+             author="true"
+             windowtitle="${ant.project.name} - Version ${app.version}"
+             doctitle="${ant.project.name} - Version ${app.version}"
+             packagenames="*">
+    </javadoc>
+    <echo message="========== Done Generating (Javadoc) =========="/>
+  </target>
+  
+  <!-- JUnit Tests -->
+  <target name="junit" depends="jar">
+    <!-- Prepare Directories -->
+    <delete dir="${reports.xml.dir}"/>
+    <delete dir="${reports.html.dir}"/>
+    <delete dir="${cob.instr.dir}"/>
+	
+    <mkdir dir="${reports.dir}"/>
+    <mkdir dir="${junit.dir}"/>
+    <mkdir dir="${cob.dir}"/>
+    <mkdir dir="${cob.instr.dir}"/>
+    <mkdir dir="${reports.xml.dir}"/>
+    <mkdir dir="${reports.html.dir}"/>
+	
+    <!-- JUnit declaration -->
+    <junit fork="yes" forkmode="once" printsummary="yes">
+      <sysproperty key="net.sourceforge.cobertura.datafile" file="${cob.data}" />
+      <classpath>
+        <path location="${cob.instr.dir}"></path>
+        <path location="${classes.dir}"></path>
+        <path refid="class.path"></path>
+        <path refid="jar.file"></path>
+      </classpath>
+      <formatter type="xml" />
+      <batchtest fork="yes" todir="${reports.xml.dir}">
+        <fileset dir="${test.dir}">
+          <include name="**/*Test.java" />
+          <include name="**/*TestSuite.java" />
+        </fileset>
+      </batchtest>
+    </junit>
+      <!-- JUnit reports -->
+    <junitreport todir="${reports.xml.dir}">
+      <fileset dir="${reports.xml.dir}" includes="TEST-*.xml" />
+      <report format="frames" todir="${reports.html.dir}" />
+    </junitreport>
+  </target>
+  <taskdef classpathref="class.path" resource="tasks.properties" />
+
+  <!-- Cobertura settings -->
+  <target name="cob-instr" depends="compile">
+    <delete file="${cob.data}" />
+    <cobertura-instrument todir="${cob.instr.dir}" datafile="${cob.data}">
+      <fileset dir="${classes.dir}">
+        <include name="**/*.class" />
+        <exclude name="**/*Test.class" />
+        <exclude name="**/*Suite.class" />
+      </fileset>
+      <fileset file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>
+    </cobertura-instrument>
+  </target>
+
+  <!-- Cobertura output -->
+  <target name="cob-rep" depends="cob-instr, junit" description="Create Cobertura Report.">
+    <delete dir="${cob.rep.html}"/>
+    <mkdir dir="${cob.rep.html}"/>
+    <cobertura-report format="html" datafile="${cob.data}" destdir="${cob.rep.html}" srcdir="${src.dir}" />
+  </target>
+</project>
