@@ -1,0 +1,20 @@
+# Compiled source #
+###################
+*.class
+*.jar
+classes/
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# documents #
+#############
+reports/**
+
+# Sensitive data #
+##################
+/build/jar/jira.properties
