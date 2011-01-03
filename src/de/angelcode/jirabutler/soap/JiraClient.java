@@ -143,7 +143,8 @@ public class JiraClient
     try
     {
       api.addVersion(token, jiraProjectKey, version);
-      success = true;
+      System.out.println("TRUUUUUUUUUUUUUUUUUUUUUUUE");
+      //success = true;
     }
     catch (RemoteException ex)
     {
