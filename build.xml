@@ -70,6 +70,23 @@
       </classpath>
     </java>
   </target>
+
+  <!-- -->
+  <target name="javadoc" description="Generate Javadoc.">
+    <mkdir dir="${docs.dir}"/>
+    <mkdir dir="${javadoc.dir}"/>
+    <javadoc sourcepath="${src.dir}"
+             classpathref="class.path"
+             destdir="${javadoc.dir}"
+             access="public"
+             version="true"
+             author="true"
+             windowtitle="${ant.project.name} - Version ${app.version}"
+             doctitle="${ant.project.name} - Version ${app.version}"
+             packagenames="*">
+    </javadoc>
+    <echo message="========== Done Generating (Javadoc) =========="/>
+  </target>
   
   <!-- JUnit Tests -->
   <target name="test" depends="jar">

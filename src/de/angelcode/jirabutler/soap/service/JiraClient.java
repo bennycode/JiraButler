@@ -66,10 +66,10 @@ public class JiraClient
   }
 
   /**
-   *
+   * Authenticates a user with JIRA.
    * @param user
    * @param password
-   * @return
+   * @return true if login was successful and false if it was not
    * @throws JIRAException
    * @throws RemoteException
    * @throws VoidParameterException
@@ -84,75 +84,87 @@ public class JiraClient
     }
     catch (RemoteException ex)
     {
-      throw new JiraButlerException("You can't connect to Jira.");
+      throw new JiraButlerException("Cannot connect to JIRA: " + ex.getLocalizedMessage());
     }
     catch (RemoteAuthenticationException ex)
     {
-      throw new JiraButlerException("The login informations from the user are wrong.");
+      throw new JiraButlerException("The authentication credentials are wrong: " + ex.getLocalizedMessage());
     }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
-      throw new JiraButlerException("You can't connect to Jira.");
+      throw new JiraButlerException("Connect to JIRA: " + ex.getLocalizedMessage());
+    }
+    catch (Exception ex)
+    {
+      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
 
     return token == null ? false : true;
   }
 
   /**
-   * This method logout your current user
-   * @return
+   * Signs the currently logged-in user out.
+   * @return true if logout was successful and false if it was not
    * @throws RemoteException
    */
   public boolean logout() throws JiraButlerException
   {
+    boolean success = false;
+
     try
     {
-      return api.logout(token);
+      success = api.logout(token);
     }
     catch (RemoteException ex)
     {
-      throw new JiraButlerException("You can't logout with your current user.");
+      throw new JiraButlerException("Logout was not successful: " + ex.getLocalizedMessage());
     }
+    catch (Exception ex)
+    {
+      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
+    }
+
+    return success;
   }
 
   /**
-   * This method add a new Version
+   * This method adds a new version for a JIRA proejct.
    * @param jiraProjectKey
    * @param version
-   * @return  
+   * @return true when the version was added and false if the version could not be added
    * @throws RemoteException
    * @throws com.atlassian.jira.rpc.exception.RemoteException
    */
   public boolean addVersion(String jiraProjectKey, RemoteVersion version) throws JiraButlerException
   {
     boolean success = false;
+
     try
     {
       api.addVersion(token, jiraProjectKey, version);
+      success = true;
     }
     catch (RemoteException ex)
     {
-      throw new JiraButlerException("You don't have permission to set the version.");
+      throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
     }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
-      throw new JiraButlerException("You don't have permission to set the version.");
+      throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
     }
     catch (Exception ex)
     {
-      throw new JiraButlerException("Unknown exception." + "\n" + ex.getLocalizedMessage());
+      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
-    
-    success = true;
 
     return success;
   }
 
   /**
-   * This method add a comment to an existing task
+   * This method adds a comment to an existing JIRA issue.
    * @param jiraProjectKey
    * @param comment
-   * @return
+   * @return true if the comment was added, false when the comment could not be added
    * @throws RemoteException
    * @throws RemotePermissionException
    * @throws RemoteAuthenticationException
@@ -160,34 +172,41 @@ public class JiraClient
    */
   public boolean addComment(String jiraProjectKey, RemoteComment comment) throws JiraButlerException
   {
+    boolean success = false;
+
     try
     {
       this.api.addComment(token, jiraProjectKey, comment);
+      success = true;
     }
     catch (RemoteException ex)
     {
-      throw new JiraButlerException("Can't connect to Jira.");
+      throw new JiraButlerException("Cannot connect to JIRA: " + ex.getLocalizedMessage());
     }
     catch (RemotePermissionException ex)
     {
-      throw new JiraButlerException("You don't have permission to write a comment.");
+      throw new JiraButlerException("You don't have permission to write a comment: " + ex.getLocalizedMessage());
     }
     catch (RemoteAuthenticationException ex)
     {
-      throw new JiraButlerException("You don't have authentification to write a comment.");
+      throw new JiraButlerException("Comment could not be written. Please check your authentication credentials: " + ex.getLocalizedMessage());
     }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
-      throw new JiraButlerException("Can't connect to Jira.");
+      throw new JiraButlerException("Cannot connect to JIRA: " + ex.getLocalizedMessage());
+    }
+    catch (Exception ex)
+    {
+      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
 
-    return true;
+    return success;
   }
 
   /**
-   * Experimental
+   * Experimental. Not used yet.
    * @param jiraProjectKey
-   * @return
+   * @return A list of all version available
    * @throws RemoteException
    * @throws RemotePermissionException
    * @throws RemoteAuthenticationException
@@ -205,28 +224,4 @@ public class JiraClient
 
     return versionList;
   }
-//	try {
-//		String token = api.login("robertb", "test");
-//		System.out.println("Eingeloggt als: " + api.getUser(token, "robertb").getEmail());
-//		RemoteProject project = api.getProjectById(token, 10000);
-//		System.out.println("Alte Versionen:");
-//		RemoteVersion[] versions = api.getVersions(token, project.getKey());
-//		for (RemoteVersion v : versions) {
-//			System.out.println(v.getName());
-//		}
-//		RemoteVersion newVersion = new RemoteVersion();
-//		newVersion.setName(args[0]);
-//		api.addVersion(token, project.getKey(), newVersion);
-//		System.out.println("Neue Versionen:");
-//		versions = api.getVersions(token, project.getKey());
-//		for (RemoteVersion v : versions) {
-//			System.out.println(v.getName());
-//		}
-//		boolean logout = api.logout(token);
-//		System.out.println("Logout erfogreich: " + logout);
-//	} catch (ServiceException e) {
-//		e.printStackTrace();
-//	} catch (RemoteException e) {
-//		e.printStackTrace();
-//	}
 }

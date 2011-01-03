@@ -82,7 +82,7 @@ public JiraServiceHook(String githubRequest) throws JiraButlerException
 
   /**
    * Prints out every information which could be found in github's payload sequence.
-   * @return
+   * @return payload information
    */
   @Override
   public String toString()
