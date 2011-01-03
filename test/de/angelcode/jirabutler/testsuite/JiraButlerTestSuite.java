@@ -6,11 +6,10 @@
 package de.angelcode.jirabutler.testsuite;
 
 import de.angelcode.jirabutler.hook.JiraServiceHookTest;
+import de.angelcode.jirabutler.soap.JiraClientTest;
 import de.angelcode.jirabutler.soap.JiraControllerTest;
-import de.angelcode.jirabutler.soap.service.JiraClientTest;
 import de.angelcode.jirabutler.util.SystemVariablesTest;
 import de.angelcode.jirabutler.webserver.*;
-import de.angelcode.jirabutler.webserver.ServerTest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
