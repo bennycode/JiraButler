@@ -92,7 +92,7 @@
       </classpath>
       <formatter type="xml" />
       <batchtest fork="yes" todir="${reports.xml.dir}">
-        <fileset dir="${test.dir}" includes="*Test.java" />
+        <fileset dir="${test.dir}" includes="**/*TestSuite.java" />
       </batchtest>
     </junit>
       <!-- JUnit reports -->
