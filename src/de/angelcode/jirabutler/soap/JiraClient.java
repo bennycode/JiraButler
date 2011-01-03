@@ -148,16 +148,17 @@ public class JiraClient
     catch (RemoteException ex)
     {
       System.out.println("Version already exists or no permission to set the version.");
+      success = false;
     }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
       System.out.println("Version already exists or no permission to set the version.");
+      success = false;
     }
     catch (Exception ex)
     {
       System.out.println("Unknown exception");
-      // throw new JiraButlerException("Unknown exception: " +
-      // ex.getLocalizedMessage());
+      success = false;
     }
     finally
     {
