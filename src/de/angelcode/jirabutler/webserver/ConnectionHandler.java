@@ -57,12 +57,14 @@ class ConnectionHandler implements Runnable
       ServerFunctionality.handleRequest(message);
       String serverResponse = ServerFunctionality.getServerResponse();
       System.out.println("Response to client:");
-      System.out.println(serverResponse);
-
-      // Sending the response...
-      DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
-      outputStream.write(serverResponse.getBytes());
-      outputStream.close();
+      if (serverResponse != null)
+      {
+        // Sending the response...
+        System.out.println(serverResponse);
+        DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+        outputStream.write(serverResponse.getBytes());
+        outputStream.close();
+      }
       socket.close();
       System.out.println("Waiting for connection...");
     }
@@ -74,6 +76,10 @@ class ConnectionHandler implements Runnable
     catch (JiraButlerException ex)
     {
       System.out.println(ex.getMessage());
+    }
+    catch(Exception ex)
+    {
+      System.out.println("Unknown exception.");
     }
   }
 }
