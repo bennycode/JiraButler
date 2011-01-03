@@ -36,7 +36,7 @@ public class ServerFunctionality
       else // Handle HTTP-POST
       if (clientInput.startsWith("POST"))
       {
-        // Recognize github's payload<
+        // Recognize github's payload
         if (clientInput.contains("payload="))
         {
           JiraServiceHook hook = new JiraServiceHook(clientInput);
