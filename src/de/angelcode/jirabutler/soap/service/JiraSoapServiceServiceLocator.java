@@ -10,12 +10,10 @@ import java.rmi.Remote;
 
 public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Service implements JiraSoapServiceService
 {
-  private String connectionUrl;
   private String JirasoapserviceV2_address;
 
   public JiraSoapServiceServiceLocator(String connectionUrl)
   {
-    this.connectionUrl = connectionUrl;
     this.JirasoapserviceV2_address = connectionUrl;
   }
 
@@ -70,7 +68,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   {
     try
     {
-      JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(portAddress, this, this.connectionUrl);
+      JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(portAddress, this, this.JirasoapserviceV2_address);
       _stub.setPortName(getJirasoapserviceV2WSDDServiceName());
       return (JiraSoapService) _stub;
     }
@@ -97,7 +95,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     {
       if (JiraSoapService.class.isAssignableFrom(serviceEndpointInterface))
       {
-        JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(new java.net.URL(JirasoapserviceV2_address), this, this.connectionUrl);
+        JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(new java.net.URL(JirasoapserviceV2_address), this, this.JirasoapserviceV2_address);
         _stub.setPortName(getJirasoapserviceV2WSDDServiceName());
         return (Remote) _stub;
       }
@@ -137,7 +135,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   @Override
   public javax.xml.namespace.QName getServiceName()
   {
-    return new javax.xml.namespace.QName(this.connectionUrl, "JiraSoapServiceService");
+    return new javax.xml.namespace.QName(this.JirasoapserviceV2_address, "JiraSoapServiceService");
   }
   private java.util.HashSet ports = null;
 
@@ -147,7 +145,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     if (ports == null)
     {
       ports = new java.util.HashSet();
-      ports.add(new javax.xml.namespace.QName(this.connectionUrl, "jirasoapservice-v2"));
+      ports.add(new javax.xml.namespace.QName(this.JirasoapserviceV2_address, "jirasoapservice-v2"));
     }
     return ports.iterator();
   }
