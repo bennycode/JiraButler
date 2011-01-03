@@ -11,10 +11,12 @@ import java.rmi.Remote;
 public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Service implements JiraSoapServiceService
 {
   private String connectionUrl;
+  private String JirasoapserviceV2_address;
 
   public JiraSoapServiceServiceLocator(String connectionUrl)
   {
     this.connectionUrl = connectionUrl;
+    this.JirasoapserviceV2_address = connectionUrl;
   }
 
   public JiraSoapServiceServiceLocator(org.apache.axis.EngineConfiguration config)
@@ -29,7 +31,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
 
   // Use to get a proxy class for JirasoapserviceV2
   //private java.lang.String JirasoapserviceV2_address = "http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2";
-  private java.lang.String JirasoapserviceV2_address = this.connectionUrl;
+  
 
   public java.lang.String getJirasoapserviceV2Address()
   {
