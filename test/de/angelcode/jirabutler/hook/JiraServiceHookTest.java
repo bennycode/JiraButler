@@ -23,7 +23,7 @@ public class JiraServiceHookTest
   @Test
   public void testUsernameParsing() throws JiraButlerException
   {
-    String expected = "Scarfake";
+    String expected = "bennyn";
     String result = null;
 
     githubRequest = RequestValues.getRequest1();
