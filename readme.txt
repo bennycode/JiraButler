@@ -17,7 +17,6 @@ java -jar /srv/www/jb/JiraButler-0.1.jar --log /srv/www/jb/logfile.txt start (TO
 
 java -jar /srv/www/jb/JiraButler-0.1.jar -p 7071 -l /srv/www/jb/log1.txt start
 
-
 TODO:
 java -jar /srv/www/jb/JiraButler-0.1.jar --port 7071 --log /srv/www/jb/log1.txt start
 java -jar /srv/www/jb/JiraButler-0.1.jar --port 7071 -l /srv/www/jb/log1.txt start

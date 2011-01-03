@@ -10,7 +10,7 @@ import de.angelcode.jirabutler.soap.JiraControllerTest;
 import de.angelcode.jirabutler.soap.service.JiraClientTest;
 import de.angelcode.jirabutler.util.SystemVariablesTest;
 import de.angelcode.jirabutler.webserver.*;
-import de.angelcode.jirgit.webserver.test.ServerTest;
+import de.angelcode.jirabutler.webserver.ServerTest;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

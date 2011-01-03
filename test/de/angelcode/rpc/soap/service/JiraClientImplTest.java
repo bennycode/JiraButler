@@ -3,7 +3,6 @@ package de.angelcode.rpc.soap.service;
 import static org.easymock.EasyMock.*;
 import static org.junit.Assert.*;
 
-
 import org.junit.Before;
 import org.junit.Test;
 

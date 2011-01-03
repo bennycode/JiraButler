@@ -71,7 +71,7 @@
     </java>
   </target>
 
-  <!-- -->
+  <!-- Generating Javadoc -->
   <target name="javadoc" description="Generate Javadoc.">
     <mkdir dir="${docs.dir}"/>
     <mkdir dir="${javadoc.dir}"/>
@@ -89,15 +89,19 @@
   </target>
   
   <!-- JUnit Tests -->
-  <target name="test" depends="jar">
+  <target name="junit" depends="jar">
     <!-- Prepare Directories -->
     <delete dir="${reports.xml.dir}"/>
     <delete dir="${reports.html.dir}"/>
     <delete dir="${cob.instr.dir}"/>
+	
+	<mkdir dir="${reports.dir}"/>
+	<mkdir dir="${junit.dir}"/>
     <mkdir dir="${cob.dir}"/>
+	<mkdir dir="${cob.instr.dir}"/>	
     <mkdir dir="${reports.xml.dir}"/>
-    <mkdir dir="${reports.html.dir}"/>
-    <mkdir dir="${cob.instr.dir}"/>
+    <mkdir dir="${reports.html.dir}"/>	
+	
     <!-- JUnit declaration -->
     <junit printsummary="yes">
       <sysproperty key="net.sourceforge.cobertura.datafile" file="${cob.data}" />
@@ -115,9 +119,10 @@
       <!-- JUnit reports -->
     <junitreport todir="${reports.xml.dir}">
       <fileset dir="${reports.xml.dir}" includes="TEST-*.xml" />
-      <report todir="${reports.html.dir}" />
+      <report format="frames" todir="${reports.html.dir}" />
     </junitreport>
   </target>
+  <taskdef classpathref="class.path" resource="tasks.properties" />
 
   <!-- Cobertura settings -->
   <target name="cob-instr" depends="compile">
@@ -129,10 +134,10 @@
       </fileset>
     </cobertura-instrument>
   </target>
-	<!-- Cobertura output -->
-  <target name="cob-rep" depends="cob-instr, test" description="Co Rep">
+
+  <!-- Cobertura output -->
+  <target name="cob-rep" depends="cob-instr, junit" description="Create Cobertura Report.">
     <delete dir="${cob.rep.html}"/>
-    <mkdir dir="${cob.rep.dir}"/>
     <mkdir dir="${cob.rep.html}"/>
     <cobertura-report format="html" datafile="${cob.data}" destdir="${cob.rep.html}" srcdir="${src.dir}" />
   </target>

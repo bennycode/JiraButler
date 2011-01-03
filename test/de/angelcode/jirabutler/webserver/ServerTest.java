@@ -1,49 +1,62 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package de.angelcode.jirabutler.webserver;
 
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- *
- * @author BoatoonAdmin
+ * Tests for the web server.
+ * @author bennyn
  */
-public class ServerTest {
+public class ServerTest
+{
 
-    public ServerTest() {
-    }
+  private static Server server;
 
-  @BeforeClass
-  public static void setUpClass() throws Exception
+  public ServerTest()
   {
+    super();
   }
 
-  @AfterClass
-  public static void tearDownClass() throws Exception
+  @Before
+  public void setUp()
   {
+    //server = new Server("7777", "testlog.txt");
   }
 
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
+  @After
+  public void tearDown()
+  {
+    server = null;
+  }
 
   @Test
-  public void testSomeMethod()
+  public void testPortCastException1() throws JiraButlerException
   {
-    // TODO review the generated test code and remove the default call to fail.
-    fail("The test case is a prototype.");
+    server = new Server("abc", "/var/log/messages");
+    /*
+    assertEquals("Test if the server works.",
+    true, server.doSomething);
+     * 
+     */
   }
 
+  @Test
+  public void testPortCastException2() throws JiraButlerException
+  {
+    server = new Server(null, "/var/log/messages");
+  }
+
+  @Test
+  public void testMinPortRangeException() throws JiraButlerException
+  {
+    server = new Server("-1", "/var/log/messages");
+  }
+
+  @Test
+  public void testMaxPortRangeException() throws JiraButlerException
+  {
+    server = new Server("65536", "/var/log/messages");
+  }
 }
