@@ -10,11 +10,10 @@ classes/
 ehthumbs.db
 Icon?
 Thumbs.db
-
 # documents #
 #############
-reports/**
-
+/reports/**
 # Sensitive data #
 ##################
 /build/jar/jira.properties
+/reports/
