@@ -1,4 +1,4 @@
-package de.angelcode.jirabutler.soap.service;
+package de.angelcode.jirabutler.soap;
 
 import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
 import com.atlassian.jira.rpc.exception.RemotePermissionException;
@@ -9,6 +9,9 @@ import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.exceptions.VoidParameterException;
+import de.angelcode.jirabutler.soap.service.JiraSoapService;
+import de.angelcode.jirabutler.soap.service.JiraSoapServiceService;
+import de.angelcode.jirabutler.soap.service.JiraSoapServiceServiceLocator;
 import java.util.ArrayList;
 
 /**

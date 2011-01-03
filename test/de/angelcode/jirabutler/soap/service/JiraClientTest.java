@@ -4,6 +4,7 @@
  */
 package de.angelcode.jirabutler.soap.service;
 
+import de.angelcode.jirabutler.soap.JiraClient;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import java.util.ArrayList;

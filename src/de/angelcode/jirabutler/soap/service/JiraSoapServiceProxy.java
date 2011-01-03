@@ -1,7 +1,11 @@
+/**
+ * JiraSoapServiceService.java
+ *
+ * This file was auto-generated from WSDL
+ * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
+ */
 package de.angelcode.jirabutler.soap.service;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.rpc.ServiceException;
 
 public class JiraSoapServiceProxy implements JiraSoapService
@@ -29,7 +33,7 @@ public class JiraSoapServiceProxy implements JiraSoapService
     }
     catch (ServiceException ex)
     {
-      Logger.getLogger(JiraSoapServiceProxy.class.getName()).log(Level.SEVERE, null, ex);
+      System.out.println("Service exception: "+ex.getLocalizedMessage());
     }
     if (jiraSoapService != null)
     {

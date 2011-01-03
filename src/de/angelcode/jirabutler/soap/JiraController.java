@@ -3,7 +3,6 @@ package de.angelcode.jirabutler.soap;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
-import de.angelcode.jirabutler.soap.service.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;

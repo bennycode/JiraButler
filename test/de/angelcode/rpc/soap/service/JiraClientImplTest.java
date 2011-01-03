@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.angelcode.jirabutler.exceptions.VoidParameterException;
-import de.angelcode.jirabutler.soap.service.JiraClient;
+import de.angelcode.jirabutler.soap.JiraClient;
 import de.angelcode.jirabutler.soap.service.JiraSoapService;
 
 public class JiraClientImplTest
