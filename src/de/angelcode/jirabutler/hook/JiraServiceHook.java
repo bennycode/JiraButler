@@ -69,9 +69,9 @@ public JiraServiceHook(String githubRequest) throws JiraButlerException
     // Pass everything to the JIRA controller, so that it can be inserted into JIRA
     JiraController controller = new JiraController(version, jiraKey, username, message);
     controller.loadConfigFile();
-    controller.connect();
-    controller.addVersion();
+    controller.connect();    
     controller.addComment();
+    controller.addVersion();
   }
 
   private void parseUsername()
