@@ -31,11 +31,11 @@ public class JiraClient
     }
     catch (ServiceException ex)
     {
-      throw new JiraButlerException("Cannot get the JIRA SOAP service: "+ex.getLocalizedMessage());
+      throw new JiraButlerException("Cannot get the JIRA SOAP service: " + ex.getLocalizedMessage());
     }
     catch (Exception ex)
     {
-      throw new JiraButlerException("Unknown exception: "+ex.getLocalizedMessage());
+      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
   }
 
@@ -148,14 +148,16 @@ public class JiraClient
       api.addVersion(token, jiraProjectKey, version);
       success = true;
     }
-    catch (RemoteException ex)
-    {
-      System.out.println("No permission to set the version.");
-      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
-    }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
-      System.out.println("Version already exists.");
+      System.out.println("A");
+      //System.out.println("Version already exists.");
+      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
+    }
+    catch (RemoteException ex)
+    {
+      System.out.println("N");
+      //System.out.println("No permission to set the version.");
       //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
     }
     catch (Exception ex)
