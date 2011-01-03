@@ -49,7 +49,7 @@ public class JiraController
   }
 
   /**
-   * Reads the connection connectionUrl and JIRA authentication credentials (username and password) from the default "jira.properties" configuration file.
+   * Reads the connection URL and JIRA authentication credentials (username and password) from the default "jira.properties" configuration file.
    */
   public void loadConfigFile() throws JiraButlerException
   {
@@ -68,17 +68,17 @@ public class JiraController
     }
     catch (IOException ex)
     {
-      throw new JiraButlerException("Error by reading/writing the file " + file);
+      throw new JiraButlerException("Error while reading/writing the file " + file + ".");
     }
-    
+
     this.connectionUrl = properties.getProperty("url");
     this.connectionUsername = properties.getProperty("username");
     this.connectionPassword = properties.getProperty("password");
 
     if (this.issueKey != null)
+    {
       this.projectKey = this.issueKey.substring(0, this.issueKey.indexOf("-"));
-
-      System.out.println(this.projectKey);
+    }
   }
 
   public boolean connect() throws JiraButlerException
