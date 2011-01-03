@@ -18,7 +18,7 @@ public class JiraClientImplTest
   @Before
   public void setUp() throws Exception
   {
-    jiraClient = new JiraClient();
+    jiraClient = new JiraClient("http://angelcode.de:8080/rpc/soap/jirasoapservice-v2");
     apiMock = createStrictMock(JiraSoapService.class);
     jiraClient.setApi(apiMock);
   }

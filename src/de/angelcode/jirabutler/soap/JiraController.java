@@ -87,7 +87,7 @@ public class JiraController
             && this.connectionPassword != null
             && this.connectionUrl != null)
     {
-      this.client = new JiraClient();
+      this.client = new JiraClient(this.connectionUrl);
       isLoggedIn = client.login(this.connectionUsername, this.connectionPassword);
     }
     return isLoggedIn;
@@ -173,5 +173,10 @@ public class JiraController
   public void setUsername(String username)
   {
     this.username = username;
+  }
+
+  public String getConnectionUrl()
+  {
+    return this.connectionUrl;
   }
 }

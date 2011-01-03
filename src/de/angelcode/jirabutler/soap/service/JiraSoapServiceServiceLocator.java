@@ -10,9 +10,11 @@ import java.rmi.Remote;
 
 public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Service implements JiraSoapServiceService
 {
+  private String connectionUrl;
 
-  public JiraSoapServiceServiceLocator()
+  public JiraSoapServiceServiceLocator(String connectionUrl)
   {
+    this.connectionUrl = connectionUrl;
   }
 
   public JiraSoapServiceServiceLocator(org.apache.axis.EngineConfiguration config)
@@ -26,7 +28,8 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   }
 
   // Use to get a proxy class for JirasoapserviceV2
-  private java.lang.String JirasoapserviceV2_address = "http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2";
+  //private java.lang.String JirasoapserviceV2_address = "http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2";
+  private java.lang.String JirasoapserviceV2_address = this.connectionUrl;
 
   public java.lang.String getJirasoapserviceV2Address()
   {
@@ -63,7 +66,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   {
     try
     {
-      JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(portAddress, this);
+      JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(portAddress, this, this.connectionUrl);
       _stub.setPortName(getJirasoapserviceV2WSDDServiceName());
       return (JiraSoapService) _stub;
     }
@@ -90,7 +93,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     {
       if (JiraSoapService.class.isAssignableFrom(serviceEndpointInterface))
       {
-        JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(new java.net.URL(JirasoapserviceV2_address), this);
+        JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(new java.net.URL(JirasoapserviceV2_address), this, this.connectionUrl);
         _stub.setPortName(getJirasoapserviceV2WSDDServiceName());
         return (Remote) _stub;
       }
@@ -130,7 +133,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   @Override
   public javax.xml.namespace.QName getServiceName()
   {
-    return new javax.xml.namespace.QName("http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2", "JiraSoapServiceService");
+    return new javax.xml.namespace.QName(this.connectionUrl, "JiraSoapServiceService");
   }
   private java.util.HashSet ports = null;
 
@@ -140,7 +143,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     if (ports == null)
     {
       ports = new java.util.HashSet();
-      ports.add(new javax.xml.namespace.QName("http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2", "jirasoapservice-v2"));
+      ports.add(new javax.xml.namespace.QName(this.connectionUrl, "jirasoapservice-v2"));
     }
     return ports.iterator();
   }
@@ -157,7 +160,7 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     }
     else
     { // Unknown Port Name
-      throw new javax.xml.rpc.ServiceException(" Cannot set Endpoint Address for Unknown Port" + portName);
+      throw new javax.xml.rpc.ServiceException("Cannot set Endpoint Address for Unknown Port" + portName);
     }
   }
 
