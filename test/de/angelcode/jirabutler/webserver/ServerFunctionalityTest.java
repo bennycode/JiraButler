@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package de.angelcode.jirabutler.webserver;
 
 import org.junit.After;
@@ -16,10 +15,12 @@ import static org.junit.Assert.*;
  *
  * @author BoatoonAdmin
  */
-public class ServerFunctionalityTest {
+public class ServerFunctionalityTest
+{
 
-    public ServerFunctionalityTest() {
-    }
+  public ServerFunctionalityTest()
+  {
+  }
 
   @BeforeClass
   public static void setUpClass() throws Exception
@@ -31,13 +32,15 @@ public class ServerFunctionalityTest {
   {
   }
 
-    @Before
-    public void setUp() {
-    }
+  @Before
+  public void setUp()
+  {
+  }
 
-    @After
-    public void tearDown() {
-    }
+  @After
+  public void tearDown()
+  {
+  }
 
   /**
    * Test of handleRequest method, of class ServerFunctionality.
@@ -65,5 +68,4 @@ public class ServerFunctionalityTest {
     // TODO review the generated test code and remove the default call to fail.
     fail("The test case is a prototype.");
   }
-
 }

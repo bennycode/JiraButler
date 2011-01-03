@@ -18,28 +18,33 @@ public class ServerFunctionality
 
   /**
    * Handles the request (HTTP-GET, HTTP-POST) of a client.
-   * @param clientInput Complete request of a client
+   * @param clientRequest Complete request of a client
    */
-  public static void handleRequest(String clientInput) throws JiraButlerException
+  public static void handleRequest(String clientRequest) throws JiraButlerException
   {
-    if (clientInput != null)
+    if (clientRequest != null)
     {
       // Handle HTTP-GET
-      if (clientInput.startsWith("GET"))
+      if (clientRequest.startsWith("GET"))
       {
         // HTTP/1.1 GET-request
-        if (clientInput.contains("HTTP/1.1"))
+        if (clientRequest.contains("HTTP/1.1"))
         {
-          doHttpRequest(clientInput);
+          doHttpRequest(clientRequest);
         }
       }
       else // Handle HTTP-POST
-      if (clientInput.startsWith("POST"))
+      if (clientRequest.startsWith("POST"))
       {
         // Recognize github's payload
-        if (clientInput.contains("payload="))
+        if (clientRequest.contains("payload="))
         {
-          JiraServiceHook hook = new JiraServiceHook(clientInput);
+          JiraServiceHook hook = new JiraServiceHook(clientRequest);
+          // TODO: Implement JiraController here and not in the JiraServiceHook
+        }
+        else
+        {
+          System.out.println("No payload received.");
         }
       }
     }

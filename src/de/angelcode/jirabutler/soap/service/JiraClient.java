@@ -148,20 +148,17 @@ public class JiraClient
       api.addVersion(token, jiraProjectKey, version);
       success = true;
     }
-    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-    {
-      System.out.println("A");
-      //System.out.println("Version already exists.");
-      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
-    }
     catch (RemoteException ex)
     {
-      System.out.println("N");
-      //System.out.println("No permission to set the version.");
-      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
+      System.out.println("Version already exists or no permission to set the version.");
+    }
+    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
+    {
+      System.out.println("Version already exists or no permission to set the version.");
     }
     catch (Exception ex)
     {
+      System.out.println("Unknown exception");
       //throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
     finally
