@@ -4,7 +4,7 @@ connect
 addVersion
 addComment
 addVersion
-2011-01-03 02:03:30,168 main WARN      [apache.axis.utils.JavaUtils] Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+2011-01-03 02:48:10,656 main WARN      [apache.axis.utils.JavaUtils] Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
 addComment
 login
 logout

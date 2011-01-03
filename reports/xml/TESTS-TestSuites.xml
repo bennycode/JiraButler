@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-<<<<<<< HEAD
-  <testsuite errors="0" failures="1" hostname="Bombay" id="0" name="ExampleTest" package="" tests="1" time="0.083" timestamp="2011-01-03T00:57:23">
-=======
-  <testsuite errors="9" failures="8" hostname="A-See" id="0" name="JiraButlerTestSuite" package="de.angelcode.jirabutler.testsuite" tests="17" time="2.404" timestamp="2011-01-03T01:03:29">
->>>>>>> origin/master
+  <testsuite errors="9" failures="8" hostname="Bombay" id="0" name="JiraButlerTestSuite" package="de.angelcode.jirabutler.testsuite" tests="17" time="1.995" timestamp="2011-01-03T01:48:10">
       <properties>
           <property name="java.vendor" value="Sun Microsystems Inc." />
 
           <property name="lib.dir" value="lib" />
 
-          <property name="netbeans.user" value="C:\Users\BoatoonAdmin\.netbeans\6.9" />
+          <property name="netbeans.user" value="C:\Users\bennyn\.netbeans\6.9" />
 
           <property name="sun.java.launcher" value="SUN_STANDARD" />
 
-          <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler" />
 
           <property name="netbeans.autoupdate.version" value="1.23" />
 
           <property name="os.name" value="Windows 7" />
 
-          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.6.0_22\jre\lib\resources.jar;C:\Program Files\Java\jdk1.6.0_22\jre\lib\rt.jar;C:\Program Files\Java\jdk1.6.0_22\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.6.0_22\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.6.0_22\jre\lib\jce.jar;C:\Program Files\Java\jdk1.6.0_22\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.6.0_22\jre\classes" />
+          <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\resources.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\rt.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\jce.jar;C:\Program Files\Java\jdk1.6.0_20\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.6.0_20\jre\classes" />
 
           <property name="reports.html.dir" value="reports/html" />
 
@@ -30,23 +26,17 @@
 
           <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
 
-<<<<<<< HEAD
           <property name="net.sourceforge.cobertura.datafile" value="C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\cobertura\cobertura.ser" />
-=======
-          <property name="org.mortbay.http.HttpRequest.maxFormContentSize" value="0" />
-
-          <property name="net.sourceforge.cobertura.datafile" value="C:\JiraButler\cobertura\cobertura.ser" />
->>>>>>> origin/master
 
           <property name="ant.home" value="C:\Program Files\NetBeans 6.9.1\java\ant" />
 
           <property name="jar.dir" value="build/jar" />
 
-          <property name="java.runtime.version" value="1.6.0_22-b04" />
+          <property name="java.runtime.version" value="1.6.0_20-b02" />
 
           <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
 
-          <property name="user.name" value="BoatoonAdmin" />
+          <property name="user.name" value="bennyn" />
 
           <property name="build.dir" value="build" />
 
@@ -56,7 +46,7 @@
 
           <property name="manifest.class.path" value="lib/atlassian-jira-4.2.1-b588.jar lib/atlassian-jira-rpc-plugin-4.2.1-20101129.030737-33.jar lib/axis-1.3.jar lib/axis-jaxrpc-1.3.jar lib/commons-discovery-0.4.jar lib/commons-lang-2.5.jar lib/commons-logging-1.1.1.jar lib/easymock-3.0.jar lib/google-collect-1.0-rc2.jar lib/java-getopt-1.0.13.jar lib/json-rpc-1.0.jar lib/junit-4.8.2.jar lib/log4j-1.2.16.jar lib/osuser-1.0-20060106.jar lib/wsdl4j-1.6.2.jar" />
 
-          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_22\jre\bin" />
+          <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\bin" />
 
           <property name="cob.data" value="cobertura/cobertura.ser" />
 
@@ -64,17 +54,17 @@
 
           <property name="ant.project.name" value="JiraButler" />
 
-          <property name="java.version" value="1.6.0_22" />
+          <property name="java.version" value="1.6.0_20" />
 
           <property name="user.timezone" value="" />
 
-          <property name="sun.arch.data.model" value="32" />
+          <property name="sun.arch.data.model" value="64" />
 
-          <property name="http.nonProxyHosts" value="localhost|127.0.0.1|A-See" />
+          <property name="http.nonProxyHosts" value="localhost|127.0.0.1|Bombay" />
 
-          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_22\jre\lib\endorsed" />
+          <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\endorsed" />
 
-          <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86" />
+          <property name="sun.cpu.isalist" value="amd64" />
 
           <property name="sun.jnu.encoding" value="Cp1252" />
 
@@ -90,37 +80,33 @@
 
           <property name="user.country" value="DE" />
 
-          <property name="jna.boot.library.path" value="C:\Users\BoatoonAdmin\.netbeans\6.9\var\cache\jna" />
+          <property name="jna.boot.library.path" value="C:\Users\bennyn\.netbeans\6.9\var\cache\jna" />
 
-          <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_22\jre" />
+          <property name="java.home" value="C:\Program Files\Java\jdk1.6.0_20\jre" />
 
-          <property name="netbeans.buildnumber" value="201007282301" />
+          <property name="netbeans.buildnumber" value="201011082200" />
 
-          <property name="java.vm.info" value="mixed mode, sharing" />
+          <property name="java.vm.info" value="mixed mode" />
 
           <property name="org.openide.version" value="deprecated" />
 
-<<<<<<< HEAD
           <property name="ant.file" value="C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\build.xml" />
-=======
-          <property name="ant.file" value="C:\JiraButler\build.xml" />
->>>>>>> origin/master
 
           <property name="os.version" value="6.1" />
 
           <property name="netbeans.system_http_proxy" value="DIRECT" />
 
-          <property name="netbeans.hash.code" value="unique=NB_CND_FX_GFMOD_GROOVY_JAVA_JC_MOB_PHP_RUBY_WEBEE02f679089-a348-4f89-98cf-6e6dc8029f7e_f22a370c-ed0f-4223-b578-da1bc20f3001" />
+          <property name="netbeans.hash.code" value="unique=NB_CND_FX_GROOVY_JAVA_JC_MOB_PHP_RUBY_WEBEE0c6b9b7bb-b68a-4279-8ca0-2a198a7c1a54_cb33476f-7b5b-4af9-828f-53b2f16ca4dc" />
 
           <property name="netbeans.autoupdate.country" value="DE" />
 
-          <property name="https.nonProxyHosts" value="localhost|127.0.0.1|A-See" />
+          <property name="https.nonProxyHosts" value="localhost|127.0.0.1|Bombay" />
 
           <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
 
           <property name="path.separator" value=";" />
 
-          <property name="java.vm.version" value="17.1-b03" />
+          <property name="java.vm.version" value="16.3-b01" />
 
           <property name="user.variant" value="" />
 
@@ -144,15 +130,11 @@
 
           <property name="sun.awt.exception.handler" value="org.netbeans.core.startup.TopLogging$AWTHandler" />
 
-          <property name="user.home" value="C:\Users\BoatoonAdmin" />
+          <property name="user.home" value="C:\Users\bennyn" />
 
           <property name="netbeans.home" value="C:\Program Files\NetBeans 6.9.1\platform" />
 
-<<<<<<< HEAD
           <property name="ant.file.JiraButler" value="C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\build.xml" />
-=======
-          <property name="ant.file.JiraButler" value="C:\JiraButler\build.xml" />
->>>>>>> origin/master
 
           <property name="java.specification.vendor" value="Sun Microsystems Inc." />
 
@@ -164,23 +146,17 @@
 
           <property name="test.dir" value="test" />
 
-          <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_22\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Dell\DW WLAN Card\Driver;c:\Program Files\WIDCOMM\Bluetooth Software\;C:\Program Files\Common Files\Roxio Shared\DLLShared\;C:\Program Files\Common Files\Roxio Shared\10.0\DLLShared\;C:\Program Files\QuickTime\QTSystem\;C:\Program Files\Java\jdk1.6.0_22\bin;C:\Atlassian\atlassian-plugin-sdk-3.0\bin;C:\xampp\php;c:\Program Files\Microsoft SQL Server\100\Tools\Binn\;c:\Program Files\Microsoft SQL Server\100\DTS\Binn\" />
-
-<<<<<<< HEAD
-          <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\CollabNet\Subversion Client;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Python25\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\bennyn\Desktop\Arbeitsbereiche\PHP\Frameworks\zend\bin;C:\xampp\php;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Common Files\Teleca Shared;C:\Program Files\Java\jdk1.6.0_20\bin;C:\Program Files (x86)\PuTTY;C:\Program Files (x86)\doxygen\bin;C:\Windows\system32\wbem;C:\Program Files (x86)\IVT Corporation\BlueSoleil\Mobile;C:\Users\bennyn\Desktop\Arbeitsbereiche\Java\Libraries\apache-ant-1.8.1\bin;%ANT_HOME\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live" />
-=======
-          <property name="org.glassfish.v3ee6.installRoot" value="C:\Program Files\sges-v3" />
-
           <property name="java.vendor.url" value="http://java.sun.com/" />
->>>>>>> origin/master
+
+          <property name="java.library.path" value="C:\Program Files\Java\jdk1.6.0_20\jre\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files (x86)\CollabNet\Subversion Client;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Python25\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\bennyn\Desktop\Arbeitsbereiche\PHP\Frameworks\zend\bin;C:\xampp\php;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Program Files (x86)\Common Files\Teleca Shared;C:\Program Files\Java\jdk1.6.0_20\bin;C:\Program Files (x86)\PuTTY;C:\Program Files (x86)\doxygen\bin;C:\Windows\system32\wbem;C:\Program Files (x86)\IVT Corporation\BlueSoleil\Mobile;C:\Users\bennyn\Desktop\Arbeitsbereiche\Java\Libraries\apache-ant-1.8.1\bin;%ANT_HOME\bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live" />
 
           <property name="ant.file.type.JiraButler" value="file" />
 
           <property name="cob.instr.dir" value="cobertura/cob-instr" />
 
-          <property name="java.vm.vendor" value="Sun Microsystems Inc." />
-
           <property name="jar.class.path.dir" value="build/jar/lib" />
+
+          <property name="java.vm.vendor" value="Sun Microsystems Inc." />
 
           <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
 
@@ -188,27 +164,23 @@
 
           <property name="cob.rep.html" value="cobertura/cob-rep/html" />
 
-<<<<<<< HEAD
           <property name="java.class.path" value="C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\cobertura\cob-instr;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\build\classes;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\atlassian-jira-4.2.1-b588.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\atlassian-jira-rpc-plugin-4.2.1-20101129.030737-33.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\axis-1.3.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\axis-jaxrpc-1.3.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\commons-discovery-0.4.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\commons-lang-2.5.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\commons-logging-1.1.1.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\easymock-3.0.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\google-collect-1.0-rc2.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\java-getopt-1.0.13.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\json-rpc-1.0.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\junit-4.8.2.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\log4j-1.2.16.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\osuser-1.0-20060106.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\lib\wsdl4j-1.6.2.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler\build\jar\JiraButler-0.1.jar;C:\Users\bennyn\Desktop\Projekte\Git\JiraButler;C:\Program Files (x86)\Java\jre6\lib\ext\QTJava.zip;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\java\ant\patches\72080.jar" />
-=======
-          <property name="java.class.path" value="C:\JiraButler\cobertura\cob-instr;C:\JiraButler\build\classes;C:\JiraButler\lib\atlassian-jira-4.2.1-b588.jar;C:\JiraButler\lib\atlassian-jira-rpc-plugin-4.2.1-20101129.030737-33.jar;C:\JiraButler\lib\axis-1.3.jar;C:\JiraButler\lib\axis-jaxrpc-1.3.jar;C:\JiraButler\lib\commons-discovery-0.4.jar;C:\JiraButler\lib\commons-lang-2.5.jar;C:\JiraButler\lib\commons-logging-1.1.1.jar;C:\JiraButler\lib\easymock-3.0.jar;C:\JiraButler\lib\google-collect-1.0-rc2.jar;C:\JiraButler\lib\java-getopt-1.0.13.jar;C:\JiraButler\lib\json-rpc-1.0.jar;C:\JiraButler\lib\junit-4.8.2.jar;C:\JiraButler\lib\log4j-1.2.16.jar;C:\JiraButler\lib\osuser-1.0-20060106.jar;C:\JiraButler\lib\wsdl4j-1.6.2.jar;C:\JiraButler\build\jar\JiraButler-0.1.jar;C:\JiraButler;C:\Program Files\Java\jre6\lib\ext\QTJava.zip;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant-launcher.jar;C:\Program Files\NetBeans 6.9.1\java\ant\lib\ant.jar;C:\Program Files\NetBeans 6.9.1\java\ant\patches\72080.jar" />
->>>>>>> origin/master
 
           <property name="sun.java2d.noddraw" value="true" />
 
           <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
 
-          <property name="jdk.home" value="C:\Program Files\Java\jdk1.6.0_22" />
+          <property name="jdk.home" value="C:\Program Files\Java\jdk1.6.0_20" />
 
           <property name="org.openide.specification.version" value="6.2" />
 
           <property name="java.vm.specification.version" value="1.0" />
 
-          <property name="sun.cpu.endian" value="little" />
-
           <property name="sun.os.patch.level" value="" />
 
-          <property name="java.io.tmpdir" value="C:\Users\BOATOO~1\AppData\Local\Temp\" />
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="java.io.tmpdir" value="C:\Users\bennyn\AppData\Local\Temp\" />
 
           <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
 
@@ -216,35 +188,29 @@
 
           <property name="netbeans.autoupdate.language" value="de" />
 
-          <property name="os.arch" value="x86" />
-
           <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+
+          <property name="os.arch" value="amd64" />
+
+          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.6.0_20\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
 
           <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
 
-          <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.6.0_22\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
+          <property name="build.compiler.emacs" value="true" />
 
           <property name="user.dir" value="C:\Program Files\NetBeans 6.9.1" />
-
-          <property name="build.compiler.emacs" value="true" />
 
           <property name="apple.awt.graphics.UseQuartz" value="true" />
 
           <property name="line.separator" value=" " />
 
-          <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+          <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
 
           <property name="app.version" value="0.1" />
 
-<<<<<<< HEAD
           <property name="basedir" value="C:\Users\bennyn\Desktop\Projekte\Git\JiraButler" />
-=======
-          <property name="basedir" value="C:\JiraButler" />
->>>>>>> origin/master
 
           <property name="ant.java.version" value="1.6" />
-
-          <property name="maven.mode.standalone" value="true" />
 
           <property name="cob.rep.dir" value="cobertura/cob-rep" />
 
@@ -260,7 +226,7 @@
 
       </properties>
 
-      <testcase classname="de.angelcode.jirabutler.hook.JiraServiceHookTest" name="testToString" time="0.021">
+      <testcase classname="de.angelcode.jirabutler.hook.JiraServiceHookTest" name="testToString" time="0.012">
           <failure message="expected:&lt;[]&gt; but was:&lt;[Project version: null JIRA Key: null User: null Commit message: null ]&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;[]&gt; but was:&lt;[Project version: null
 JIRA Key: null
 User: null
@@ -271,7 +237,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.JiraControllerTest" name="testLoadConfigFile" time="0.065">
+      <testcase classname="de.angelcode.jirabutler.soap.JiraControllerTest" name="testLoadConfigFile" time="0.011">
           <error message="The file jira.propertiescould not be found." type="de.angelcode.jirabutler.exceptions.JiraButlerException">de.angelcode.jirabutler.exceptions.JiraButlerException: The file jira.propertiescould not be found.
 	at de.angelcode.jirabutler.soap.JiraController.loadConfigFile(JiraController.java:67)
 	at de.angelcode.jirabutler.soap.JiraControllerTest.testLoadConfigFile(JiraControllerTest.java:50)
@@ -279,7 +245,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.JiraControllerTest" name="testConnect" time="0.0010">
+      <testcase classname="de.angelcode.jirabutler.soap.JiraControllerTest" name="testConnect" time="0.0020">
           <failure message="The test case is a prototype." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: The test case is a prototype.
 	at de.angelcode.jirabutler.soap.JiraControllerTest.testConnect(JiraControllerTest.java:67)
 </failure>
@@ -300,7 +266,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testAddVersion" time="1.125">
+      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testAddVersion" time="0.941">
           <error message="You don&apos;t have permission to set the version." type="de.angelcode.jirabutler.exceptions.JiraButlerException">de.angelcode.jirabutler.exceptions.JiraButlerException: You don&apos;t have permission to set the version.
 	at de.angelcode.jirabutler.soap.service.JiraClient.addVersion(JiraClient.java:139)
 	at de.angelcode.jirabutler.soap.service.JiraClientTest.testAddVersion(JiraClientTest.java:81)
@@ -308,7 +274,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testAddComment" time="0.18">
+      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testAddComment" time="0.128">
           <error message="You don&apos;t have authentification to write a comment." type="de.angelcode.jirabutler.exceptions.JiraButlerException">de.angelcode.jirabutler.exceptions.JiraButlerException: You don&apos;t have authentification to write a comment.
 	at de.angelcode.jirabutler.soap.service.JiraClient.addComment(JiraClient.java:177)
 	at de.angelcode.jirabutler.soap.service.JiraClientTest.testAddComment(JiraClientTest.java:98)
@@ -316,7 +282,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testLogin" time="0.265">
+      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testLogin" time="0.233">
           <error message="The login informations from the user are wrong." type="de.angelcode.jirabutler.exceptions.JiraButlerException">de.angelcode.jirabutler.exceptions.JiraButlerException: The login informations from the user are wrong.
 	at de.angelcode.jirabutler.soap.service.JiraClient.login(JiraClient.java:91)
 	at de.angelcode.jirabutler.soap.service.JiraClientTest.testLogin(JiraClientTest.java:49)
@@ -324,14 +290,14 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testLogout" time="0.157">
+      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testLogout" time="0.124">
           <failure message="expected:&lt;false&gt; but was:&lt;true&gt;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: expected:&lt;false&gt; but was:&lt;true&gt;
 	at de.angelcode.jirabutler.soap.service.JiraClientTest.testLogout(JiraClientTest.java:65)
 </failure>
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testGetVersions" time="0.176">
+      <testcase classname="de.angelcode.jirabutler.soap.service.JiraClientTest" name="testGetVersions" time="0.123">
           <error type="com.atlassian.jira.rpc.exception.RemoteAuthenticationException">com.atlassian.jira.rpc.exception.RemoteAuthenticationException
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
 	at java.lang.Class.newInstance0(Class.java:355)
@@ -380,7 +346,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.webserver.ConnectionHandlerTest" name="testStartThread" time="0.086">
+      <testcase classname="de.angelcode.jirabutler.webserver.ConnectionHandlerTest" name="testStartThread" time="0.043">
           <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at de.angelcode.jirabutler.webserver.ConnectionHandlerTest.testStartThread(ConnectionHandlerTest.java:50)
 </error>
@@ -394,7 +360,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.webserver.ServerFunctionalityTest" name="testHandleRequest" time="0.0030">
+      <testcase classname="de.angelcode.jirabutler.webserver.ServerFunctionalityTest" name="testHandleRequest" time="0.0020">
           <failure message="The test case is a prototype." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: The test case is a prototype.
 	at de.angelcode.jirabutler.webserver.ServerFunctionalityTest.testHandleRequest(ServerFunctionalityTest.java:52)
 </failure>
@@ -408,7 +374,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.webserver.ServerLoggerTest" name="testGetServerLogger" time="0.089">
+      <testcase classname="de.angelcode.jirabutler.webserver.ServerLoggerTest" name="testGetServerLogger" time="0.095">
           <error message="Cannot access log file:  (No such file or directory)" type="de.angelcode.jirabutler.exceptions.JiraButlerException">de.angelcode.jirabutler.exceptions.JiraButlerException: Cannot access log file:
  (No such file or directory)
 	at de.angelcode.jirabutler.webserver.ServerLogger.getServerLogger(ServerLogger.java:48)
@@ -417,7 +383,7 @@ Commit message: null
 
       </testcase>
 
-      <testcase classname="de.angelcode.jirabutler.webserver.ServerStartTest" name="testMain" time="0.017">
+      <testcase classname="de.angelcode.jirabutler.webserver.ServerStartTest" name="testMain" time="0.0060">
           <error type="java.lang.NullPointerException">java.lang.NullPointerException
 	at gnu.getopt.Getopt.getopt(Getopt.java:1055)
 	at de.angelcode.jirabutler.webserver.ServerStart.main(ServerStart.java:46)
@@ -432,7 +398,7 @@ connect
 addVersion
 addComment
 addVersion
-2011-01-03 02:03:30,168 main WARN      [apache.axis.utils.JavaUtils] Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
+2011-01-03 02:48:10,656 main WARN      [apache.axis.utils.JavaUtils] Unable to find required classes (javax.activation.DataHandler and javax.mail.internet.MimeMultipart). Attachment support is disabled.
 addComment
 login
 logout

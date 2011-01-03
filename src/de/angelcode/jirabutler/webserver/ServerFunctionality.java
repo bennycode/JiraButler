@@ -20,9 +20,8 @@ public class ServerFunctionality
    * Handles the request (HTTP-GET, HTTP-POST) of a client.
    * @param clientInput Complete request of a client
    */
-
-public static void handleRequest(String clientInput) throws JiraButlerException
-{
+  public static void handleRequest(String clientInput) throws JiraButlerException
+  {
     if (clientInput != null)
     {
       // Handle HTTP-GET
@@ -34,16 +33,13 @@ public static void handleRequest(String clientInput) throws JiraButlerException
           doHttpRequest(clientInput);
         }
       }
-      else
+      else // Handle HTTP-POST
+      if (clientInput.startsWith("POST"))
       {
-        // Handle HTTP-POST
-        if (clientInput.startsWith("POST"))
+        // Recognize github's payload<
+        if (clientInput.contains("payload="))
         {
-          // Recognize github's payload
-          if (clientInput.contains("payload="))
-          {
-            JiraServiceHook hook = new JiraServiceHook(clientInput);
-          }
+          JiraServiceHook hook = new JiraServiceHook(clientInput);
         }
       }
     }
@@ -65,7 +61,7 @@ public static void handleRequest(String clientInput) throws JiraButlerException
       cutPosition = lineCache.indexOf("HTTP/1.1");
       fileName = lineCache.substring(0, cutPosition);
       fileName = fileName.trim();
-      if(fileName.equals("") || fileName == null)
+      if (fileName.equals("") || fileName == null)
       {
         fileName = "index.html";
       }
@@ -107,7 +103,7 @@ public static void handleRequest(String clientInput) throws JiraButlerException
     }
     catch (Exception ex)
     {
-      throw new JiraButlerException("Requested file could not be read: "+ex.getLocalizedMessage());
+      throw new JiraButlerException("Requested file could not be read: " + ex.getLocalizedMessage());
     }
 
     return sb.toString();
