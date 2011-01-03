@@ -1,21 +1,15 @@
 package de.angelcode.jirabutler.soap;
 
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import com.atlassian.jira.rpc.exception.RemotePermissionException;
-import com.atlassian.jira.rpc.soap.JiraSoapService;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
-import com.atlassian.jira.rpc.soap.beans.RemoteIssue;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
-import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.soap.service.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.Properties;
-import javax.xml.rpc.ServiceException;
 
 /**
  *
@@ -57,12 +51,26 @@ public class JiraController
   /**
    * Reads the connection connectionUrl and JIRA authentication credentials (username and password) from the default "jira.properties" configuration file.
    */
-  public void loadConfigFile() throws IOException
+  public void loadConfigFile() throws JiraButlerException
   {
     Properties properties = new Properties();
-    BufferedInputStream stream = new BufferedInputStream(new FileInputStream(SystemVariables.getJarExecutionDirectory() + "jira.properties"));
-    properties.load(stream);
-    stream.close();
+    BufferedInputStream stream;
+    String file = "jira.properties";
+    try
+    {
+      stream = new BufferedInputStream(new FileInputStream(SystemVariables.getJarExecutionDirectory() + file));
+      properties.load(stream);
+      stream.close();
+    }
+    catch (FileNotFoundException ex)
+    {
+      throw new JiraButlerException("The file " + file + "could not be found.");
+    }
+    catch (IOException ex)
+    {
+      throw new JiraButlerException("Error by reading/writing the file " + file);
+    }
+    
     this.connectionUrl = properties.getProperty("url");
     this.connectionUsername = properties.getProperty("username");
     this.connectionPassword = properties.getProperty("password");
@@ -73,7 +81,7 @@ public class JiraController
       System.out.println(this.projectKey);
   }
 
-  public boolean connect() throws ServiceException, JIRAException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean connect() throws JiraButlerException
   {
     boolean isLoggedIn = false;
     if (this.connectionUsername != null
@@ -86,32 +94,18 @@ public class JiraController
     return isLoggedIn;
   }
 
-  public void addVersion() throws RemoteException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
+  public void addVersion() throws JiraButlerException
   {
     if (this.projectKey != null && this.version != null)
     {
       RemoteVersion newVersion = new RemoteVersion();
       newVersion.setName(this.version);
-//      try
-//      {
-        client.addVersion(this.projectKey, newVersion);
-//      }
-//      catch (NoClassDefFoundError ex)
-//      {
-//        throw new JiraButlerException("Version successfully set.");
-//      }
-//      catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-//      {
-//        throw new JiraButlerException("Version already set.");
-//      }
-//      catch (Exception ex)
-//      {
-//        throw new JiraButlerException("Version cannot be set.");
-//      }
+
+      client.addVersion(this.projectKey, newVersion);
     }
   }
 
-  public boolean addComment() throws RemoteException, RemotePermissionException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  public boolean addComment() throws JiraButlerException
   {
     if (this.issueKey != null && this.message != null && this.username != null)
     {

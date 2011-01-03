@@ -1,20 +1,14 @@
 package de.angelcode.jirabutler.webserver;
 
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.Socket;
-import java.rmi.RemoteException;
-import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.xml.rpc.ServiceException;
 
 /**
  * Processes server requests and responses.
@@ -60,14 +54,7 @@ class ConnectionHandler implements Runnable
 
       System.out.println("Request from client:");
       System.out.println(message);
-      try
-      {
-        ServerFunctionality.handleRequest(message);
-      }
-      catch (JiraButlerException ex)
-      {
-        Logger.getLogger(ConnectionHandler.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      ServerFunctionality.handleRequest(message);
       String serverResponse = ServerFunctionality.getServerResponse();
       System.out.println("Response to client:");
       System.out.println(serverResponse);
@@ -79,9 +66,15 @@ class ConnectionHandler implements Runnable
       socket.close();
       System.out.println("Waiting for connection...");
     }
-    catch (Exception ex)
+    catch (IOException ex)
     {
-      //
+      System.out.println("Error while setting-up the stream.");
+      System.out.println(ex.getLocalizedMessage());
     }
+    catch (JiraButlerException ex)
+    {
+      System.out.println(ex.getMessage());
+    }
+
   }
 }
