@@ -27,8 +27,6 @@ public class JiraClient
 
   public JiraClient(String connectionUrl) throws JiraButlerException
   {
-    System.out.println("======================================================");
-    System.out.println(connectionUrl);
     service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(connectionUrl);
     try
     {

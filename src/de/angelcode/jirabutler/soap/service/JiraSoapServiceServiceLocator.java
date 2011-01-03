@@ -10,6 +10,7 @@ import java.rmi.Remote;
 
 public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Service implements JiraSoapServiceService
 {
+
   private String JirasoapserviceV2_address;
 
   public JiraSoapServiceServiceLocator(String connectionUrl)
@@ -26,10 +27,6 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
   {
     super(wsdlLoc, sName);
   }
-
-  // Use to get a proxy class for JirasoapserviceV2
-  //private java.lang.String JirasoapserviceV2_address = "http://www.angelcode.de:8080//rpc/soap/jirasoapservice-v2";
-  
 
   public java.lang.String getJirasoapserviceV2Address()
   {
@@ -53,8 +50,6 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     java.net.URL endpoint;
     try
     {
-      System.out.println("===============================================================");
-      System.out.println(JirasoapserviceV2_address);
       endpoint = new java.net.URL(JirasoapserviceV2_address);
     }
     catch (java.net.MalformedURLException e)
