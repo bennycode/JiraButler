@@ -31,7 +31,11 @@ public class JiraClient
     }
     catch (ServiceException ex)
     {
-      throw new JiraButlerException("You can't get the Jira SOAP service.");
+      throw new JiraButlerException("Cannot get the JIRA SOAP service: "+ex.getLocalizedMessage());
+    }
+    catch (Exception ex)
+    {
+      throw new JiraButlerException("Unknown exception: "+ex.getLocalizedMessage());
     }
   }
 
