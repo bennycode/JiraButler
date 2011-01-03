@@ -95,15 +95,15 @@
     <delete dir="${reports.html.dir}"/>
     <delete dir="${cob.instr.dir}"/>
 	
-	<mkdir dir="${reports.dir}"/>
-	<mkdir dir="${junit.dir}"/>
+    <mkdir dir="${reports.dir}"/>
+    <mkdir dir="${junit.dir}"/>
     <mkdir dir="${cob.dir}"/>
-	<mkdir dir="${cob.instr.dir}"/>	
+    <mkdir dir="${cob.instr.dir}"/>
     <mkdir dir="${reports.xml.dir}"/>
-    <mkdir dir="${reports.html.dir}"/>	
+    <mkdir dir="${reports.html.dir}"/>
 	
     <!-- JUnit declaration -->
-    <junit printsummary="yes">
+    <junit fork="yes" forkmode="once" printsummary="yes">
       <sysproperty key="net.sourceforge.cobertura.datafile" file="${cob.data}" />
       <classpath>
         <path location="${cob.instr.dir}"></path>
@@ -126,12 +126,14 @@
 
   <!-- Cobertura settings -->
   <target name="cob-instr" depends="compile">
+    <delete file="${cob.data}" />
     <cobertura-instrument todir="${cob.instr.dir}" datafile="${cob.data}">
       <fileset dir="${classes.dir}">
         <include name="**/*.class" />
         <exclude name="**/*Test.class" />
         <exclude name="**/*Suite.class" />
       </fileset>
+      <fileset file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>
     </cobertura-instrument>
   </target>
 
