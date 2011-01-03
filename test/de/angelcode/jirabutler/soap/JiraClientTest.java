@@ -21,72 +21,83 @@ import de.angelcode.jirabutler.soap.service.JiraSoapService;
  * 
  * @author BoatoonAdmin
  */
-public class JiraClientTest {
+public class JiraClientTest
+{
 
-	private JiraClient jiraClient;
-	private JiraSoapService apiMock;
+  private JiraClient jiraClient;
+  private JiraSoapService apiMock;
 
-	@Before
-	public void setUp() throws Exception {
-		jiraClient = new JiraClient();
-		apiMock = createStrictMock(JiraSoapService.class);
-		jiraClient.setApi(apiMock);
-	}
+  @Before
+  public void setUp() throws Exception
+  {
+    jiraClient = new JiraClient();
+    apiMock = createStrictMock(JiraSoapService.class);
+    jiraClient.setApi(apiMock);
+  }
 
-	/**
-	 * Test of valid login method, of class JiraClient.
-	 * @throws RemoteException 
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException 
-	 * @throws JiraButlerException 
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException 
-	 * @throws RemoteAuthenticationException 
-	 */
-	@Test
-	public void testValidLogin() throws JiraButlerException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException {
-		String token = new String();
-		String user = "testUser";
-		String password = "testPassword";
+  /**
+   * Test of valid login method, of class JiraClient.
+   * @throws RemoteException
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   * @throws JiraButlerException
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   * @throws RemoteAuthenticationException
+   */
+  @Test
+  public void testValidLogin() throws JiraButlerException, RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException
+  {
+    String token = new String();
+    String user = "testUser";
+    String password = "testPassword";
 
-		try {
-			expect(apiMock.login(user, password)).andReturn(token).times(1);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (RemoteAuthenticationException e) {
-			e.printStackTrace();
-		} catch (com.atlassian.jira.rpc.exception.RemoteException e) {
-			e.printStackTrace();
-		}
-		replay(apiMock);
-		assertTrue(jiraClient.login(user, password));
-		verify(apiMock);
-	}
-	
-	/**
-	 * Test of invalid login method, of class JiraClient.
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException 
-	 * @throws RemoteAuthenticationException 
-	 * @throws RemoteException 
-	 * @throws JiraButlerException
-	 */
-	@Test
-	public final void testInvalidLogin() throws RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException {
-		String user = "testUser";
-		String password = "testPassword";
-		
-		expect(apiMock.login(user, password)).andReturn(null).times(1);
-		replay(apiMock);
-		assertFalse(jiraClient.login(user, password));
-		verify(apiMock);
-	}
-	
-	@Test(expected=JiraButlerException.class)
-	public final void testVoidLogin() throws JiraButlerException {
-		String user = "";
-		String password = "";
-		
-		jiraClient.login(user, password);
-	}
+    try
+    {
+      expect(apiMock.login(user, password)).andReturn(token).times(1);
+    }
+    catch (RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    catch (RemoteAuthenticationException e)
+    {
+      e.printStackTrace();
+    }
+    catch (com.atlassian.jira.rpc.exception.RemoteException e)
+    {
+      e.printStackTrace();
+    }
+    replay(apiMock);
+    assertTrue(jiraClient.login(user, password));
+    verify(apiMock);
+  }
 
+  /**
+   * Test of invalid login method, of class JiraClient.
+   * @throws com.atlassian.jira.rpc.exception.RemoteException
+   * @throws RemoteAuthenticationException
+   * @throws RemoteException
+   * @throws JiraButlerException
+   */
+  @Test
+  public final void testInvalidLogin() throws RemoteException, RemoteAuthenticationException, com.atlassian.jira.rpc.exception.RemoteException, JiraButlerException
+  {
+    String user = "testUser";
+    String password = "testPassword";
+
+    expect(apiMock.login(user, password)).andReturn(null).times(1);
+    replay(apiMock);
+    assertFalse(jiraClient.login(user, password));
+    verify(apiMock);
+  }
+
+  @Test(expected = JiraButlerException.class)
+  public final void testVoidLogin() throws JiraButlerException
+  {
+    String user = "";
+    String password = "";
+
+    jiraClient.login(user, password);
+  }
 //	/**
 //	 * Test of logout method, of class JiraClient.
 //	 */
@@ -151,5 +162,4 @@ public class JiraClientTest {
 //		// fail.
 //		fail("The test case is a prototype.");
 //	}
-	
 }
