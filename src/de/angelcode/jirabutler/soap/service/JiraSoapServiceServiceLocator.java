@@ -53,6 +53,8 @@ public class JiraSoapServiceServiceLocator extends org.apache.axis.client.Servic
     java.net.URL endpoint;
     try
     {
+      System.out.println("===============================================================");
+      System.out.println(JirasoapserviceV2_address);
       endpoint = new java.net.URL(JirasoapserviceV2_address);
     }
     catch (java.net.MalformedURLException e)
