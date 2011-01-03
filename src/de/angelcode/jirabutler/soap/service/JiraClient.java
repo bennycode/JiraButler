@@ -150,18 +150,22 @@ public class JiraClient
     }
     catch (RemoteException ex)
     {
-      throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
+      System.out.println("EINS");
+      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
     }
     catch (com.atlassian.jira.rpc.exception.RemoteException ex)
     {
-      throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
+      System.out.println("ZWEI");
+      //throw new JiraButlerException("You don't have permission to set the version: " + ex.getLocalizedMessage());
     }
     catch (Exception ex)
     {
-      throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
+      //throw new JiraButlerException("Unknown exception: " + ex.getLocalizedMessage());
     }
-
-    return success;
+    finally
+    {
+      return success;
+    }
   }
 
   /**

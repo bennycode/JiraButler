@@ -75,6 +75,5 @@ class ConnectionHandler implements Runnable
     {
       System.out.println(ex.getMessage());
     }
-
   }
 }
