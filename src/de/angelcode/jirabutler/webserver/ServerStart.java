@@ -58,7 +58,7 @@ public class ServerStart
             }
             catch (JiraButlerException ex)
             {
-              System.out.println(ex.getMessage());
+              System.out.println(ex.getLocalizedMessage());
             }
           }
           else
@@ -95,12 +95,9 @@ public class ServerStart
           break;
         case 'l':
           logFilePath = new StringBuffer(g.getOptarg());
-          //System.out.println("Log file will be saved to: " + logFilePath);
           break;
         case 'p':
-          //serverPort = Integer.parseInt(g.getOptarg());
           serverPort = new StringBuffer(g.getOptarg()).toString();
-          //System.out.println("Server will be launched at port: " + serverPort);
           break;
         case 'v':
           System.out.println(programName + " " + programVersion);

@@ -53,18 +53,22 @@ public static void handleRequest(String clientInput) throws JiraButlerException
    * Initiates the server's response in case of a valid HTTP/1.1 request.
    * @param clientInput Input from the client
    */
-  private static void doHttpRequest(String clientInput)
+  private static void doHttpRequest(String clientInput) throws JiraButlerException
   {
-    int temp;
+    int cutPosition = 0;
     String fileName = null;
     // Removing GET and trailing "/" from the request
     String lineCache = clientInput.substring(5, clientInput.length());
     // Look if it is a valid HTTP/1.1 request
     if (lineCache.contains("HTTP/1.1"))
     {
-      temp = lineCache.indexOf("HTTP/1.1");
-      fileName = lineCache.substring(0, temp);
+      cutPosition = lineCache.indexOf("HTTP/1.1");
+      fileName = lineCache.substring(0, cutPosition);
       fileName = fileName.trim();
+      if(fileName.equals("") || fileName == null)
+      {
+        fileName = "index.html";
+      }
       doHttpResponse(fileName);
     }
     else
@@ -87,7 +91,7 @@ public static void handleRequest(String clientInput) throws JiraButlerException
    * @param fileName Absolute path to the file
    * @return file-content
    */
-  private static String getFileContent(String fileName)
+  private static String getFileContent(String fileName) throws JiraButlerException
   {
     StringBuilder sb = new StringBuilder();
 
@@ -101,15 +105,10 @@ public static void handleRequest(String clientInput) throws JiraButlerException
       }
       reader.close();
     }
-    catch (Exception ex1)
+    catch (Exception ex)
     {
-      /*
-      serverResponse = "Error while reading the file.";
-      serverResponse += ex1.getLocalizedMessage();
-      return serverResponse;
-      */
+      throw new JiraButlerException("Requested file could not be read: "+ex.getLocalizedMessage());
     }
-
 
     return sb.toString();
   }
@@ -118,7 +117,7 @@ public static void handleRequest(String clientInput) throws JiraButlerException
    * Generates the HTTP-GET/1.1-Response.
    * @param fileName File that is requested by the client
    */
-  private static void doHttpResponse(String fileName)
+  private static void doHttpResponse(String fileName) throws JiraButlerException
   {
     String lineSeperator = System.getProperty("line.separator");
     String fileSeperator = System.getProperty("file.separator");

@@ -54,11 +54,11 @@ public JiraServiceHook(String githubRequest) throws JiraButlerException
     }
     catch (ParseException ex)
     {
-      throw new JiraButlerException("The JSON String could not be convert to a JSON Object ");
+      throw new JiraButlerException("The JSON string could not be converted to a JSON object: "+ex.getLocalizedMessage());
     } 
     catch (UnsupportedEncodingException ex)
     {
-      System.out.println("The JSON Object can't convert from ASCII to Unicode.");
+      throw new JiraButlerException("The JSON object could not be converted from ASCII to UTF-8: "+ex.getLocalizedMessage());
     }
 
     // Parse all relevant information from the JSON object
