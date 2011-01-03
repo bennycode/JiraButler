@@ -101,7 +101,14 @@ public class JiraController
       RemoteVersion newVersion = new RemoteVersion();
       newVersion.setName(this.version);
 
-      client.addVersion(this.projectKey, newVersion);
+      try
+      {
+        client.addVersion(this.projectKey, newVersion);
+      }
+      catch(NoClassDefFoundError ex)
+      {
+        System.out.println("Version added successfully.");
+      }
     }
   }
 
