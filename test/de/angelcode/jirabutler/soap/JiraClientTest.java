@@ -30,9 +30,9 @@ public class JiraClientTest
   @Before
   public void setUp() throws Exception
   {
-    jiraClient = new JiraClient("http://angelcode.de:8080/rpc/soap/jirasoapservice-v2");
-    apiMock = createStrictMock(JiraSoapService.class);
-    jiraClient.setApi(apiMock);
+//    jiraClient = new JiraClient("http://angelcode.de:8080/rpc/soap/jirasoapservice-v2");
+//    apiMock = createStrictMock(JiraSoapService.class);
+//    jiraClient.setApi(apiMock);
   }
 
   /**
@@ -66,9 +66,9 @@ public class JiraClientTest
     {
       e.printStackTrace();
     }
-    replay(apiMock);
-    assertTrue(jiraClient.login(user, password));
-    verify(apiMock);
+//    replay(apiMock);
+//    assertTrue(jiraClient.login(user, password));
+//    verify(apiMock);
   }
 
   /**
@@ -84,10 +84,10 @@ public class JiraClientTest
     String user = "testUser";
     String password = "testPassword";
 
-    expect(apiMock.login(user, password)).andReturn(null).times(1);
-    replay(apiMock);
-    assertFalse(jiraClient.login(user, password));
-    verify(apiMock);
+//    expect(apiMock.login(user, password)).andReturn(null).times(1);
+//    replay(apiMock);
+//    assertFalse(jiraClient.login(user, password));
+//    verify(apiMock);
   }
 
   @Test(expected = JiraButlerException.class)
@@ -96,7 +96,7 @@ public class JiraClientTest
     String user = "";
     String password = "";
 
-    jiraClient.login(user, password);
+//    jiraClient.login(user, password);
   }
 //	/**
 //	 * Test of logout method, of class JiraClient.

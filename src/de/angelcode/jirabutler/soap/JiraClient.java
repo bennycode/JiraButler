@@ -1,248 +1,238 @@
 package de.angelcode.jirabutler.soap;
 
-import com.atlassian.jira.rpc.exception.RemoteAuthenticationException;
-import com.atlassian.jira.rpc.exception.RemotePermissionException;
+import com.atlassian.jira.rpc.exception.RemoteException;
+import com.atlassian.jira.rpc.soap.JiraSoapService;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
-import java.rmi.RemoteException;
-import javax.xml.rpc.ServiceException;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
-import de.angelcode.jirabutler.exceptions.JIRAException;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
-import de.angelcode.jirabutler.exceptions.VoidParameterException;
-import de.angelcode.jirabutler.soap.service.JiraSoapService;
 import de.angelcode.jirabutler.soap.service.JiraSoapServiceService;
 import de.angelcode.jirabutler.soap.service.JiraSoapServiceServiceLocator;
-import java.util.ArrayList;
+import de.angelcode.jirabutler.util.SystemVariables;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import javax.xml.rpc.ServiceException;
 
 /**
- * 
- * @author jens, robert, danielp
+ *
+ * @author danielp
  */
 public class JiraClient
 {
 
+  private String jiraProjectVersion;
+  private String jiraIssueKey;
+  private String username;
+  private String gitCommitMessage;
+  private String connectionUrl;
+  private String connectionUsername;
+  private String connectionPassword;
+  private String projectKey;
+  // JIRA connection stuff
   private JiraSoapServiceService service;
   private JiraSoapService api;
-  private String token = null;
+  private String token;
 
-  public JiraClient(String connectionUrl) throws JiraButlerException
+  public JiraClient()
   {
-    service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(connectionUrl);
-    try
-    {
-      api = service.getJirasoapserviceV2();
-    }
-    catch (ServiceException ex)
-    {
-      throw new JiraButlerException("Cannot get the JIRA SOAP service: "
-              + ex.getLocalizedMessage());
-    }
-    catch (Exception ex)
-    {
-      throw new JiraButlerException("Unknown exception: "
-              + ex.getLocalizedMessage());
-    }
+    super();
+    this.jiraProjectVersion = null;
+    this.jiraIssueKey = null;
+    this.username = null;
+    this.gitCommitMessage = null;
+    this.connectionUrl = null;
+    this.connectionUsername = null;
+    this.connectionPassword = null;
+    this.service = null;
+    this.api = null;
+    this.token = null;
   }
 
-  public void setApi(JiraSoapService api)
+  public JiraClient(String version, String key, String username, String message)
   {
-    this.api = api;
-  }
-
-  /**
-   * Authenticates a user with JIRA.
-   *
-   * @param user
-   * @param password
-   * @return true if login was successful and false if it was not
-   * @throws JIRAException
-   * @throws RemoteException
-   * @throws VoidParameterException
-   * @throws RemoteAuthenticationException
-   * @throws com.atlassian.jira.rpc.exception.RemoteException
-   */
-  public boolean login(String user, String password)
-          throws JiraButlerException
-  {
-    if (user.equals("") || password.equals(""))
-    {
-      throw new JiraButlerException("Void paramater for login.");
-    }
-    try
-    {
-      token = api.login(user, password);
-    }
-    catch (RemoteException ex)
-    {
-      throw new JiraButlerException("Cannot connect to JIRA: "
-              + ex.getLocalizedMessage());
-    }
-    catch (RemoteAuthenticationException ex)
-    {
-      throw new JiraButlerException(
-              "The authentication credentials are wrong: "
-              + ex.getLocalizedMessage());
-    }
-    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-    {
-      throw new JiraButlerException("Connect to JIRA: "
-              + ex.getLocalizedMessage());
-    }
-    catch (Exception ex)
-    {
-      throw new JiraButlerException("Unknown exception: "
-              + ex.getLocalizedMessage());
-    }
-
-    return token == null ? false : true;
+    this();
+    this.jiraProjectVersion = version;
+    this.jiraIssueKey = key;
+    this.username = username;
+    this.gitCommitMessage = message;
   }
 
   /**
-   * Signs the currently logged-in user out.
-   *
-   * @return true if logout was successful and false if it was not
-   * @throws RemoteException
+   * Reads the connection URL and JIRA authentication credentials (username and password) from the default "jira.properties" configuration file.
    */
-  public boolean logout() throws JiraButlerException
+  public void loadConfigFile() throws JiraButlerException
+  {
+    Properties properties = new Properties();
+    BufferedInputStream stream;
+    String file = "jira.properties";
+    try
+    {
+      stream = new BufferedInputStream(new FileInputStream(SystemVariables.getJarExecutionDirectory() + file));
+      properties.load(stream);
+      stream.close();
+    }
+    catch (FileNotFoundException ex)
+    {
+      throw new JiraButlerException("The file " + file + "could not be found.");
+    }
+    catch (IOException ex)
+    {
+      throw new JiraButlerException("Error while reading/writing the file " + file + ".");
+    }
+
+    this.connectionUrl = properties.getProperty("url");
+    this.connectionUsername = properties.getProperty("username");
+    this.connectionPassword = properties.getProperty("password");
+
+    if (this.jiraIssueKey != null)
+    {
+      this.projectKey = this.jiraIssueKey.substring(0, this.jiraIssueKey.indexOf("-"));
+    }
+  }
+
+  public boolean login() throws JiraButlerException
   {
     boolean success = false;
 
-    try
+    // If connection information is available
+    if (this.connectionUsername != null
+            && this.connectionPassword != null
+            && this.connectionUrl != null)
     {
-      success = api.logout(token);
+      try
+      {
+        // Init JIRA services
+        this.service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(this.connectionUrl);
+        this.api = (JiraSoapService) this.service.getJirasoapserviceV2();
+        this.token = api.login(this.connectionUsername, this.connectionPassword);
+        success = true;
+      }
+      catch (RemoteException ex)
+      {
+        throw new JiraButlerException("The authentication credentials are wrong: "
+                + ex.getLocalizedMessage());
+      }
+      catch (ServiceException ex)
+      {
+        throw new JiraButlerException("Cannot get the JIRA SOAP service: "
+                + ex.getLocalizedMessage());
+      }
+      catch (Exception ex)
+      {
+        throw new JiraButlerException("Unknown exception: "
+                + ex.getLocalizedMessage());
+      }
+      finally
+      {
+        return success;
+      }
     }
-    catch (RemoteException ex)
-    {
-      throw new JiraButlerException("Logout was not successful: "
-              + ex.getLocalizedMessage());
-    }
-    catch (Exception ex)
-    {
-      throw new JiraButlerException("Unknown exception: "
-              + ex.getLocalizedMessage());
-    }
-
-    return success;
-  }
-
-  /**
-   * This method adds a new version for a JIRA proejct.
-   *
-   * @param jiraProjectKey
-   * @param version
-   * @return true when the version was added and false if the version could
-   *         not be added
-   * @throws RemoteException
-   * @throws com.atlassian.jira.rpc.exception.RemoteException
-   */
-  public boolean addVersion(String jiraProjectKey, RemoteVersion version)
-          throws JiraButlerException
-  {
-    boolean success = false;
-
-    try
-    {
-      api.addVersion(token, jiraProjectKey, version);
-      System.out.println("TRUUUUUUUUUUUUUUUUUUUUUUUE");
-      //success = true;
-    }
-    catch (RemoteException ex)
-    {
-      System.out.println("Version already exists or no permission to set the version.");
-      success = false;
-    }
-    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-    {
-      System.out.println("Version already exists or no permission to set the version.");
-      success = false;
-    }
-    catch (Exception ex)
-    {
-      System.out.println("Unknown exception");
-      success = false;
-    }
-    finally
+    else
     {
       return success;
     }
   }
 
-  /**
-   * This method adds a comment to an existing JIRA issue.
-   *
-   * @param jiraProjectKey
-   * @param comment
-   * @return true if the comment was added, false when the comment could not
-   *         be added
-   * @throws RemoteException
-   * @throws RemotePermissionException
-   * @throws RemoteAuthenticationException
-   * @throws com.atlassian.jira.rpc.exception.RemoteException
-   */
-  public boolean addComment(String jiraProjectKey, RemoteComment comment)
-          throws JiraButlerException
+  public boolean logout() throws JiraButlerException
+  {
+    return this.api.logout(this.token);
+  }
+
+  public boolean addVersion() throws JiraButlerException
   {
     boolean success = false;
 
-    try
+    if (this.projectKey != null && this.jiraProjectVersion != null)
     {
-      this.api.addComment(token, jiraProjectKey, comment);
-      success = true;
-    }
-    catch (RemoteException ex)
-    {
-      throw new JiraButlerException("Cannot connect to JIRA: "
-              + ex.getLocalizedMessage());
-    }
-    catch (RemotePermissionException ex)
-    {
-      throw new JiraButlerException(
-              "You don't have permission to write a comment: "
-              + ex.getLocalizedMessage());
-    }
-    catch (RemoteAuthenticationException ex)
-    {
-      throw new JiraButlerException(
-              "Comment could not be written. Please check your authentication credentials: "
-              + ex.getLocalizedMessage());
-    }
-    catch (com.atlassian.jira.rpc.exception.RemoteException ex)
-    {
-      throw new JiraButlerException("Cannot connect to JIRA: "
-              + ex.getLocalizedMessage());
-    }
-    catch (Exception ex)
-    {
-      throw new JiraButlerException("Unknown exception: "
-              + ex.getLocalizedMessage());
-    }
+      RemoteVersion newVersion = new RemoteVersion();
+      newVersion.setName(this.jiraProjectVersion);
 
-    return success;
+      try
+      {
+        api.addVersion(token, this.projectKey, newVersion);
+        success = true;
+      }
+      catch (RemoteException ex)
+      {
+        System.out.println("Version already exists or no permission to set the version: " + ex.getLocalizedMessage());
+      }
+      catch (NoClassDefFoundError ex)
+      {
+        System.out.println("Version added successfully.");
+      }
+      catch (Exception ex)
+      {
+        System.out.println("Unknown exception: " + ex.getLocalizedMessage());
+      }
+      finally
+      {
+        return success;
+      }
+    }
+    else
+    {
+      return success;
+    }
   }
 
-  /**
-   * Experimental. Not used yet.
-   *
-   * @param jiraProjectKey
-   * @return A list of all version available
-   * @throws RemoteException
-   * @throws RemotePermissionException
-   * @throws RemoteAuthenticationException
-   * @throws com.atlassian.jira.rpc.exception.RemoteException
-   */
-  public ArrayList<String> getVersions(String jiraProjectKey)
-          throws RemoteException, RemotePermissionException,
-                 RemoteAuthenticationException,
-                 com.atlassian.jira.rpc.exception.RemoteException
+  public boolean addComment() throws JiraButlerException
   {
-    ArrayList<String> versionList = new ArrayList<String>();
-    RemoteVersion[] versions = api.getVersions(token, jiraProjectKey);
+    boolean success = false;
 
-    for (RemoteVersion version : versions)
+    if (this.jiraIssueKey != null && this.gitCommitMessage != null && this.username != null)
     {
-      versionList.add(version.getName());
+      try
+      {
+        RemoteComment comment = new RemoteComment();
+        comment.setBody(this.username + ": " + this.gitCommitMessage);
+        System.out.println("This comment is going to be written into the JIRA issue: " + this.username + ": " + this.gitCommitMessage);
+        this.api.addComment(token, this.projectKey, comment);
+        success = true;
+      }
+      catch (RemoteException ex)
+      {
+        throw new JiraButlerException("Comment could not be written. Please check your authentication credentials and user permissions: "
+                + ex.getLocalizedMessage());
+      }
+      catch (Exception ex)
+      {
+        System.out.println("Unknown exception: " + ex.getLocalizedMessage());
+      }
+      finally
+      {
+        return success;
+      }
     }
+    else
+    {
+      return success;
+    }
+  }
 
-    return versionList;
+  public void setGitCommitMessage(String gitCommitMessage)
+  {
+    this.gitCommitMessage = gitCommitMessage;
+  }
+
+  public void setJiraIssueKey(String jiraIssueKey)
+  {
+    this.jiraIssueKey = jiraIssueKey;
+  }
+
+  public void setJiraProjectVersion(String jiraProjectVersion)
+  {
+    this.jiraProjectVersion = jiraProjectVersion;
+  }
+
+  public void setUsername(String username)
+  {
+    this.username = username;
+  }
+
+  public String getConnectionUrl()
+  {
+    return this.connectionUrl;
   }
 }

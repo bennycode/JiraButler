@@ -2,7 +2,7 @@ package de.angelcode.jirabutler.webserver;
 
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.hook.JiraServiceHook;
-import de.angelcode.jirabutler.soap.JiraController;
+import de.angelcode.jirabutler.soap.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
 import java.io.BufferedReader;
 import java.io.File;
@@ -41,7 +41,7 @@ public class ServerFunctionality
         if (clientRequest.contains("payload="))
         {
           JiraServiceHook hook = new JiraServiceHook(clientRequest);
-          JiraController controller = new JiraController();
+          JiraClient client = new JiraClient();
 
           hook.convertGithubRequestToJson();
           hook.parseGithubJson();
@@ -52,33 +52,36 @@ public class ServerFunctionality
           String key = hook.getJiraIssueKey();
           String message = hook.getGitCommitMessage();
 
-          // Pass the information to the JIRA controller, so that it can be inserted into JIRA
+          // Pass the information to the JIRA client, so that it can be inserted into JIRA
           if (version != null)
           {
-            controller.setJiraProjectVersion(version);
+            client.setJiraProjectVersion(version);
           }
           if (username != null)
           {
-            controller.setUsername(username);
+            client.setUsername(username);
           }
           if (key != null)
           {
-            controller.setJiraIssueKey(key);
+            client.setJiraIssueKey(key);
           }
           if (message != null)
           {
-            controller.setGitCommitMessage(message);
+            client.setGitCommitMessage(message);
           }
 
-          // Let the controller work!
-          controller.loadConfigFile();
-          boolean isConnected = controller.connect();
+          // Let the client work!
+          client.loadConfigFile();
+          boolean isConnected = client.login();
           if (isConnected)
           {
-            boolean addedVersion = controller.addVersion();
-            boolean addedComment = controller.addComment();
-            System.out.println("Added version: "+addedVersion);
-            System.out.println("Added comment: "+addedComment);
+            boolean addedVersion = client.addVersion();
+            boolean addedComment = client.addComment();
+            boolean logout = client.logout();
+
+            System.out.println("Added version: " + addedVersion);
+            System.out.println("Added comment: " + addedComment);
+            System.out.println("Logout: " + logout);
           }
         }
         else
