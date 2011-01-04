@@ -150,17 +150,7 @@ public final class JiraServiceHook
   }
 
   /**
-   * Parses the Git commit gitCommitMessage for the JIRA issue key. It expects
-   * an '@' as delimtter. For example: If the commit gitCommitMessage is:
-   * 'SWQ-11@My commit gitCommitMessage', then this method extracts the
-   * character sequence in front of the '@' and takes it for the JIRA issue
-   * key. The character sequence which follows the '@' is the commit
-   * gitCommitMessage. In our example this would be 'My commit
-   * gitCommitMessage' and the key will be 'SWQ-11'.
-   *
-   * = Short example = Git-Commit gitCommitMessage: SWQ-11@My commit
-   * gitCommitMessage JIRA issue key: SWQ-11 Message for the JIRA comment: My
-   * commit gitCommitMessage
+   * Parses the Git commit message for the JIRA issue key.
    *
    * @param gitCommitMessage
    */

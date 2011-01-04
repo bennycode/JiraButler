@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  */
 public class JiraServiceHookTest
 {
+
   private JiraServiceHook hook;
   private String githubRequest;
 
@@ -49,5 +50,20 @@ public class JiraServiceHookTest
     result = hook.getUsername();
 
     assertEquals("Test if a username can be parsed from a github request.", expected, result);
+  }
+
+  @Test
+  public void testMessageParsing() throws JiraButlerException
+  {
+    String expected = "bennyn: Cobertura inside!";
+    String result = null;
+
+    githubRequest = RequestValues.getRequest1();
+    hook = new JiraServiceHook(githubRequest);
+    hook.convertGithubRequestToJson();
+    hook.parseGithubJson();
+    result = hook.getGitCommitMessage();
+
+    assertEquals("Test if a message can be parsed from a github request.", expected, result);
   }
 }

@@ -56,7 +56,7 @@
   <!-- Cobertura instrument -->
   <target name="cob-instr" depends="compile">
     <cobertura-instrument todir="${cob.instr.dir}" datafile="${cobdata}">
-      <ignore regex="de.angelcode.jirabutler.runner.*" />
+      <ignore regex="de.angelcode.jirabutler.runner" />
       <fileset dir="${classes.dir}">
         <include name="**/*.class" />
         <exclude name="**/*Test.class" />
