@@ -31,7 +31,7 @@ public class JiraClient
   private String connectionUrl;
   private String connectionUsername;
   private String connectionPassword;
-  private String projectKey;
+  private String jiraProjectKey;
   // JIRA connection stuff
   private JiraSoapServiceService service;
   private JiraSoapService api;
@@ -90,7 +90,7 @@ public class JiraClient
 
     if (this.jiraIssueKey != null)
     {
-      this.projectKey = this.jiraIssueKey.substring(0, this.jiraIssueKey.indexOf("-"));
+      this.jiraProjectKey = this.jiraIssueKey.substring(0, this.jiraIssueKey.indexOf("-"));
     }
   }
 
@@ -154,14 +154,14 @@ public class JiraClient
   {
     boolean success = false;
 
-    if (this.projectKey != null && this.jiraProjectVersion != null)
+    if (this.jiraProjectKey != null && this.jiraProjectVersion != null)
     {
       RemoteVersion newVersion = new RemoteVersion();
       newVersion.setName(this.jiraProjectVersion);
 
       try
       {
-        api.addVersion(token, this.projectKey, newVersion);
+        this.api.addVersion(this.token, this.jiraProjectKey, newVersion);
         success = true;
       }
       catch (RemoteException ex)
@@ -198,7 +198,7 @@ public class JiraClient
         RemoteComment comment = new RemoteComment();
         comment.setBody(this.username + ": " + this.gitCommitMessage);
         System.out.println("This comment is going to be written into the JIRA issue: " + this.username + ": " + this.gitCommitMessage);
-        this.api.addComment(token, this.projectKey, comment);
+        this.api.addComment(this.token, this.jiraIssueKey, comment);
         success = true;
       }
       catch (RemoteException ex)
