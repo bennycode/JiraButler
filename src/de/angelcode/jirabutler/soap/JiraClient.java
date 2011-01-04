@@ -1,10 +1,10 @@
 package de.angelcode.jirabutler.soap;
 
 import com.atlassian.jira.rpc.exception.RemoteException;
-import com.atlassian.jira.rpc.soap.JiraSoapService;
 import com.atlassian.jira.rpc.soap.beans.RemoteComment;
 import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
+import de.angelcode.jirabutler.soap.service.JiraSoapService;
 import de.angelcode.jirabutler.soap.service.JiraSoapServiceService;
 import de.angelcode.jirabutler.soap.service.JiraSoapServiceServiceLocator;
 import de.angelcode.jirabutler.util.SystemVariables;
@@ -13,6 +13,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.rpc.ServiceException;
 
 /**
@@ -105,10 +107,8 @@ public class JiraClient
       {
         // Init JIRA services
         this.service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(this.connectionUrl);
-        this.api = (JiraSoapService) this.service.getJirasoapserviceV2();
+        this.api = this.service.getJirasoapserviceV2();
         this.token = api.login(this.connectionUsername, this.connectionPassword);
-        System.out.println("TOK TOK!");
-        System.out.println(this.token);
         success = true;
       }
       catch (RemoteException ex)
@@ -139,7 +139,15 @@ public class JiraClient
 
   public boolean logout() throws JiraButlerException
   {
-    return this.api.logout(this.token);
+    try
+    {
+      return this.api.logout(this.token);
+    }
+    catch (java.rmi.RemoteException ex)
+    {
+      throw new JiraButlerException("Logout was not successfully: "
+              + ex.getLocalizedMessage());
+    }
   }
 
   public boolean addVersion() throws JiraButlerException
