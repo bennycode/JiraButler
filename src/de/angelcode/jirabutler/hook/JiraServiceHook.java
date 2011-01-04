@@ -48,7 +48,7 @@ public final class JiraServiceHook
    * @throws IOException
    * @throws Exception
    */
-  public JiraServiceHook(String githubRequest) throws JiraButlerException
+  public JiraServiceHook(String githubRequest)
   {
     this();
     this.githubRequest = githubRequest;

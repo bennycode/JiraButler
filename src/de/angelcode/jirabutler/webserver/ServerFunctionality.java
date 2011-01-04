@@ -1,6 +1,5 @@
 package de.angelcode.jirabutler.webserver;
 
-import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.hook.JiraServiceHook;
 import de.angelcode.jirabutler.soap.JiraClient;
 import de.angelcode.jirabutler.util.SystemVariables;
