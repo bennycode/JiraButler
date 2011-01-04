@@ -103,6 +103,10 @@ public class JiraClient
     {
       try
       {
+        System.out.println("BÖRP!");
+        System.out.println(this.connectionUrl);
+        System.out.println(this.connectionUsername);
+        System.out.println(this.connectionPassword);
         // Init JIRA services
         this.service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(this.connectionUrl);
         this.api = (JiraSoapService) this.service.getJirasoapserviceV2();
