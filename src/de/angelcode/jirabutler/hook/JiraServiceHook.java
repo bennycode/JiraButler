@@ -12,7 +12,7 @@ import de.angelcode.jirabutler.exceptions.JiraButlerException;
 
 /**
  * This class parses the github HTTP-POST githubRequest for relevant payload
- * information like the username of the pusher, the commit gitCommitMessage and
+ * information like the username of the pusher, the commit message and
  * so on...
  * 
  * @author bennyn
@@ -42,8 +42,7 @@ public final class JiraServiceHook
    * Init-constructor which awaits the complete HTTP githubRequest from
    * github.
    *
-   * @param githubRequest
-   *            Complete githubRequest from github
+   * @param githubRequest Complete githubRequest from github
    * @throws UnsupportedEncodingException
    * @throws ParseException
    * @throws IOException
@@ -55,45 +54,45 @@ public final class JiraServiceHook
     this.githubRequest = githubRequest;
   }
 
-  public void convertGithubRequestToJson() throws JiraButlerException
+  public boolean convertGithubRequestToJson()
   {
-    convertGithubRequestToJson(this.githubRequest);
+    return convertGithubRequestToJson(this.githubRequest);
   }
 
   /**
    * Converts the given github githubRequest into a JSON object.
    *
-   * @param githubRequest
-   *            Complete githubRequest from github
+   * @param githubRequest Complete githubRequest from github
    * @throws JiraButlerException
    */
-  public void convertGithubRequestToJson(String githubRequest)
-          throws JiraButlerException
+  public boolean convertGithubRequestToJson(String githubRequest)
   {
+    boolean success = false;
+
     this.githubRequest = githubRequest;
 
     // Convert the payload from the github githubRequest into a JSON object
+    String payloadUnicode = null;
     int payloadStart = this.githubRequest.indexOf("payload=");
     String payloadAscii = this.githubRequest.substring(payloadStart + 8,
                                                        this.githubRequest.length());
-    String payloadUnicode = null;
-
     try
     {
       payloadUnicode = URLDecoder.decode(payloadAscii, "UTF-8");
       this.payloadJson = new JSONObject(payloadUnicode);
+      success = true;
     }
     catch (ParseException ex)
     {
-      throw new JiraButlerException(
-              "The JSON string could not be converted to a JSON object: "
-              + ex.getLocalizedMessage());
+      System.out.println("The JSON string could not be converted to a JSON object: " + ex.getLocalizedMessage());
     }
     catch (UnsupportedEncodingException ex)
     {
-      throw new JiraButlerException(
-              "The JSON object could not be converted from ASCII to UTF-8: "
-              + ex.getLocalizedMessage());
+      System.out.println("The JSON object could not be converted from ASCII to UTF-8: " + ex.getLocalizedMessage());
+    }
+    finally
+    {
+      return true;
     }
   }
 
