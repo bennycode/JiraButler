@@ -103,10 +103,6 @@ public class JiraClient
     {
       try
       {
-        System.out.println("BÖRP!");
-        System.out.println(this.connectionUrl);
-        System.out.println(this.connectionUsername);
-        System.out.println(this.connectionPassword);
         // Init JIRA services
         this.service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(this.connectionUrl);
         this.api = (JiraSoapService) this.service.getJirasoapserviceV2();
@@ -130,11 +126,14 @@ public class JiraClient
       }
       finally
       {
+        System.out.println("DANIEL WOLLTE DAS!!");
+        System.out.println(success);
         return success;
       }
     }
     else
     {
+      System.out.println("DAS HIER WOLLTE ER AUCH, oO");
       return success;
     }
   }
