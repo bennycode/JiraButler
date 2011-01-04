@@ -2,10 +2,9 @@ package de.angelcode.jirabutler.webserver;
 
 import de.angelcode.jirabutler.hook.JiraServiceHook;
 import de.angelcode.jirabutler.soap.JiraClient;
+import de.angelcode.jirabutler.util.FileOperations;
 import de.angelcode.jirabutler.util.SystemVariables;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 
 /**
  * Implements the web servers special functionality. Specifies on which actions (HTTP-GET, HTTP-POST) the server should react.
@@ -130,33 +129,6 @@ public class ServerFunctionality
   }
 
   /**
-   * Returns the content of a file.
-   * @param fileName Absolute path to the file
-   * @return file-content
-   */
-  private static String getFileContent(String fileName)
-  {
-    StringBuilder sb = new StringBuilder();
-
-    try
-    {
-      BufferedReader reader = new BufferedReader(new FileReader(fileName));
-      char[] readerContent = new char[1];
-      while (reader.read(readerContent) != -1)
-      {
-        sb.append(readerContent[0]);
-      }
-      reader.close();
-    }
-    catch (Exception ex)
-    {
-      System.out.println("Requested file could not be read: " + ex.getLocalizedMessage());
-    }
-
-    return sb.toString();
-  }
-
-  /**
    * Generates the HTTP-GET/1.1-Response.
    * @param fileName File that is requested by the client
    */
@@ -190,7 +162,7 @@ public class ServerFunctionality
             + "Content-Type: text/html" + lineSeperator
             + "Connection: close" + lineSeperator
             + lineSeperator
-            + getFileContent(requestedFile.getAbsolutePath());
+            + FileOperations.getFileContent(requestedFile.getAbsolutePath());
 
     serverResponse += responseData;
   }
