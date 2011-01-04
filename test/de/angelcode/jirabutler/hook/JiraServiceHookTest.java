@@ -35,4 +35,19 @@ public class JiraServiceHookTest
 
     assertEquals("Test if a username can be parsed from a github request.", expected, result);
   }
+
+  @Test
+  public void testInitConstructor() throws JiraButlerException
+  {
+    String expected = "bennyn";
+    String result = null;
+
+    githubRequest = RequestValues.getRequest1();
+    hook = new JiraServiceHook(githubRequest);
+    hook.convertGithubRequestToJson();
+    hook.parseGithubJson();
+    result = hook.getUsername();
+
+    assertEquals("Test if a username can be parsed from a github request.", expected, result);
+  }
 }
