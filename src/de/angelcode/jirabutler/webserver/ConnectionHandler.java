@@ -73,10 +73,6 @@ class ConnectionHandler implements Runnable
       System.out.println("Error while setting-up the stream.");
       System.out.println(ex.getLocalizedMessage());
     }
-    catch (JiraButlerException ex)
-    {
-      System.out.println(ex.getMessage());
-    }
     catch(Exception ex)
     {
       System.out.println("Unknown exception.");

@@ -21,7 +21,7 @@ public class ServerFunctionality
    * Handles the request (HTTP-GET, HTTP-POST) of a client.
    * @param clientRequest Complete request of a client
    */
-  public static void handleRequest(String clientRequest) throws JiraButlerException
+  public static void handleRequest(String clientRequest)
   {
     if (clientRequest != null)
     {
@@ -97,7 +97,7 @@ public class ServerFunctionality
    * Initiates the server's response in case of a valid HTTP/1.1 request.
    * @param clientInput Input from the client
    */
-  private static void doHttpRequest(String clientInput) throws JiraButlerException
+  private static void doHttpRequest(String clientInput)
   {
     int cutPosition = 0;
     String fileName = null;
@@ -135,7 +135,7 @@ public class ServerFunctionality
    * @param fileName Absolute path to the file
    * @return file-content
    */
-  private static String getFileContent(String fileName) throws JiraButlerException
+  private static String getFileContent(String fileName)
   {
     StringBuilder sb = new StringBuilder();
 
@@ -151,7 +151,7 @@ public class ServerFunctionality
     }
     catch (Exception ex)
     {
-      throw new JiraButlerException("Requested file could not be read: " + ex.getLocalizedMessage());
+      System.out.println("Requested file could not be read: " + ex.getLocalizedMessage());
     }
 
     return sb.toString();
@@ -161,7 +161,7 @@ public class ServerFunctionality
    * Generates the HTTP-GET/1.1-Response.
    * @param fileName File that is requested by the client
    */
-  private static void doHttpResponse(String fileName) throws JiraButlerException
+  private static void doHttpResponse(String fileName)
   {
     String lineSeperator = System.getProperty("line.separator");
     String fileSeperator = System.getProperty("file.separator");

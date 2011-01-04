@@ -52,14 +52,7 @@ public class ServerStart
           if (command.equals("start"))
           {
             System.out.println("Starting server...");
-            try
-            {
-              server = new Server(serverPort, logFilePath.toString());
-            }
-            catch (JiraButlerException ex)
-            {
-              System.out.println(ex.getLocalizedMessage());
-            }
+            server = new Server(serverPort, logFilePath.toString());
           }
           else
           {

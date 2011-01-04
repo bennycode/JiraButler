@@ -13,8 +13,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.xml.rpc.ServiceException;
 
 /**
@@ -64,7 +62,7 @@ public class JiraClient
   /**
    * Reads the connection URL and JIRA authentication credentials (username and password) from the default "jira.properties" configuration file.
    */
-  public void loadConfigFile() throws JiraButlerException
+  public void loadConfigFile()
   {
     Properties properties = new Properties();
     BufferedInputStream stream;
@@ -77,11 +75,11 @@ public class JiraClient
     }
     catch (FileNotFoundException ex)
     {
-      throw new JiraButlerException("The file " + file + "could not be found.");
+      System.out.println("The file " + file + "could not be found.");
     }
     catch (IOException ex)
     {
-      throw new JiraButlerException("Error while reading/writing the file " + file + ".");
+      System.out.println("Error while reading/writing the file " + file + ".");
     }
 
     this.connectionUrl = properties.getProperty("url");
@@ -94,7 +92,7 @@ public class JiraClient
     }
   }
 
-  public boolean login() throws JiraButlerException
+  public boolean login()
   {
     boolean success = false;
 
@@ -113,17 +111,17 @@ public class JiraClient
       }
       catch (RemoteException ex)
       {
-        throw new JiraButlerException("The authentication credentials are wrong: "
+        System.out.println("The authentication credentials are wrong: "
                 + ex.getLocalizedMessage());
       }
       catch (ServiceException ex)
       {
-        throw new JiraButlerException("Cannot get the JIRA SOAP service: "
+        System.out.println("Cannot get the JIRA SOAP service: "
                 + ex.getLocalizedMessage());
       }
       catch (Exception ex)
       {
-        throw new JiraButlerException("Unknown exception: "
+        System.out.println("Unknown exception: "
                 + ex.getLocalizedMessage());
       }
       finally
@@ -137,20 +135,25 @@ public class JiraClient
     }
   }
 
-  public boolean logout() throws JiraButlerException
+  public boolean logout()
   {
+    boolean success = false;
     try
     {
-      return this.api.logout(this.token);
+      success = this.api.logout(this.token);
     }
     catch (java.rmi.RemoteException ex)
     {
-      throw new JiraButlerException("Logout was not successfully: "
+      System.out.println("Logout was not successfully: "
               + ex.getLocalizedMessage());
+    }
+    finally
+    {
+        return success;
     }
   }
 
-  public boolean addVersion() throws JiraButlerException
+  public boolean addVersion()
   {
     boolean success = false;
 
@@ -187,7 +190,7 @@ public class JiraClient
     }
   }
 
-  public boolean addComment() throws JiraButlerException
+  public boolean addComment()
   {
     boolean success = false;
 
@@ -203,7 +206,7 @@ public class JiraClient
       }
       catch (RemoteException ex)
       {
-        throw new JiraButlerException("Comment could not be written. Please check your authentication credentials and user permissions: "
+        System.out.println("Comment could not be written. Please check your authentication credentials and user permissions: "
                 + ex.getLocalizedMessage());
       }
       catch (Exception ex)

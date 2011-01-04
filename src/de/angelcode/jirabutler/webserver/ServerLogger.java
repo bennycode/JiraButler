@@ -24,7 +24,7 @@ public class ServerLogger
    * Initializes the logger.
    * @param logFilePath Path to the log file
    */  
-  static public Logger getServerLogger(String logFilePath) throws JiraButlerException
+  static public Logger getServerLogger(String logFilePath)
   {
     if (null == logger)
     {
@@ -45,13 +45,12 @@ public class ServerLogger
       }
       catch (IOException ex)
       {
-        throw new JiraButlerException("Cannot access log file:" + "\n" + ex.getLocalizedMessage());
+        System.out.println("Cannot access log file:" + "\n" + ex.getLocalizedMessage());
       }
       catch (Exception ex)
       {
         System.out.println("Unknown exception in server logger:"
                 + "\n" + ex.getLocalizedMessage());
-        throw new JiraButlerException("Unknown exception in server logger:" + "\n" + ex.getLocalizedMessage());
       }
     }
     return logger;

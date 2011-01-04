@@ -30,7 +30,7 @@ public class Server
    * @param port A port-number (it is recommended to use ports between 49152 and 65535)
    * @param logFilePath The path of the log file (e.g. /var/log/server_log_file.log)
    */
-  public Server(String port, String logFilePath) throws JiraButlerException
+  public Server(String port, String logFilePath)
   {
     this();
     logger = ServerLogger.getServerLogger(logFilePath);
@@ -53,22 +53,22 @@ public class Server
     {
       logger.error("Server cannot get the desired port. Is it available?"
               + "\n" + ex.getLocalizedMessage());
-      throw new JiraButlerException("Server cannot get the desired port. Is it available?"
+      System.out.println("Server cannot get the desired port. Is it available?"
               + "\n" + ex.getLocalizedMessage());
     }
     catch (NumberFormatException ex)
     {
-      throw new JiraButlerException("ERROR: Thie given port is not a number.");
+      System.out.println("ERROR: Thie given port is not a number.");
     }
     catch (PortRangeException ex)
     {
-      throw new JiraButlerException("ERROR: The port is not within the range.");
+      System.out.println("ERROR: The port is not within the range.");
     }
     catch (Exception ex)
     {
       logger.fatal("Unknown exception."
               + "\n" + ex.getLocalizedMessage());
-      throw new JiraButlerException("Unknown exception. Please check the log-file if it exists.");
+      System.out.println("Unknown exception. Please check the log-file if it exists.");
     }
     // TODO: Catch exception when port is in use
   }
@@ -76,7 +76,7 @@ public class Server
   /**
    * Gets the request of a client and forwards it to a specified handler.
    */
-  private void handleConnection() throws JiraButlerException
+  private void handleConnection()
   {
     logger.info("Waiting for connection...");
     System.out.println("Server successfully launched on Port: " + this.port);
@@ -95,14 +95,14 @@ public class Server
       {
         logger.error("Error when client connected."
                 + "\n" + ex.getLocalizedMessage());
-        throw new JiraButlerException("Error when client connected."
+        System.out.println("Error when client connected."
                 + "\n" + ex.getLocalizedMessage());
       }
       catch (Exception ex)
       {
         logger.fatal("Unknown exception."
                 + "\n" + ex.getLocalizedMessage());
-        throw new JiraButlerException("Unknown exception."
+        System.out.println("Unknown exception."
                 + "\n" + ex.getLocalizedMessage());
       }
     }
