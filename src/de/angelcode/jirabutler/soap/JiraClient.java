@@ -107,6 +107,8 @@ public class JiraClient
         this.service = (JiraSoapServiceService) new JiraSoapServiceServiceLocator(this.connectionUrl);
         this.api = (JiraSoapService) this.service.getJirasoapserviceV2();
         this.token = api.login(this.connectionUsername, this.connectionPassword);
+        System.out.println("TOK TOK!");
+        System.out.println(this.token);
         success = true;
       }
       catch (RemoteException ex)
@@ -126,14 +128,11 @@ public class JiraClient
       }
       finally
       {
-        System.out.println("DANIEL WOLLTE DAS!!");
-        System.out.println(success);
         return success;
       }
     }
     else
     {
-      System.out.println("DAS HIER WOLLTE ER AUCH, oO");
       return success;
     }
   }
