@@ -71,12 +71,11 @@ public class ServerFunctionality
           }
 
           // Let the client work!
-          System.out.println("TRYING TO LOGIN");
           client.loadConfigFile();
           boolean isConnected = client.login();
+          System.out.println("Login: "+isConnected);
           if (isConnected)
           {
-            System.out.println("LOGGED IN!");
             boolean addedVersion = client.addVersion();
             boolean addedComment = client.addComment();
             boolean logout = client.logout();

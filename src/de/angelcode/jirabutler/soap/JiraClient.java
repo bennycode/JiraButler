@@ -162,7 +162,6 @@ public class JiraClient
       try
       {
         this.api.addVersion(this.token, this.jiraProjectKey, newVersion);
-        success = true;
       }
       catch (RemoteException ex)
       {
@@ -171,6 +170,7 @@ public class JiraClient
       catch (NoClassDefFoundError ex)
       {
         System.out.println("Version added successfully.");
+        success = true;
       }
       catch (Exception ex)
       {
