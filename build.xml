@@ -61,34 +61,7 @@
     </jar>
     <echo message="========== Done Building (JAR) =========="/>
   </target>
-	
-	<!-- Run application -->
-  <target name="run" depends="jar">
-    <java fork="true" classname="${main.class}">
-      <classpath>
-        <path refid="class.path"/>
-        <path refid="jar.file" />
-      </classpath>
-    </java>
-  </target>
-
-  <!-- Generating Javadoc -->
-  <target name="javadoc" description="Generate Javadoc.">
-    <mkdir dir="${docs.dir}"/>
-    <mkdir dir="${javadoc.dir}"/>
-    <javadoc sourcepath="${src.dir}"
-             classpathref="class.path"
-             destdir="${javadoc.dir}"
-             access="public"
-             version="true"
-             author="true"
-             windowtitle="${ant.project.name} - Version ${app.version}"
-             doctitle="${ant.project.name} - Version ${app.version}"
-             packagenames="*">
-    </javadoc>
-    <echo message="========== Done Generating (Javadoc) =========="/>
-  </target>
-  
+	  
   <!-- JUnit Tests -->
   <target name="junit" depends="jar">
     <!-- Prepare Directories -->
@@ -130,14 +103,14 @@
 
   <!-- Cobertura settings -->
   <target name="cob-instr" depends="compile">
-    <delete file="${cob.data}" />
+    <!--<delete file="${cob.data}" />-->
     <cobertura-instrument todir="${cob.instr.dir}" datafile="${cob.data}">
       <fileset dir="${classes.dir}">
         <include name="**/*.class" />
         <exclude name="**/*Test.class" />
         <exclude name="**/*Suite.class" />
       </fileset>
-      <fileset file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>
+      <!--<fileset file="${jar.dir}/${ant.project.name}-${app.version}.jar"/>-->
     </cobertura-instrument>
   </target>
 
@@ -147,4 +120,31 @@
     <mkdir dir="${cob.rep.html}"/>
     <cobertura-report format="html" datafile="${cob.data}" destdir="${cob.rep.html}" srcdir="${src.dir}" />
   </target>
+  
+	<!-- Run application -->
+  <target name="run" depends="jar">
+    <java fork="true" classname="${main.class}">
+      <classpath>
+        <path refid="class.path"/>
+        <path refid="jar.file" />
+      </classpath>
+    </java>
+  </target>
+
+  <!-- Generating Javadoc -->
+  <target name="javadoc" description="Generate Javadoc.">
+    <mkdir dir="${docs.dir}"/>
+    <mkdir dir="${javadoc.dir}"/>
+    <javadoc sourcepath="${src.dir}"
+             classpathref="class.path"
+             destdir="${javadoc.dir}"
+             access="public"
+             version="true"
+             author="true"
+             windowtitle="${ant.project.name} - Version ${app.version}"
+             doctitle="${ant.project.name} - Version ${app.version}"
+             packagenames="*">
+    </javadoc>
+    <echo message="========== Done Generating (Javadoc) =========="/>
+  </target>  
 </project>
