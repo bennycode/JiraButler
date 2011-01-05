@@ -1,0 +1,18 @@
+# Compiled source
+*.class
+/build/classes/
+JiraButler-*.jar
+cobertura.ser
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+# IDE generated files
+/.settings/
+# Documents
+/docs/
+/reports/
+# Sensitive data
+/build/jar/jira.properties
+
