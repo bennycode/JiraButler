@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <project name="JiraButler" default="junit" basedir=".">
 	<description>WebService for the communication between Atlassian JIRA and Git.</description>
 
