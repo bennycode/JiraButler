@@ -8,9 +8,11 @@
 package de.angelcode.jirabutler.soap.service;
 
 public interface JiraSoapServiceService extends javax.xml.rpc.Service {
-    public java.lang.String getJirasoapserviceV2Address();
+	public java.lang.String getJirasoapserviceV2Address();
 
-    public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2() throws javax.xml.rpc.ServiceException;
+	public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2()
+			throws javax.xml.rpc.ServiceException;
 
-    public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2(
+			java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }

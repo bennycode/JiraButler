@@ -77,9 +77,11 @@ public class JiraClient {
 			properties.load(stream);
 			stream.close();
 		} catch (FileNotFoundException ex) {
-			throw new JiraButlerException("The file " + file + "could not be found");
+			throw new JiraButlerException("The file " + file
+					+ "could not be found");
 		} catch (IOException ex) {
-			throw new JiraButlerException("Error while reading/writing the file " + file);
+			throw new JiraButlerException(
+					"Error while reading/writing the file " + file);
 		}
 		this.connectionUrl = properties.getProperty("url");
 		this.connectionUsername = properties.getProperty("username");
@@ -92,12 +94,14 @@ public class JiraClient {
 			throw new JiraButlerException("Cannot get the JIRA SOAP service");
 		}
 		if (this.jiraIssueKey != null) {
-			this.jiraProjectKey = this.jiraIssueKey.substring(0, this.jiraIssueKey.indexOf("-"));
+			this.jiraProjectKey = this.jiraIssueKey.substring(0,
+					this.jiraIssueKey.indexOf("-"));
 		}
 	}
 
 	public boolean login() throws JiraButlerException {
-		if (this.connectionUsername == null || this.connectionPassword == null || this.connectionUrl == null) {
+		if (this.connectionUsername == null || this.connectionPassword == null
+				|| this.connectionUrl == null) {
 			throw new JiraButlerException("Invalid connection information");
 		}
 		try {
@@ -130,7 +134,8 @@ public class JiraClient {
 			newVersion = this.api.addVersion(this.token, this.jiraProjectKey,
 					newVersion);
 		} catch (RemoteException ex) {
-			throw new JiraButlerException("Version already exists or no permission to set the version");
+			throw new JiraButlerException(
+					"Version already exists or no permission to set the version");
 		} catch (java.rmi.RemoteException e) {
 			throw new JiraButlerException("No connection could be established");
 		} catch (NoClassDefFoundError ex) {
@@ -141,18 +146,21 @@ public class JiraClient {
 
 	public boolean addComment() throws JiraButlerException {
 		boolean success = false;
-		if (this.jiraIssueKey == null || this.gitCommitMessage == null || this.username == null) {
+		if (this.jiraIssueKey == null || this.gitCommitMessage == null
+				|| this.username == null) {
 			throw new JiraButlerException("Invalid information");
 		}
 		try {
 			RemoteComment comment = new RemoteComment();
 			comment.setBody(this.username + ": " + this.gitCommitMessage);
-			System.out.println("This comment is going to be written into the JIRA issue: " 
-					+ this.username + ": " + this.gitCommitMessage);
+			System.out
+					.println("This comment is going to be written into the JIRA issue: "
+							+ this.username + ": " + this.gitCommitMessage);
 			this.api.addComment(this.token, this.jiraIssueKey, comment);
 			success = true;
 		} catch (RemoteException ex) {
-			throw new JiraButlerException("Comment could not be written. Please check your authentication credentials and user permissions");
+			throw new JiraButlerException(
+					"Comment could not be written. Please check your authentication credentials and user permissions");
 		} catch (java.rmi.RemoteException e) {
 			throw new JiraButlerException("No connection could be established");
 		}

@@ -12,144 +12,151 @@ import static org.junit.Assert.*;
 
 /**
  * Test-class for the JiraServiceHook.
+ * 
  * @author bennyn
  */
-public class JiraServiceHookTest
-{
+public class JiraServiceHookTest {
 
-  private JiraServiceHook hook;
-  private String githubRequest;
+	private JiraServiceHook hook;
+	private String githubRequest;
 
-  public JiraServiceHookTest()
-  {
-    this.hook = null;
-    this.githubRequest = null;
-  }
+	public JiraServiceHookTest() {
+		this.hook = null;
+		this.githubRequest = null;
+	}
 
-  @Test
-  public void testParseUsername() throws JiraButlerException
-  {
-    String expected = "bennyn";
-    String result = null;
+	@Test
+	public void testParseUsername() throws JiraButlerException {
+		String expected = "bennyn";
+		String result = null;
 
-    githubRequest = RequestValues.getRequest1();
-    hook = new JiraServiceHook();
-    hook.setGithubRequest(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.getUsername();
+		githubRequest = RequestValues.getRequest1();
+		hook = new JiraServiceHook();
+		hook.setGithubRequest(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.getUsername();
 
-    assertEquals("Test if a username can be parsed from a github request.", expected, result);
-  }
+		assertEquals("Test if a username can be parsed from a github request.",
+				expected, result);
+	}
 
-  @Test
-  public void testInitConstructor() throws JiraButlerException
-  {
-    String expected = "bennyn";
-    String result = null;
+	@Test
+	public void testInitConstructor() throws JiraButlerException {
+		String expected = "bennyn";
+		String result = null;
 
-    githubRequest = RequestValues.getRequest1();
-    hook = new JiraServiceHook(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.getUsername();
+		githubRequest = RequestValues.getRequest1();
+		hook = new JiraServiceHook(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.getUsername();
 
-    assertEquals("Test if a username can be parsed from a github request.", expected, result);
-  }
+		assertEquals("Test if a username can be parsed from a github request.",
+				expected, result);
+	}
 
-  @Test
-  public void testParseValidMessage() throws JiraButlerException
-  {
-    String expected = "Cobertura inside!";
-    String result = null;
+	@Test
+	public void testParseValidMessage() throws JiraButlerException {
+		String expected = "Cobertura inside!";
+		String result = null;
 
-    githubRequest = RequestValues.getRequest1();
-    hook = new JiraServiceHook(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.getGitCommitMessage();
+		githubRequest = RequestValues.getRequest1();
+		hook = new JiraServiceHook(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.getGitCommitMessage();
 
-    assertEquals("Test if a message with a valid JIRA issue key can be parsed from a github request.", expected, result);
-  }
+		assertEquals(
+				"Test if a message with a valid JIRA issue key can be parsed from a github request.",
+				expected, result);
+	}
 
-  @Test
-  public void testParseInvalidMessageWithoutIssueKey() throws JiraButlerException
-  {
-    String expected = null;
-    String result = null;
+	@Test
+	public void testParseInvalidMessageWithoutIssueKey()
+			throws JiraButlerException {
+		String expected = null;
+		String result = null;
 
-    githubRequest = RequestValues.getRequest5();
-    hook = new JiraServiceHook(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.getJiraIssueKey();
+		githubRequest = RequestValues.getRequest5();
+		hook = new JiraServiceHook(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.getJiraIssueKey();
 
-    assertEquals("Test if a message without a JIRA issue key can be parsed from a github request.", expected, result);
-  }
+		assertEquals(
+				"Test if a message without a JIRA issue key can be parsed from a github request.",
+				expected, result);
+	}
 
-  @Test
-  public void testToString() throws JiraButlerException
-  {
-    String expected = "Project version: master\nJIRA Key: SWQ-11\nUser: bennyn\nCommit message: Cobertura inside!\n";
-    String result = null;
+	@Test
+	public void testToString() throws JiraButlerException {
+		String expected = "Project version: master\nJIRA Key: SWQ-11\nUser: bennyn\nCommit message: Cobertura inside!\n";
+		String result = null;
 
-    githubRequest = RequestValues.getRequest1();
-    hook = new JiraServiceHook(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.toString();
+		githubRequest = RequestValues.getRequest1();
+		hook = new JiraServiceHook(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.toString();
 
-    assertEquals("Test if toString() method works correctly.", expected, result);
-  }
+		assertEquals("Test if toString() method works correctly.", expected,
+				result);
+	}
 
-  @Test
-  public void testParseProjectVersion() throws JiraButlerException
-  {
-    String expected = "master";
-    String result = null;
+	@Test
+	public void testParseProjectVersion() throws JiraButlerException {
+		String expected = "master";
+		String result = null;
 
-    githubRequest = RequestValues.getRequest1();
-    hook = new JiraServiceHook(githubRequest);
-    hook.convertGithubRequestToJson();
-    hook.parseGithubJson();
-    result = hook.getJiraProjectVersion();
+		githubRequest = RequestValues.getRequest1();
+		hook = new JiraServiceHook(githubRequest);
+		hook.convertGithubRequestToJson();
+		hook.parseGithubJson();
+		result = hook.getJiraProjectVersion();
 
-    assertEquals("Test if a JIRA project version can be parsed from a github request.", expected, result);
-  }
+		assertEquals(
+				"Test if a JIRA project version can be parsed from a github request.",
+				expected, result);
+	}
 
-  @Test(expected = ParseException.class)
-  public void testParseGithubRequestWithoutPayloadInformation() throws JiraButlerException
-  {
-    String expected = null;
-    String result = null;
+	@Test(expected = ParseException.class)
+	public void testParseGithubRequestWithoutPayloadInformation()
+			throws JiraButlerException {
+		String expected = null;
+		String result = null;
 
-    githubRequest = "payload=";
-    hook = new JiraServiceHook();
-    hook.convertGithubRequestToJson(githubRequest);
-  }
+		githubRequest = "payload=";
+		hook = new JiraServiceHook();
+		hook.convertGithubRequestToJson(githubRequest);
+	}
 
-  @Test(expected = UnsupportedEncodingException.class)
-  public void testEncodingException() throws UnsupportedEncodingException, JiraButlerException
-  {
-    String payloadAscii = RequestValues.getRequest1();
-    String encoding = "UnsupportedEncoding";
+	@Test(expected = UnsupportedEncodingException.class)
+	public void testEncodingException() throws UnsupportedEncodingException,
+			JiraButlerException {
+		String payloadAscii = RequestValues.getRequest1();
+		String encoding = "UnsupportedEncoding";
 
-    URLDecoder decoderMock = EasyMock.createStrictMock(URLDecoder.class);
-    IExpectationSetters<String> andThrow = EasyMock.expect(URLDecoder.decode(payloadAscii, encoding)).andThrow(new UnsupportedEncodingException());
-    EasyMock.replay(decoderMock);
+		URLDecoder decoderMock = EasyMock.createStrictMock(URLDecoder.class);
+		IExpectationSetters<String> andThrow = EasyMock.expect(
+				URLDecoder.decode(payloadAscii, encoding)).andThrow(
+				new UnsupportedEncodingException());
+		EasyMock.replay(decoderMock);
 
-//    JiraServiceHook mock = EasyMock.createStrictMock(JiraServiceHook.class);
-//    EasyMock.expect(mock.convertGithubRequestToJson(githubRequest)).andThrow(new UnsupportedEncodingException());
-//    EasyMock.replay(mock);
+		// JiraServiceHook mock =
+		// EasyMock.createStrictMock(JiraServiceHook.class);
+		// EasyMock.expect(mock.convertGithubRequestToJson(githubRequest)).andThrow(new
+		// UnsupportedEncodingException());
+		// EasyMock.replay(mock);
 
-    hook = new JiraServiceHook();
-    assertFalse(hook.convertGithubRequestToJson(githubRequest));
+		hook = new JiraServiceHook();
+		assertFalse(hook.convertGithubRequestToJson(githubRequest));
 
-    EasyMock.verify(decoderMock);
+		EasyMock.verify(decoderMock);
 
-//    hook = new JiraServiceHook();
-//    assertFalse(hook.convertGithubRequestToJson(githubRequest));
-//
-//    EasyMock.verify(decoderMock);
-  }
+		// hook = new JiraServiceHook();
+		// assertFalse(hook.convertGithubRequestToJson(githubRequest));
+		//
+		// EasyMock.verify(decoderMock);
+	}
 }
