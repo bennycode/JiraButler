@@ -65,6 +65,8 @@
 				<exclude name="**/exceptions/**" />
 				<exclude name="**/soap/service/**" />
 				<exclude name="**/test/**" />
+				<exclude name="**/webserver/PortRangeException.class" />
+				<exclude name="**/webserver/ServerStart.class" />
 			</fileset>
 		</cobertura-instrument>
 	</target>
