@@ -106,7 +106,11 @@ public class RequestValues
     return request;
   }
 
-   public static String getRequest7()
+   /**
+   * Returns an empty POST Request
+   * @return request
+   */
+  public static String getRequest7()
   {
     String request = "POST / HTTP/1.1\n"
             + "Accept: */*\n"

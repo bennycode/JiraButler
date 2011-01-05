@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  * Test-class for the JiraServiceHook.
+ * 
  * @author bennyn
  */
 public class JiraServiceHookTest
@@ -144,6 +145,7 @@ public class JiraServiceHookTest
     hook.setGithubRequest(githubRequest);
     hook.convertGithubRequestToJson();
   }
+}
 
 //  @Test(expected = UnsupportedEncodingException.class)
 //  public void testEncodingException() throws UnsupportedEncodingException, JiraButlerException
@@ -170,4 +172,4 @@ public class JiraServiceHookTest
 //
 //    EasyMock.verify(decoderMock);
 //  }
-}
+

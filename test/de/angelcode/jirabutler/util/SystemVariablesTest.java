@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  *
- * @author BoatoonAdmin
+ * @author danielp
  */
 public class SystemVariablesTest
 {
@@ -32,7 +32,7 @@ public class SystemVariablesTest
   @Before
   public void setUp()
   {
-    
+
   }
 
   @After
@@ -46,15 +46,9 @@ public class SystemVariablesTest
   @Test(expected = IllegalArgumentException.class)
   public void testGetJarExecutionDirectoryIfTheKeyIsEmpty()
   {
-//    SystemVariables.setJavaClassPath("java.class.path");
-//    SystemVariables.setFileSeperator("file.separator");
     SystemVariables.setJavaClassPath("");
     SystemVariables.setFileSeperator("");
     this.path = SystemVariables.getJarExecutionDirectory();
-
-//    String expect = "C:\\JiraButler\\build\\jar\\";
-//
-//    assertEquals("Returns the ablolut path to the jar file", expect, this.path);
   }
 
   /**
@@ -67,5 +61,4 @@ public class SystemVariablesTest
     SystemVariables.setFileSeperator(null);
     this.path = SystemVariables.getJarExecutionDirectory();
   }
-
 }

@@ -1,7 +1,9 @@
 package de.angelcode.jirabutler.util;
 
 /**
- * This class can deliver some system-relevant information like the execution path of the application's JAR file.
+ * This class can deliver some system-relevant information like the execution
+ * path of the application's JAR file.
+ * 
  * @author bennyn
  */
 public class SystemVariables
@@ -19,19 +21,17 @@ public class SystemVariables
     SystemVariables.javaClassPath = javaClassPath;
   }
 
-  
-
-  /**
-   * Returns the path where the currently running JAR-file is located.
-   * Example value: C:\MyProject\build\jar\
-   * @return Path of the JAR-file
-   */
-  public static String getJarExecutionDirectory()
-  {
-    String jarFile = null;
-    String jarDirectory = null;
-    int cutFileSeperator = 0;
-    int cutSemicolon = -1;
+	/**
+	 * Returns the path where the currently running JAR-file is located. Example
+	 * value: C:\MyProject\build\jar\
+	 * 
+	 * @return Path of the JAR-file
+	 */
+	public static String getJarExecutionDirectory() {
+		String jarFile = null;
+		String jarDirectory = null;
+		int cutFileSeperator = 0;
+		int cutSemicolon = -1;
 
     jarFile = System.getProperty(SystemVariables.javaClassPath);
     // Cut seperators
@@ -47,4 +47,5 @@ public class SystemVariables
 
     return jarDirectory+System.getProperty(SystemVariables.fileSeperator);
   }
+
 }

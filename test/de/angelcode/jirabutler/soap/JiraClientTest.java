@@ -7,8 +7,6 @@ import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Properties;
-
 import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
@@ -478,6 +476,62 @@ public class JiraClientTest {
 		jiraClient.setUsername(username);
 				
 		jiraClient.addComment();		
+	}
+	
+	/**
+	 * Test of java.rmi.RemoteException for addComment.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testRMIRemoteExceptionAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = "SWQ-11";
+		String gitCommitMessage = "SWQ-11@Unser Test...";
+		String username = "username";
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+		
+		apiMock.addComment(token, jiraIssueKey, newComment);
+		EasyMock.expectLastCall().andThrow(new java.rmi.RemoteException()).atLeastOnce();
+		replay(apiMock);
+		jiraClient.addVersion();
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of RemoteException for addComment.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testJIRARemoteExceptionAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = "SWQ-11";
+		String gitCommitMessage = "SWQ-11@Unser Test...";
+		String username = "username";
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+		
+		apiMock.addComment(token, jiraIssueKey, newComment);
+		EasyMock.expectLastCall().andThrow(new RemoteException()).atLeastOnce();
+		replay(apiMock);
+		jiraClient.addVersion();
+		verify(apiMock);		
 	}
 	
 }

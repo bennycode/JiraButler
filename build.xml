@@ -55,25 +55,28 @@
 
 	<!-- Cobertura instrument -->
 	<target name="cob-instr" depends="compile">
+		<delete file="${cobdata}" />
 		<delete dir="${cob.instr.dir}" />
 		<mkdir dir="${cob.instr.dir}" />
 		<cobertura-instrument todir="${cob.instr.dir}" datafile="${cobdata}">
 			<fileset dir="${classes.dir}">
 				<include name="**/*.class" />
 				<exclude name="**/*Test.class" />
-				<exclude name="**/*Suite.class" />
-				<exclude name="**/soap/service/*.class" />
 			</fileset>
 		</cobertura-instrument>
 	</target>
 
 	<!-- Cobertura reports -->
 	<target name="cob-rep" depends="cob-instr, junit" description="Create Cobertura reports.">
-		<mkdir dir="${cob.rep}" />
 		<delete dir="${cob.rep.html}" />
-		<delete dir="${cobdata}" />
 		<mkdir dir="${cob.rep.html}" />
-		<cobertura-report format="html" datafile="${cobdata}" destdir="${cob.rep.html}" srcdir="${src.dir}" />
+		<cobertura-report format="html" datafile="${cobdata}" destdir="${cob.rep.html}">
+			<fileset dir="${src.dir}">
+				<include name="**/*.java" />
+				<exclude name="**/test/**" />
+				<exclude name="**/soap/service/**" />
+			</fileset>
+		</cobertura-report>
 		<echo message="========== Done Creating (Cobertura reports) ==========" />
 	</target>
 

@@ -12,8 +12,7 @@ import de.angelcode.jirabutler.exceptions.JiraButlerException;
 
 /**
  * This class parses the github HTTP-POST githubRequest for relevant payload
- * information like the username of the pusher, the commit message and
- * so on...
+ * information like the username of the pusher, the commit message and so on...
  * 
  * @author bennyn
  */
