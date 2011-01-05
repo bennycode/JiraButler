@@ -53,11 +53,11 @@ public final class JiraServiceHook
     this();
     this.githubRequest = githubRequest;
   }
-
-  public boolean convertGithubRequestToJson()
-  {
-    return convertGithubRequestToJson(this.githubRequest);
-  }
+                 
+//  public boolean convertGithubRequestToJson()
+//  {
+//    return convertGithubRequestToJson(this.githubRequest);
+//  }
 
   /**
    * Converts the given github githubRequest into a JSON object.
@@ -65,11 +65,11 @@ public final class JiraServiceHook
    * @param githubRequest Complete githubRequest from github
    * @throws JiraButlerException
    */
-  public boolean convertGithubRequestToJson(String githubRequest)
+  public boolean convertGithubRequestToJson()
   {
     boolean success = false;
 
-    this.githubRequest = githubRequest;
+//    this.githubRequest = githubRequest;
 
     // Convert the payload from the github githubRequest into a JSON object
     String payloadUnicode = null;
