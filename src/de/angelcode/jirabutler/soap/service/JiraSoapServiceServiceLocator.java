@@ -60,7 +60,7 @@ public class JiraSoapServiceServiceLocator extends
 	public JiraSoapService getJirasoapserviceV2(java.net.URL portAddress)
 			throws javax.xml.rpc.ServiceException {
 		try {
-			JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(
+			JiraSoapServiceV2SoapBindingStub _stub = new JiraSoapServiceV2SoapBindingStub(
 					portAddress, this, this.JirasoapserviceV2_address);
 			_stub.setPortName(getJirasoapserviceV2WSDDServiceName());
 			return (JiraSoapService) _stub;
@@ -83,7 +83,7 @@ public class JiraSoapServiceServiceLocator extends
 		try {
 			if (JiraSoapService.class
 					.isAssignableFrom(serviceEndpointInterface)) {
-				JirasoapserviceV2SoapBindingStub _stub = new JirasoapserviceV2SoapBindingStub(
+				JiraSoapServiceV2SoapBindingStub _stub = new JiraSoapServiceV2SoapBindingStub(
 						new java.net.URL(JirasoapserviceV2_address), this,
 						this.JirasoapserviceV2_address);
 				_stub.setPortName(getJirasoapserviceV2WSDDServiceName());
