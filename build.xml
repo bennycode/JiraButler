@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project name="JiraButler" default="junit" basedir=".">
-<<<<<<< HEAD
   <description>WebService for the communication between Atlassian JIRA and Git.</description>
   
-=======
-	<description>WebService for the communication between Atlassian JIRA and Git.</description>
-
->>>>>>> origin/master
 	<!-- Project properties -->
 	<property file="build.properties" />
 	<path id="class.path">
