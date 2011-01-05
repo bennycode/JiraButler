@@ -1,5 +1,6 @@
 package de.angelcode.jirabutler.util;
 
+import de.angelcode.jirabutler.webserver.Server;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -18,7 +19,7 @@ public class FileOperations
   public static String getFileContent(String filePath)
   {
     StringBuilder sb = new StringBuilder();
-
+    
     try
     {
       BufferedReader reader = new BufferedReader(new FileReader(filePath));

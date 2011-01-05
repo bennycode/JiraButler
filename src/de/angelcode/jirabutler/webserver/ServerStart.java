@@ -1,29 +1,34 @@
 package de.angelcode.jirabutler.webserver;
 
+import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.util.FileOperations;
 import de.angelcode.jirabutler.util.SystemVariables;
 import gnu.getopt.Getopt;
 import gnu.getopt.LongOpt;
 
 /**
- * Provides the main-mathod to start the server.
- * @author Benny Neugebauer (www.bennyn.de)
+ * Handles the parameters given by the user.
+ * @author bennyn
  */
 public class ServerStart
 {
 
-  /**
-   * Main entry point for the server. Accepts options and is able to start the server.
-   **/
-  public static void main(String[] argv)
+  private String[] arguments;
+
+  public ServerStart(String[] argv)
   {
+    this.arguments = argv;
+  }
+
+  public void handleParameters() throws JiraButlerException
+  {
+
     // Control variables
     int option = -1;
     String command = null;
-    Server server = null;
 
-    // Program information        
-    String programExecutable = "Server.jar";
+
+    // Program information
     String programName = "JiraButler";
     String programVersion = "v0.1";
 
@@ -40,7 +45,7 @@ public class ServerStart
     optionsLong[3] = new LongOpt("version", LongOpt.NO_ARGUMENT, null, 'v');
 
     // GetOpt
-    Getopt g = new Getopt(programExecutable, argv, "-:p:l:hv", optionsLong);
+    Getopt g = new Getopt(new String(), this.arguments, "-:p:l:hv", optionsLong);
     g.setOpterr(false);
 
     while ((option = g.getopt()) != -1)
@@ -52,7 +57,8 @@ public class ServerStart
           if (command.equals("start"))
           {
             System.out.println("Starting server...");
-            server = new Server(serverPort, logFilePath.toString());
+            Server server = new Server(serverPort, logFilePath.toString());
+            server.startServer();
           }
           else
           {
@@ -85,7 +91,7 @@ public class ServerStart
         case '?':
         default:
           System.out.println("Wrong parameters.");
-          System.out.println("Please use 'java -jar " + programExecutable + " -h' to get help.");
+          System.out.println("Please read the manual.");
           break;
       }
     }

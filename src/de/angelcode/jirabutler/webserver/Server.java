@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 /**
  * A Socket-based web server.
  * @author Benny Neugebauer (www.bennyn.de)
+ * @author Daniel Päpke
  */
 public class Server
 {
@@ -33,9 +34,53 @@ public class Server
   public Server(String port, String logFilePath)
   {
     this();
-    logger = ServerLogger.getServerLogger(logFilePath);
     this.logFilePath = logFilePath;
     this.port = port;
+  }
+
+  public void startServer() throws JiraButlerException
+  {
+    boolean isRunning = createServerSocket();
+    boolean isLogging = createServerLogger();
+
+    if (isRunning && isLogging)
+    {
+      System.out.println("Server successfully launched on Port: " + this.port);
+      System.out.println("Log file will be saved to: " + this.logFilePath);
+      Server.logger.info("Server successfully launched on Port: " + this.port);
+      Server.logger.info("Log file will be saved to: " + this.logFilePath);
+    }
+    if (isRunning && !isLogging)
+    {
+      throw new JiraButlerException("Logger could not be started.");
+    }
+    else if (!isRunning && isLogging)
+    {
+      logger.fatal("Server could not be started.");
+      throw new JiraButlerException("Server could not be started.");
+    }
+    else
+    {
+      throw new JiraButlerException("Server and Logger could not be started.");
+    }
+  }
+
+  protected boolean createServerLogger()
+  {
+    boolean success = false;
+    Server.logger = ServerLogger.getServerLogger(this.logFilePath);
+
+    if (Server.logger != null)
+    {
+      success = true;
+    }
+
+    return success;
+  }
+
+  protected boolean createServerSocket()
+  {
+    boolean success = false;
 
     try
     {
@@ -48,6 +93,7 @@ public class Server
 
       this.server = new ServerSocket(portNumber);
       handleConnection();
+      success = true;
     }
     catch (IOException ex)
     {
@@ -58,52 +104,49 @@ public class Server
     }
     catch (NumberFormatException ex)
     {
-      System.out.println("ERROR: Thie given port is not a number.");
+      System.out.println("Thie given port is not a number. " + ex.getLocalizedMessage());
     }
     catch (PortRangeException ex)
     {
-      System.out.println("ERROR: The port is not within the range.");
+      System.out.println("The given port is not within the range. " + ex.getLocalizedMessage());
     }
     catch (Exception ex)
     {
       logger.fatal("Unknown exception."
               + "\n" + ex.getLocalizedMessage());
-      System.out.println("Unknown exception. Please check the log-file if it exists.");
+      System.out.println("Unknown exception: " + ex.getLocalizedMessage());
     }
-    // TODO: Catch exception when port is in use
+    finally
+    {
+      return success;
+    }
   }
 
   /**
    * Gets the request of a client and forwards it to a specified handler.
    */
-  private void handleConnection()
+  protected void handleConnection()
   {
     logger.info("Waiting for connection...");
-    System.out.println("Server successfully launched on Port: " + this.port);
-    System.out.println("Log-file will be saved to: " + this.logFilePath);
 
     while (true)
     {
       try
       {
         Socket socket = server.accept();
-        logger.info("Client connected");
+        logger.info("Client connected.");
         ConnectionHandler handler = new ConnectionHandler(socket);
         handler.startThread();
       }
       catch (IOException ex)
       {
-        logger.error("Error when client connected."
-                + "\n" + ex.getLocalizedMessage());
-        System.out.println("Error when client connected."
-                + "\n" + ex.getLocalizedMessage());
+        logger.error("Error when client connected: " + ex.getLocalizedMessage());
+        System.out.println("Error when client connected: " + ex.getLocalizedMessage());
       }
       catch (Exception ex)
       {
-        logger.fatal("Unknown exception."
-                + "\n" + ex.getLocalizedMessage());
-        System.out.println("Unknown exception."
-                + "\n" + ex.getLocalizedMessage());
+        logger.fatal("Unknown exception: " + ex.getLocalizedMessage());
+        System.out.println("Unknown exception: " + ex.getLocalizedMessage());
       }
     }
   }
