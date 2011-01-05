@@ -24,6 +24,7 @@ public final class JiraServiceHook
   private String gitCommitMessage;
   private String jiraIssueKey;
   private String githubRequest;
+  private String payloadUnicode;
   private JSONObject payloadJson;
 
   public JiraServiceHook()
@@ -35,6 +36,7 @@ public final class JiraServiceHook
     this.jiraIssueKey = null;
     this.githubRequest = null;
     this.payloadJson = null;
+    this.payloadUnicode = null;
   }
 
   /**
@@ -47,7 +49,7 @@ public final class JiraServiceHook
    * @throws IOException
    * @throws Exception
    */
-  public JiraServiceHook(String githubRequest) throws JiraButlerException
+  public JiraServiceHook(String githubRequest)
   {
     this();
     this.githubRequest = githubRequest;
@@ -68,10 +70,7 @@ public final class JiraServiceHook
   {
     boolean success = false;
 
-//    this.githubRequest = githubRequest;
-
     // Convert the payload from the github githubRequest into a JSON object
-    String payloadUnicode = null;
     int payloadStart = this.githubRequest.indexOf("payload=");
     String payloadAscii = this.githubRequest.substring(payloadStart + 8,
                                                        this.githubRequest.length());
@@ -89,10 +88,10 @@ public final class JiraServiceHook
     {
       System.out.println("The JSON object could not be converted from ASCII to UTF-8: " + ex.getLocalizedMessage());
     }
-    finally
-    {
-      return true;
-    }
+//    finally
+//    {
+      return success;
+//    }
   }
 
   /**
@@ -191,4 +190,10 @@ public final class JiraServiceHook
   {
     return username;
   }
+
+  public String getPayloadUnicode()
+  {
+    return payloadUnicode;
+  }
+
 }

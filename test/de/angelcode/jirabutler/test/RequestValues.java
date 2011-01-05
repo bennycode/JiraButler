@@ -107,7 +107,7 @@ public class RequestValues
   }
 
    /**
-   * Returns an empty POST Request
+   * Returns a not valid POST Request
    * @return request
    */
   public static String getRequest7()
@@ -118,7 +118,55 @@ public class RequestValues
             + "Content-Length: 21561\n"
             + "Host: angelcode.de:7070\n"
             + "\n"
-            + "payload=%7bref%22%3a%22refs%5c%2fheads%5c%2fmaster%22%2c%22repository%22%3a%7b%22forks%22%3a1%2c%22created_at%22%3a%222010%2f12%2f30%2020%3a28%3a05%20-0800%22%2c%22has_wiki%22%3atrue%2c%22url%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%22%2c%22open_issues%22%3a0%2c%22description%22%3a%22Test%22%2c%22fork%22%3afalse%2c%22pushed_at%22%3a%222011%2f01%2f03%2020%3a43%3a07%20-0800%22%2c%22has_issues%22%3atrue%2c%22private%22%3afalse%2c%22has_downloads%22%3atrue%2c%22owner%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22name%22%3a%22bennyn%22%7d%2c%22watchers%22%3a4%2c%22name%22%3a%22JiraButler%22%2c%22homepage%22%3a%22%22%7d%2c%22commits%22%3a%5b%7b%22author%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22username%22%3a%22bennyn%22%2c%22name%22%3a%22Benny%20Neugebauer%22%7d%2c%22timestamp%22%3a%222011-01-03T20%3a42%3a35-08%3a00%22%2c%22removed%22%3a%5b%22build%5c%2fjar%5c%2fhtml%5c%2ffavicon.ico%22%2c%22build2.xml%22%5d%2c%22url%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%5c%2fcommit%5c%2fb2f42f15cf91de9fa6702f70a3412c15438e91f3%22%2c%22message%22%3a%22SWQ-11%40Cobertura%20inside%21%22%2c%22added%22%3a%5b%5d%2c%22modified%22%3a%5b%22build.properties%22%2c%22build.xml%22%2c%22cobertura.ser%22%2c%22test%5c%2fde%5c%2fangelcode%5c%2fjirabutler%5c%2fhook%5c%2fJiraServiceHookTest.java%22%5d%2c%22id%22%3a%22b2f42f15cf91de9fa6702f70a3412c15438e91f3%22%7d%5d%2c%22forced%22%3afalse%2c%22before%22%3a%223e55fd24b662a02498be1f6a0c334f712012290d%22%2c%22pusher%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22name%22%3a%22bennyn%22%7d%2c%22after%22%3a%22b2f42f15cf91de9fa6702f70a3412c15438e91f3%22%2c%22compare%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%5c%2fcompare%5c%2f3e55fd2...b2f42f1%22%7d";
+            + "payload=%3a%22refs%5c%a%222010%2f12%2f30%2020%3a28%3a05%20-0800%22%2c%22has_wiki%22%3atrue%2c%22url%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%22%2c%22open_issues%22%3a0%2c%22description%22%3a%22Test%22%2c%22fork%22%3afalse%2c%22pushed_at%22%3a%222011%2f01%2f03%2020%3a43%3a07%20-0800%22%2c%22has_issues%22%3atrue%2c%22private%22%3afalse%2c%22has_downloads%22%3atrue%2c%22owner%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22name%22%3a%22bennyn%22%7d%2c%22watchers%22%3a4%2c%22name%22%3a%22JiraButler%22%2c%22homepage%22%3a%22%22%7d%2c%22commits%22%3a%5b%7b%22author%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22username%22%3a%22bennyn%22%2c%22name%22%3a%22Benny%20Neugebauer%22%7d%2c%22timestamp%22%3a%222011-01-03T20%3a42%3a35-08%3a00%22%2c%22removed%22%3a%5b%22build%5c%2fjar%5c%2fhtml%5c%2ffavicon.ico%22%2c%22build2.xml%22%5d%2c%22url%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%5c%2fcommit%5c%2fb2f42f15cf91de9fa6702f70a3412c15438e91f3%22%2c%22message%22%3a%22SWQ-11%40Cobertura%20inside%21%22%2c%22added%22%3a%5b%5d%2c%22modified%22%3a%5b%22build.properties%22%2c%22build.xml%22%2c%22cobertura.ser%22%2c%22test%5c%2fde%5c%2fangelcode%5c%2fjirabutler%5c%2fhook%5c%2fJiraServiceHookTest.java%22%5d%2c%22id%22%3a%22b2f42f15cf91de9fa6702f70a3412c15438e91f3%22%7d%5d%2c%22forced%22%3afalse%2c%22before%22%3a%223e55fd24b662a02498be1f6a0c334f712012290d%22%2c%22pusher%22%3a%7b%22email%22%3a%22bn%40bennyn.de%22%2c%22name%22%3a%22bennyn%22%7d%2c%22after%22%3a%22b2f42f15cf91de9fa6702f70a3412c15438e91f3%22%2c%22compare%22%3a%22https%3a%5c%2f%5c%2fgithub.com%5c%2fbennyn%5c%2fJiraButler%5c%2fcompare%5c%2f3e55fd2...b2f42f1%22%7d";
+    return request;
+  }
+
+  /**
+   * Returns an UTF-8 POST Request
+   * @return request
+   */
+  public static String getRequest8()
+  {
+    String request = "POST / HTTP/1.1\n"
+            + "Accept: */*\n"
+            + "Content-Type: application/x-www-form-urlencoded\n"
+            + "Content-Length: 21561\n"
+            + "Host: angelcode.de:7070\n"
+            + "\n"
+            + "payload={\"ref\":\"refs/heads/master\",\"repository\":{\"forks\":1,\"created_at\":\"2010/12/30 20:28:05 -0800\",\"has_wiki\":true,\"url\":\"https://github.com/bennyn/JiraButler\",\"open_issues\":0,\"description\":\"Test\",\"fork\":false,\"pushed_at\":\"2011/01/03 20:43:07 -0800\",\"has_issues\":true,\"private\":false,\"has_downloads\":true,\"owner\":{\"email\":\"bn@bennyn.de\",\"name\":\"bennyn\"},\"watchers\":4,\"name\":\"JiraButler\",\"homepage\":\"\"},\"commits\":[{\"author\":{\"email\":\"bn@bennyn.de\",\"username\":\"bennyn\",\"name\":\"Benny Neugebauer\"},\"timestamp\":\"2011-01-03T20:42:35-08:00\",\"removed\":[\"build/jar/html/favicon.ico\",\"build2.xml\"],\"url\":\"https://github.com/bennyn/JiraButler/commit/b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"message\":\"SWQ-11@Cobertura inside!\",\"added\":[],\"modified\":[\"build.properties\",\"build.xml\",\"cobertura.ser\",\"test/de/angelcode/jirabutler/hook/JiraServiceHookTest.java\"],\"id\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\"}],\"forced\":false,\"before\":\"3e55fd24b662a02498be1f6a0c334f712012290d\",\"pusher\":{\"email\":\"bn@bennyn.de\",\"name\":\"bennyn\"},\"after\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"compare\":\"https://github.com/bennyn/JiraButler/compare/3e55fd2...b2f42f1\"}";
+    return request;
+  }
+
+  /**
+   * Returns a POST Request without the key "message"
+   * @return request
+   */
+  public static String getRequest9()
+  {
+    String request = "POST / HTTP/1.1\n"
+            + "Accept: */*\n"
+            + "Content-Type: application/x-www-form-urlencoded\n"
+            + "Content-Length: 21561\n"
+            + "Host: angelcode.de:7070\n"
+            + "\n"
+            + "payload={\"ref\":\"refs/heads/master\",\"repository\":{\"forks\":1,\"created_at\":\"2010/12/30 20:28:05 -0800\",\"has_wiki\":true,\"url\":\"https://github.com/bennyn/JiraButler\",\"open_issues\":0,\"description\":\"Test\",\"fork\":false,\"pushed_at\":\"2011/01/03 20:43:07 -0800\",\"has_issues\":true,\"private\":false,\"has_downloads\":true,\"owner\":{\"email\":\"bn@bennyn.de\",\"name\":\"bennyn\"},\"watchers\":4,\"name\":\"JiraButler\",\"homepage\":\"\"},\"commits\":[{\"author\":{\"email\":\"bn@bennyn.de\",\"username\":\"bennyn\",\"name\":\"Benny Neugebauer\"},\"timestamp\":\"2011-01-03T20:42:35-08:00\",\"removed\":[\"build/jar/html/favicon.ico\",\"build2.xml\"],\"url\":\"https://github.com/bennyn/JiraButler/commit/b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"added\":[],\"modified\":[\"build.properties\",\"build.xml\",\"cobertura.ser\",\"test/de/angelcode/jirabutler/hook/JiraServiceHookTest.java\"],\"id\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\"}],\"forced\":false,\"before\":\"3e55fd24b662a02498be1f6a0c334f712012290d\",\"pusher\":{\"email\":\"bn@bennyn.de\",\"name\":\"bennyn\"},\"after\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"compare\":\"https://github.com/bennyn/JiraButler/compare/3e55fd2...b2f42f1\"}";
+    return request;
+  }
+
+    /**
+   * Returns a POST Request without the key "message"
+   * @return request
+   */
+  public static String getRequest10()
+  {
+    String request = "POST / HTTP/1.1\n"
+            + "Accept: */*\n"
+            + "Content-Type: application/x-www-form-urlencoded\n"
+            + "Content-Length: 21561\n"
+            + "Host: angelcode.de:7070\n"
+            + "\n"
+            + "payload={\"ref\":\"refs/heads/master\",\"repository\":{\"forks\":1,\"created_at\":\"2010/12/30 20:28:05 -0800\",\"has_wiki\":true,\"url\":\"https://github.com/bennyn/JiraButler\",\"open_issues\":0,\"description\":\"Test\",\"fork\":false,\"pushed_at\":\"2011/01/03 20:43:07 -0800\",\"has_issues\":true,\"private\":false,\"has_downloads\":true,\"owner\":{\"email\":\"bn@bennyn.de\",\"name\":\"bennyn\"},\"watchers\":4,\"name\":\"JiraButler\",\"homepage\":\"\"},\"commits\":[{\"author\":{\"email\":\"bn@bennyn.de\",\"username\":\"bennyn\",\"name\":\"Benny Neugebauer\"},\"timestamp\":\"2011-01-03T20:42:35-08:00\",\"removed\":[\"build/jar/html/favicon.ico\",\"build2.xml\"],\"url\":\"https://github.com/bennyn/JiraButler/commit/b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"added\":[],\"modified\":[\"build.properties\",\"build.xml\",\"cobertura.ser\",\"test/de/angelcode/jirabutler/hook/JiraServiceHookTest.java\"],\"id\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\"}],\"forced\":false,\"before\":\"3e55fd24b662a02498be1f6a0c334f712012290d\",\"pusher\":{\"email\":\"bn@bennyn.de\",\"after\":\"b2f42f15cf91de9fa6702f70a3412c15438e91f3\",\"compare\":\"https://github.com/bennyn/JiraButler/compare/3e55fd2...b2f42f1\"}";
     return request;
   }
 
