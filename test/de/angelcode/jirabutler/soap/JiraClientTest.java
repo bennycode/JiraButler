@@ -7,10 +7,15 @@ import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.rmi.RemoteException;
+import java.util.Properties;
 
+import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.atlassian.jira.rpc.exception.RemoteException;
+import com.atlassian.jira.rpc.soap.beans.RemoteComment;
+import com.atlassian.jira.rpc.soap.beans.RemoteVersion;
 
 import de.angelcode.jirabutler.exceptions.JiraButlerException;
 import de.angelcode.jirabutler.soap.service.JiraSoapService;
@@ -36,24 +41,28 @@ public class JiraClientTest {
 		apiMock = createStrictMock(JiraSoapService.class);
 		jiraClient.setApi(apiMock);
 	}
-
+	
+	@Test(expected = JiraButlerException.class)
+	public void testInvalidLoadConfigFile() throws JiraButlerException {
+		jiraClient.loadConfigFile();
+	}
+	
 	/**
-	 * Test of valid login method.
+	 * Test of valid login.
 	 * 
 	 * @throws JiraButlerException
 	 * @throws RemoteException
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException
+	 * @throws java.rmi.RemoteException
 	 */
 	@Test
-	public void testValidLogin() throws JiraButlerException, RemoteException,
-			com.atlassian.jira.rpc.exception.RemoteException {
+	public void testValidLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
 		String token = new String();
 		String connectionUsername = "username";
 		String connectionPassword = "password";
 
 		jiraClient.setConnectionUsername(connectionUsername);
 		jiraClient.setConnectionPassword(connectionPassword);
-
+		
 		expect(apiMock.login(connectionUsername, connectionPassword)).andReturn(token).times(1);
 		replay(apiMock);
 		assertTrue(jiraClient.login());
@@ -61,16 +70,14 @@ public class JiraClientTest {
 	}
 
 	/**
-	 * Test of invalid login method.
+	 * Test of invalid login.
 	 * 
 	 * @throws JiraButlerException
 	 * @throws RemoteException
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException
+	 * @throws java.rmi.RemoteException
 	 */
 	@Test
-	public final void testInvalidLogin() throws RemoteException,
-			com.atlassian.jira.rpc.exception.RemoteException,
-			JiraButlerException {
+	public final void testInvalidLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
 		String connectionUsername = "username";
 		String connectionPassword = "password";
 
@@ -82,17 +89,94 @@ public class JiraClientTest {
 		assertFalse(jiraClient.login());
 		verify(apiMock);
 	}
+	
+	/**
+	 * Test of JiraButlerException for login, if username is null.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws RemoteException
+	 * @throws java.rmi.RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testNullUsernameLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
+		String connectionUsername = null;
+		String connectionPassword = "password";
 
+		jiraClient.setConnectionUsername(connectionUsername);
+		jiraClient.setConnectionPassword(connectionPassword);
+		
+		jiraClient.login();
+	}
+	
+	/**
+	 * Test of JiraButlerException for login, if password is null.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws RemoteException
+	 * @throws java.rmi.RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testNullPasswordLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
+		String connectionUsername = "username";
+		String connectionPassword = null;
+
+		jiraClient.setConnectionUsername(connectionUsername);
+		jiraClient.setConnectionPassword(connectionPassword);
+
+		jiraClient.login();
+	}
+	
+	/**
+	* Test of JiraButlerException for login, if url is null.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws RemoteException
+	 * @throws java.rmi.RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testNullUrlLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
+		String connectionUsername = "username";
+		String connectionPassword = "password";
+
+		jiraClient.setConnectionUsername(connectionUsername);
+		jiraClient.setConnectionPassword(connectionPassword);
+		jiraClient.setConnectionUrl(null);
+		
+		jiraClient.login();
+	}
+	
+	/**
+	 * Test of com.atlassian.jira.rpc.exception.RemoteException for login.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws RemoteException
+	 * @throws java.rmi.RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testJIRARemoteExceptionLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
+		String connectionUsername = "username";
+		String connectionPassword = "password";
+
+		jiraClient.setConnectionUsername(connectionUsername);
+		jiraClient.setConnectionPassword(connectionPassword);
+
+		expect(apiMock.login(connectionUsername, connectionPassword)).andThrow(
+				new RemoteException())
+				.times(1);
+		replay(apiMock);
+		jiraClient.login();
+		verify(apiMock);
+	}
+	
 	/**
 	 * Test of java.rmi.RemoteException for login method.
 	 * 
 	 * @throws JiraButlerException
 	 * @throws RemoteException
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException
+	 * @throws java.rmi.RemoteException
 	 */
 	@Test(expected = JiraButlerException.class)
-	public final void testRMIRemoteExceptionLogin() throws JiraButlerException,
-			RemoteException, com.atlassian.jira.rpc.exception.RemoteException {
+	public final void testRMIRemoteExceptionLogin() throws JiraButlerException, RemoteException, java.rmi.RemoteException {
 		String connectionUsername = "username";
 		String connectionPassword = "password";
 
@@ -100,98 +184,300 @@ public class JiraClientTest {
 		jiraClient.setConnectionPassword(connectionPassword);
 		
 		expect(apiMock.login(connectionUsername, connectionPassword)).andThrow(
-				new RemoteException()).times(1);
+				new java.rmi.RemoteException()).times(1);
 		replay(apiMock);
 		jiraClient.login();
+		verify(apiMock);
 	}
 
 	/**
-	 * Test of com.atlassian.jira.rpc.exception.RemoteException for login
-	 * method.
+	 * Test of valid logout.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 */
+	@Test
+	public final void testValidLogout() throws JiraButlerException, java.rmi.RemoteException {
+		String token = "token";
+		
+		jiraClient.setToken(token);
+		
+		expect(apiMock.logout(token)).andReturn(true).times(1);
+		replay(apiMock);
+		assertTrue(jiraClient.logout());
+		verify(apiMock);
+		
+	}
+	
+	/**
+	 * Test of invalid logout.
 	 * 
 	 * @throws JiraButlerException
 	 * @throws RemoteException
-	 * @throws com.atlassian.jira.rpc.exception.RemoteException
+	 */
+	@Test
+	public final void testInvalidLogout() throws JiraButlerException, java.rmi.RemoteException {
+		String token = "token";
+		
+		jiraClient.setToken(token);
+		
+		expect(apiMock.logout(token)).andReturn(false).times(1);
+		replay(apiMock);
+		assertFalse(jiraClient.logout());
+		verify(apiMock);
+		
+	}
+	
+	/**
+	 * Test of java.rmi.RemoteException for logout.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
 	 */
 	@Test(expected = JiraButlerException.class)
-	public final void testJIRARemoteExceptionLogin()
-			throws JiraButlerException, RemoteException,
-			com.atlassian.jira.rpc.exception.RemoteException {
-		String connectionUsername = "username";
-		String connectionPassword = "password";
-
-		jiraClient.setConnectionUsername(connectionUsername);
-		jiraClient.setConnectionPassword(connectionPassword);
-
-		expect(apiMock.login(connectionUsername, connectionPassword)).andThrow(
-				new com.atlassian.jira.rpc.exception.RemoteException())
-				.times(1);
-		replay(apiMock);
-		jiraClient.login();
+	public final void testRMIRemoteExceptionLogout() throws JiraButlerException, java.rmi.RemoteException {
+		String token = "token";
+		
+		jiraClient.setToken(token);
+		
+		expect(apiMock.logout(token)).andThrow(new java.rmi.RemoteException()).times(1);
+		replay(apiMock);		
+		jiraClient.logout();
+		verify(apiMock);		
 	}
-
-	// /**
-	// * Test of logout method, of class JiraClient.
-	// */
-	// @Test
-	// public void testLogout() throws Exception {
-	// System.out.println("logout");
-	// JiraClient instance = new JiraClient();
-	// boolean expResult = false;
-	// boolean result = instance.logout();
-	// assertEquals(expResult, result);
-	// // TODO review the generated test code and remove the default call to
-	// // fail.
-	// fail("The test case is a prototype.");
-	// }
-	//
-	// /**
-	// * Test of addVersion method, of class JiraClient.
-	// */
-	// @Test
-	// public void testAddVersion() throws Exception {
-	// System.out.println("addVersion");
-	// String jiraProjectKey = "";
-	// RemoteVersion version = null;
-	// JiraClient instance = new JiraClient();
-	// boolean expResult = false;
-	// boolean result = instance.addVersion(jiraProjectKey, version);
-	// assertEquals(expResult, result);
-	// // TODO review the generated test code and remove the default call to
-	// // fail.
-	// fail("The test case is a prototype.");
-	// }
-	//
-	// /**
-	// * Test of addComment method, of class JiraClient.
-	// */
-	// @Test
-	// public void testAddComment() throws Exception {
-	// System.out.println("addComment");
-	// String jiraProjectKey = "";
-	// RemoteComment comment = null;
-	// JiraClient instance = new JiraClient();
-	// boolean expResult = false;
-	// boolean result = instance.addComment(jiraProjectKey, comment);
-	// assertEquals(expResult, result);
-	// // TODO review the generated test code and remove the default call to
-	// // fail.
-	// fail("The test case is a prototype.");
-	// }
-	//
-	// /**
-	// * Test of getVersions method, of class JiraClient.
-	// */
-	// @Test
-	// public void testGetVersions() throws Exception {
-	// System.out.println("getVersions");
-	// String jiraProjectKey = "";
-	// JiraClient instance = new JiraClient();
-	// ArrayList expResult = null;
-	// ArrayList result = instance.getVersions(jiraProjectKey);
-	// assertEquals(expResult, result);
-	// // TODO review the generated test code and remove the default call to
-	// // fail.
-	// fail("The test case is a prototype.");
-	// }
+	
+	/**
+	 * Test of valid addVersion.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test
+	public final void testValidAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraProjectKey = "SWQ";
+		String jiraProjectVersion = "v1.1";
+		RemoteVersion newVersion = new RemoteVersion();
+		newVersion.setName(jiraProjectVersion);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraProjectKey(jiraProjectKey);
+		jiraClient.setJiraProjectVersion(jiraProjectVersion);
+		
+		expect(apiMock.addVersion(token, jiraProjectKey, newVersion)).andReturn(new RemoteVersion()).times(1);
+		replay(apiMock);
+		assertTrue(jiraClient.addVersion());
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of invalid addVersion.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test
+	public final void testInvalidAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraProjectKey = "SWQ";
+		String jiraProjectVersion = "v1.1";
+		RemoteVersion newVersion = new RemoteVersion();
+		newVersion.setName(jiraProjectVersion);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraProjectKey(jiraProjectKey);
+		jiraClient.setJiraProjectVersion(jiraProjectVersion);
+		
+		expect(apiMock.addVersion(token, jiraProjectKey, newVersion)).andReturn(null).times(1);
+		replay(apiMock);
+		assertFalse(jiraClient.addVersion());
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of JiraButlerException for addVersion, if project key is null.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testNullProjectKeyAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String jiraProjectVersion = "v1.1";
+		
+		jiraClient.setJiraProjectKey(null);
+		jiraClient.setJiraProjectVersion(jiraProjectVersion);
+		
+		jiraClient.addVersion();
+	}
+	
+	/**
+	 * Test of JiraButlerException for addVersion, if project version is null.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testNullProjectVersionAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String jiraProjectKey = "SWQ";
+		
+		jiraClient.setJiraProjectKey(jiraProjectKey);
+		jiraClient.setJiraProjectVersion(null);
+		
+		jiraClient.addVersion();
+	}
+		
+	/**
+	 * Test of java.rmi.RemoteException for addVersion.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testRMIRemoteExceptionAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraProjectKey = "SWQ";
+		String jiraProjectVersion = "v1.1";
+		RemoteVersion newVersion = new RemoteVersion();
+		newVersion.setName(jiraProjectVersion);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraProjectKey(jiraProjectKey);
+		jiraClient.setJiraProjectVersion(jiraProjectVersion);
+		
+		expect(apiMock.addVersion(token, jiraProjectKey, newVersion)).andThrow(new java.rmi.RemoteException()).times(1);
+		replay(apiMock);
+		jiraClient.addVersion();
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of RemoteException for addVersion.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testJIRARemoteExceptionAddVersion() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraProjectKey = "SWQ";
+		String jiraProjectVersion = "v1.1";
+		RemoteVersion newVersion = new RemoteVersion();
+		newVersion.setName(jiraProjectVersion);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraProjectKey(jiraProjectKey);
+		jiraClient.setJiraProjectVersion(jiraProjectVersion);
+		
+		expect(apiMock.addVersion(token, jiraProjectKey, newVersion)).andThrow(new RemoteException()).times(1);
+		replay(apiMock);
+		jiraClient.addVersion();
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of valid addComent.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test
+	public final void testValidAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = "SWQ-11";
+		String gitCommitMessage = "SWQ-11@Unser Test...";
+		String username = "username";
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+				
+		apiMock.addComment(token, jiraIssueKey, newComment);
+		EasyMock.expectLastCall().atLeastOnce();
+		replay(apiMock);
+		assertTrue(jiraClient.addComment());
+		verify(apiMock);		
+	}
+	
+	/**
+	 * Test of JiraButlerException for addComent, if invalid issue key.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testInvalidIssueKeyAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = null;
+		String gitCommitMessage = "SWQ-11@Unser Test...";
+		String username = "username";
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+				
+		jiraClient.addComment();		
+	}
+	
+	/**
+	 * Test of JiraButlerException for addComent, if invalid commit message.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testInvalidCommitMessageAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = "SWQ-11";
+		String gitCommitMessage = null;
+		String username = "username";
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+				
+		jiraClient.addComment();		
+	}
+	
+	/**
+	 * Test of JiraButlerException for addComent, if invalid username.
+	 * 
+	 * @throws JiraButlerException
+	 * @throws java.rmi.RemoteException
+	 * @throws RemoteException
+	 */
+	@Test(expected = JiraButlerException.class)
+	public final void testInvalidUsernameAddComment() throws JiraButlerException, java.rmi.RemoteException, RemoteException {
+		String token = "token";
+		String jiraIssueKey = "SWQ-11";
+		String gitCommitMessage = "SWQ-11@Unser Test...";
+		String username = null;
+		RemoteComment newComment = new RemoteComment();
+		newComment.setBody(username + ": " + gitCommitMessage);
+		
+		jiraClient.setToken(token);
+		jiraClient.setJiraIssueKey(jiraIssueKey);
+		jiraClient.setGitCommitMessage(gitCommitMessage);
+		jiraClient.setUsername(username);
+				
+		jiraClient.addComment();		
+	}
+	
 }
