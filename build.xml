@@ -62,6 +62,9 @@
 			<fileset dir="${classes.dir}">
 				<include name="**/*.class" />
 				<exclude name="**/*Test.class" />
+				<exclude name="**/exceptions/**" />
+				<exclude name="**/soap/service/**" />
+				<exclude name="**/test/**" />
 			</fileset>
 		</cobertura-instrument>
 	</target>
@@ -70,13 +73,7 @@
 	<target name="cob-rep" depends="cob-instr, junit" description="Create Cobertura reports.">
 		<delete dir="${cob.rep.html}" />
 		<mkdir dir="${cob.rep.html}" />
-		<cobertura-report format="html" datafile="${cobdata}" destdir="${cob.rep.html}">
-			<fileset dir="${src.dir}">
-				<include name="**/*.java" />
-				<exclude name="**/test/**" />
-				<exclude name="**/soap/service/**" />
-			</fileset>
-		</cobertura-report>
+		<cobertura-report format="html" datafile="${cobdata}" destdir="${cob.rep.html}" srcdir="${src.dir}" />
 		<echo message="========== Done Creating (Cobertura reports) ==========" />
 	</target>
 
