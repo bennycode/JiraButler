@@ -6,7 +6,20 @@ package de.angelcode.jirabutler.util;
  * 
  * @author bennyn
  */
-public class SystemVariables {
+public class SystemVariables
+{
+  private static String javaClassPath = "java.class.path";
+  private static String fileSeperator = "file.separator";
+
+  public static void setFileSeperator(String fileSeperator)
+  {
+    SystemVariables.fileSeperator = fileSeperator;
+  }
+
+  public static void setJavaClassPath(String javaClassPath)
+  {
+    SystemVariables.javaClassPath = javaClassPath;
+  }
 
 	/**
 	 * Returns the path where the currently running JAR-file is located. Example
@@ -20,16 +33,19 @@ public class SystemVariables {
 		int cutFileSeperator = 0;
 		int cutSemicolon = -1;
 
-		jarFile = System.getProperty("java.class.path");
-		// Cut seperators
-		cutFileSeperator = jarFile.lastIndexOf(System
-				.getProperty("file.separator"));
-		jarDirectory = jarFile.substring(0, cutFileSeperator);
-		// Cut semicolons
-		cutSemicolon = jarDirectory.lastIndexOf(';');
-		jarDirectory = jarDirectory.substring(cutSemicolon + 1,
-				jarDirectory.length());
+    jarFile = System.getProperty(SystemVariables.javaClassPath);
+    // Cut seperators
+    cutFileSeperator = jarFile.lastIndexOf(System.getProperty(SystemVariables.fileSeperator));
+    jarDirectory = jarFile.substring(0, cutFileSeperator);
+    // Cut semicolons
+    cutSemicolon = jarDirectory.lastIndexOf(';');
+    jarDirectory = jarDirectory.substring(cutSemicolon+1, jarDirectory.length());
 
-		return jarDirectory + System.getProperty("file.separator");
-	}
+//    String test = jarDirectory+System.getProperty(SystemVariables.fileSeperator);
+//
+//    System.out.println("Daniel testet: " + test);
+
+    return jarDirectory+System.getProperty(SystemVariables.fileSeperator);
+  }
+
 }
