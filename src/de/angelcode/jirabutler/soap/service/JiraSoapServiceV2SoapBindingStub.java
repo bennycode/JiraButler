@@ -6,7 +6,7 @@
  */
 package de.angelcode.jirabutler.soap.service;
 
-public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stub implements JiraSoapService
+public class JiraSoapServiceV2SoapBindingStub extends org.apache.axis.client.Stub implements JiraSoapService
 {
 
   private java.util.Vector cachedSerClasses = new java.util.Vector();
@@ -59,12 +59,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -82,12 +82,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -105,17 +105,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -127,23 +127,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteVersion"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteVersion"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteVersion[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getVersionsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -167,22 +167,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -200,22 +200,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -227,7 +227,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue"), com.atlassian.jira.rpc.soap.beans.RemoteFieldValue[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue"), com.atlassian.jira.rpc.soap.beans.RemoteFieldValue[].class, false, false);
     oper.addParameter(param);
     oper.setReturnType(new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue.class);
@@ -235,7 +235,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -251,17 +251,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -273,13 +273,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteNamedObject"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteNamedObject"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteNamedObject[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getAvailableActionsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -295,18 +295,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getSubTaskIssueTypes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssueType[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getSubTaskIssueTypesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -322,17 +322,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -364,22 +364,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -397,22 +397,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -430,17 +430,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -456,7 +456,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -466,18 +466,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getPriorities");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePriority"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePriority"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemotePriority[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getPrioritiesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -487,18 +487,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getResolutions");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteResolution"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteResolution"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteResolution[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getResolutionsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -508,18 +508,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getIssueTypes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssueType[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssueTypesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -529,18 +529,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getStatuses");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteStatus"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteStatus"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteStatus[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getStatusesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -558,18 +558,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssueType[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssueTypesForProjectReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -579,13 +579,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getProjectRoles");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProjectRole"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProjectRole"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteProjectRole[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getProjectRolesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -603,7 +603,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -623,7 +623,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -641,7 +641,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -659,7 +659,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -677,7 +677,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -693,7 +693,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -711,7 +711,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -729,7 +729,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -745,7 +745,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("addActorsToProjectRole");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
@@ -757,7 +757,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -767,7 +767,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("removeActorsFromProjectRole");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
@@ -779,7 +779,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -789,7 +789,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("addDefaultActorsToProjectRole");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
@@ -799,7 +799,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -809,7 +809,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("removeDefaultActorsFromProjectRole");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
@@ -819,7 +819,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -831,13 +831,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteScheme[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getAssociatedNotificationSchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -849,13 +849,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteProjectRole"), com.atlassian.jira.rpc.soap.beans.RemoteProjectRole.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteScheme[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getAssociatedPermissionSchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -871,17 +871,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -899,17 +899,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -919,13 +919,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getCustomFields");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteField[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getCustomFieldsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -937,23 +937,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComment"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComment"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteComment[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getCommentsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -969,23 +969,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getFavouriteFilters");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteFilter[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getFavouriteFiltersReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1003,7 +1003,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1023,7 +1023,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1035,13 +1035,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteField[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getFieldsForEditReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1053,18 +1053,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssueType[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getSubTaskIssueTypesForProjectReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
@@ -1082,22 +1082,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1115,22 +1115,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1148,12 +1148,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1182,17 +1182,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1216,7 +1216,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1228,18 +1228,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteSecurityLevel"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteSecurityLevel"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteSecurityLevel[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getSecurityLevelsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1253,18 +1253,18 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"), boolean.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAvatar"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAvatar"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteAvatar[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getProjectAvatarsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1282,12 +1282,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1305,12 +1305,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1326,7 +1326,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1336,23 +1336,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getNotificationSchemes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteScheme[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getNotificationSchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1362,23 +1362,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getPermissionSchemes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionScheme"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionScheme"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemotePermissionScheme[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getPermissionSchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1388,23 +1388,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getAllPermissions");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermission"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermission"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemotePermission[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getAllPermissionsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1424,22 +1424,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1467,22 +1467,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1504,22 +1504,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1535,22 +1535,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1570,22 +1570,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1597,9 +1597,9 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_base64Binary"), byte[][].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_base64Binary"), byte[][].class, false, false);
     oper.addParameter(param);
     oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
     oper.setReturnClass(boolean.class);
@@ -1607,22 +1607,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1634,28 +1634,28 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAttachment"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAttachment"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteAttachment[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getAttachmentsFromIssueReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1673,7 +1673,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1691,7 +1691,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1705,13 +1705,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteField[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getFieldsForActionReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1725,7 +1725,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue"), com.atlassian.jira.rpc.soap.beans.RemoteFieldValue[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue"), com.atlassian.jira.rpc.soap.beans.RemoteFieldValue[].class, false, false);
     oper.addParameter(param);
     oper.setReturnType(new javax.xml.namespace.QName("http://beans.soap.rpc.jira.atlassian.com", "RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue.class);
@@ -1733,7 +1733,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1757,17 +1757,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1789,17 +1789,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1819,17 +1819,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1849,17 +1849,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1877,17 +1877,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1903,17 +1903,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1929,17 +1929,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1957,17 +1957,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -1983,17 +1983,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2009,17 +2009,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2037,23 +2037,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteWorklog"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteWorklog"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteWorklog[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getWorklogsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2071,12 +2071,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2094,12 +2094,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2117,12 +2117,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2140,17 +2140,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2168,17 +2168,17 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2196,7 +2196,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2208,13 +2208,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromTextSearchReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2224,19 +2224,19 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getIssuesFromTextSearchWithProject");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromTextSearchWithProjectReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2250,13 +2250,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromJqlSearchReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2278,22 +2278,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2311,22 +2311,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2344,22 +2344,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2373,7 +2373,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2383,23 +2383,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getSavedFilters");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteFilter[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getSavedFiltersReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2411,9 +2411,9 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in2"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
-    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
+    param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string"), java.lang.String[].class, false, false);
     oper.addParameter(param);
     oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
     oper.setReturnClass(boolean.class);
@@ -2421,22 +2421,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2454,22 +2454,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2479,23 +2479,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getSecuritySchemes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteScheme[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getSecuritySchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2515,7 +2515,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2527,13 +2527,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromFilterReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2555,13 +2555,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromFilterWithLimitReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2577,13 +2577,13 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in3"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"), int.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getIssuesFromTextSearchWithLimitReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2593,23 +2593,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setName("getProjectsNoSchemes");
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in0"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProject"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProject"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteProject[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getProjectsNoSchemesReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2629,12 +2629,12 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2646,23 +2646,23 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.addParameter(param);
     param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("", "in1"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
     oper.addParameter(param);
-    oper.setReturnType(new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComponent"));
+    oper.setReturnType(new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComponent"));
     oper.setReturnClass(com.atlassian.jira.rpc.soap.beans.RemoteComponent[].class);
     oper.setReturnQName(new javax.xml.namespace.QName("", "getComponentsReturn"));
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2682,22 +2682,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2715,7 +2715,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2733,22 +2733,22 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     oper.setStyle(org.apache.axis.constants.Style.RPC);
     oper.setUse(org.apache.axis.constants.Use.ENCODED);
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemotePermissionException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemotePermissionException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteValidationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteValidationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteAuthenticationException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteAuthenticationException"),
             true));
     oper.addFault(new org.apache.axis.description.FaultDesc(
-            new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "fault"),
+            new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "fault"),
             "com.atlassian.jira.rpc.exception.RemoteException",
             new javax.xml.namespace.QName("http://exception.rpc.jira.atlassian.com", "RemoteException"),
             true));
@@ -2756,19 +2756,19 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
 
   }
 
-  public JirasoapserviceV2SoapBindingStub() throws org.apache.axis.AxisFault
+  public JiraSoapServiceV2SoapBindingStub() throws org.apache.axis.AxisFault
   {
     this(null);
   }
 
-  public JirasoapserviceV2SoapBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service, String connectionUrl) throws org.apache.axis.AxisFault
+  public JiraSoapServiceV2SoapBindingStub(java.net.URL endpointURL, javax.xml.rpc.Service service, String connectionUrl) throws org.apache.axis.AxisFault
   {
     this(service);
     super.cachedEndpoint = endpointURL;
-    JirasoapserviceV2SoapBindingStub.connectionUrl = connectionUrl;
+    JiraSoapServiceV2SoapBindingStub.connectionUrl = connectionUrl;
   }
 
-  public JirasoapserviceV2SoapBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault
+  public JiraSoapServiceV2SoapBindingStub(javax.xml.rpc.Service service) throws org.apache.axis.AxisFault
   {
     if (service == null)
     {
@@ -3065,7 +3065,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(beansf);
     cachedDeserFactories.add(beandf);
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAttachment");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAttachment");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteAttachment[].class;
     cachedSerClasses.add(cls);
@@ -3074,7 +3074,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAvatar");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteAvatar");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteAvatar[].class;
     cachedSerClasses.add(cls);
@@ -3083,7 +3083,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComment");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComment");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteComment[].class;
     cachedSerClasses.add(cls);
@@ -3092,7 +3092,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComponent");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteComponent");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteComponent[].class;
     cachedSerClasses.add(cls);
@@ -3101,7 +3101,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteCustomFieldValue");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteCustomFieldValue");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteCustomFieldValue[].class;
     cachedSerClasses.add(cls);
@@ -3110,7 +3110,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteEntity");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteEntity");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteEntity[].class;
     cachedSerClasses.add(cls);
@@ -3119,7 +3119,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteField");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteField[].class;
     cachedSerClasses.add(cls);
@@ -3128,7 +3128,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFieldValue");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteFieldValue[].class;
     cachedSerClasses.add(cls);
@@ -3137,7 +3137,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteFilter");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteFilter[].class;
     cachedSerClasses.add(cls);
@@ -3146,7 +3146,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssue");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteIssue[].class;
     cachedSerClasses.add(cls);
@@ -3155,7 +3155,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteIssueType");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteIssueType[].class;
     cachedSerClasses.add(cls);
@@ -3164,7 +3164,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteNamedObject");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteNamedObject");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteNamedObject[].class;
     cachedSerClasses.add(cls);
@@ -3173,7 +3173,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermission");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermission");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemotePermission[].class;
     cachedSerClasses.add(cls);
@@ -3182,7 +3182,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionMapping");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionMapping");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemotePermissionMapping[].class;
     cachedSerClasses.add(cls);
@@ -3191,7 +3191,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionScheme");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePermissionScheme");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemotePermissionScheme[].class;
     cachedSerClasses.add(cls);
@@ -3200,7 +3200,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePriority");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemotePriority");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemotePriority[].class;
     cachedSerClasses.add(cls);
@@ -3209,7 +3209,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProject");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProject");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteProject[].class;
     cachedSerClasses.add(cls);
@@ -3218,7 +3218,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProjectRole");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteProjectRole");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteProjectRole[].class;
     cachedSerClasses.add(cls);
@@ -3227,7 +3227,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteResolution");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteResolution");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteResolution[].class;
     cachedSerClasses.add(cls);
@@ -3236,7 +3236,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteRoleActor");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteRoleActor");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteRoleActor[].class;
     cachedSerClasses.add(cls);
@@ -3245,7 +3245,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteScheme");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteScheme[].class;
     cachedSerClasses.add(cls);
@@ -3254,7 +3254,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteSecurityLevel");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteSecurityLevel");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteSecurityLevel[].class;
     cachedSerClasses.add(cls);
@@ -3263,7 +3263,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteStatus");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteStatus");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteStatus[].class;
     cachedSerClasses.add(cls);
@@ -3272,7 +3272,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteUser");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteUser");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteUser[].class;
     cachedSerClasses.add(cls);
@@ -3281,7 +3281,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteVersion");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteVersion");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteVersion[].class;
     cachedSerClasses.add(cls);
@@ -3290,7 +3290,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteWorklog");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_tns1_RemoteWorklog");
     cachedSerQNames.add(qName);
     cls = com.atlassian.jira.rpc.soap.beans.RemoteWorklog[].class;
     cachedSerClasses.add(cls);
@@ -3299,7 +3299,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_base64Binary");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_base64Binary");
     cachedSerQNames.add(qName);
     cls = byte[][].class;
     cachedSerClasses.add(cls);
@@ -3308,7 +3308,7 @@ public class JirasoapserviceV2SoapBindingStub extends org.apache.axis.client.Stu
     cachedSerFactories.add(new org.apache.axis.encoding.ser.ArraySerializerFactory(qName, qName2));
     cachedDeserFactories.add(new org.apache.axis.encoding.ser.ArrayDeserializerFactory());
 
-    qName = new javax.xml.namespace.QName(JirasoapserviceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string");
+    qName = new javax.xml.namespace.QName(JiraSoapServiceV2SoapBindingStub.connectionUrl, "ArrayOf_xsd_string");
     cachedSerQNames.add(qName);
     cls = java.lang.String[].class;
     cachedSerClasses.add(cls);
