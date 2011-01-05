@@ -4,14 +4,15 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
  */
+
 package de.angelcode.jirabutler.soap.service;
 
-public interface JiraSoapServiceService extends javax.xml.rpc.Service
-{
+public interface JiraSoapServiceService extends javax.xml.rpc.Service {
+	public java.lang.String getJirasoapserviceV2Address();
 
-  public java.lang.String getJirasoapserviceV2Address();
+	public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2()
+			throws javax.xml.rpc.ServiceException;
 
-  public JiraSoapService getJirasoapserviceV2() throws javax.xml.rpc.ServiceException;
-
-  public JiraSoapService getJirasoapserviceV2(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public de.angelcode.jirabutler.soap.service.JiraSoapService getJirasoapserviceV2(
+			java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
 }

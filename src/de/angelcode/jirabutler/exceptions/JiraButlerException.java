@@ -6,18 +6,16 @@
 package de.angelcode.jirabutler.exceptions;
 
 /**
- *
+ * 
  * @author BoatoonAdmin
  */
-public class JiraButlerException extends Exception
-{
-    public JiraButlerException()
-    {
-        super();
-    }
+public class JiraButlerException extends Exception {
 
-    public JiraButlerException(String message)
-    {
-        super(message);
-    }
+	public JiraButlerException() {
+		super();
+	}
+
+	public JiraButlerException(String message) {
+		super(message);
+	}
 }

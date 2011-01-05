@@ -12,8 +12,7 @@ import de.angelcode.jirabutler.exceptions.JiraButlerException;
 
 /**
  * This class parses the github HTTP-POST githubRequest for relevant payload
- * information like the username of the pusher, the commit message and
- * so on...
+ * information like the username of the pusher, the commit message and so on...
  * 
  * @author bennyn
  */
@@ -25,6 +24,7 @@ public final class JiraServiceHook
   private String gitCommitMessage;
   private String jiraIssueKey;
   private String githubRequest;
+  private String payloadUnicode;
   private JSONObject payloadJson;
 
   public JiraServiceHook()
@@ -36,6 +36,7 @@ public final class JiraServiceHook
     this.jiraIssueKey = null;
     this.githubRequest = null;
     this.payloadJson = null;
+    this.payloadUnicode = null;
   }
 
   /**
@@ -53,11 +54,11 @@ public final class JiraServiceHook
     this();
     this.githubRequest = githubRequest;
   }
-
-  public boolean convertGithubRequestToJson()
-  {
-    return convertGithubRequestToJson(this.githubRequest);
-  }
+                 
+//  public boolean convertGithubRequestToJson()
+//  {
+//    return convertGithubRequestToJson(this.githubRequest);
+//  }
 
   /**
    * Converts the given github githubRequest into a JSON object.
@@ -65,14 +66,11 @@ public final class JiraServiceHook
    * @param githubRequest Complete githubRequest from github
    * @throws JiraButlerException
    */
-  public boolean convertGithubRequestToJson(String githubRequest)
+  public boolean convertGithubRequestToJson()
   {
     boolean success = false;
 
-    this.githubRequest = githubRequest;
-
     // Convert the payload from the github githubRequest into a JSON object
-    String payloadUnicode = null;
     int payloadStart = this.githubRequest.indexOf("payload=");
     String payloadAscii = this.githubRequest.substring(payloadStart + 8,
                                                        this.githubRequest.length());
@@ -90,10 +88,10 @@ public final class JiraServiceHook
     {
       System.out.println("The JSON object could not be converted from ASCII to UTF-8: " + ex.getLocalizedMessage());
     }
-    finally
-    {
-      return true;
-    }
+//    finally
+//    {
+      return success;
+//    }
   }
 
   /**
@@ -192,4 +190,10 @@ public final class JiraServiceHook
   {
     return username;
   }
+
+  public String getPayloadUnicode()
+  {
+    return payloadUnicode;
+  }
+
 }
