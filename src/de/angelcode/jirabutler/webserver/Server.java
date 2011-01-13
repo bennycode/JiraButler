@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 /**
  * A Socket-based web server.
  * @author Benny Neugebauer (www.bennyn.de)
- * @author Daniel Päpke
+ * @author Daniel Paepke
  */
 public class Server
 {
@@ -49,8 +49,9 @@ public class Server
       System.out.println("Log file will be saved to: " + this.logFilePath);
       Server.logger.info("Server successfully launched on Port: " + this.port);
       Server.logger.info("Log file will be saved to: " + this.logFilePath);
+      handleConnection();
     }
-    if (isRunning && !isLogging)
+    else if(isRunning && !isLogging)
     {
       throw new JiraButlerException("Logger could not be started.");
     }
@@ -91,8 +92,7 @@ public class Server
         throw new PortRangeException();
       }
 
-      this.server = new ServerSocket(portNumber);
-      handleConnection();
+      this.server = new ServerSocket(portNumber);           
       success = true;
     }
     catch (IOException ex)
