@@ -70,27 +70,20 @@ public class ServerFunctionality
           }
 
           // Let the client work!
-          try
+          client.loadConfigFile();
+          boolean isConnected = client.login();
+          System.out.println("Login: " + isConnected);
+          if (isConnected)
           {
-            client.loadConfigFile();
-            boolean isConnected = client.login();
-            System.out.println("Login: " + isConnected);
-            if (isConnected)
-            {
-              boolean addedVersion = client.addVersion();
-              boolean addedComment = client.addComment();
-              boolean logout = client.logout();
+            boolean addedVersion = client.addVersion();
+            boolean addedComment = client.addComment();
+            boolean logout = client.logout();
 
-              System.out.println("Added version: " + addedVersion);
-              System.out.println("Added comment: " + addedComment);
-              System.out.println("Logout: " + logout);
-            }
+            System.out.println("Added version: " + addedVersion);
+            System.out.println("Added comment: " + addedComment);
+            System.out.println("Logout: " + logout);
+          }
 
-          }
-          catch (JiraButlerException ex)
-          {
-            System.out.println(ex.getMessage());
-          }
         }
         else
         {
